@@ -162,6 +162,86 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-栈、队列和链表的相关算法的应用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/04/%E6%A0%88%E3%80%81%E9%98%9F%E5%88%97%E5%92%8C%E9%93%BE%E8%A1%A8%E7%9A%84%E7%9B%B8%E5%85%B3%E7%AE%97%E6%B3%95%E7%9A%84%E5%BA%94%E7%94%A8/">栈、队列和链表的相关算法的应用</a>
+    </h1>
+  
+
+        
+        <a href="/2020/02/04/%E6%A0%88%E3%80%81%E9%98%9F%E5%88%97%E5%92%8C%E9%93%BE%E8%A1%A8%E7%9A%84%E7%9B%B8%E5%85%B3%E7%AE%97%E6%B3%95%E7%9A%84%E5%BA%94%E7%94%A8/" class="archive-article-date">
+  	<time datetime="2020-02-04T00:28:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-04</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一、队列"><a href="#一、队列" class="headerlink" title="一、队列"></a>一、队列</h2><h4 id="问题引入：有一种对数据进行加密的办法是：将第1位数删除，将第2位数放在数串末尾，将第3位数删除，将第4位数放在数串末尾…，直到只剩最后一位数，将最后一位数也删除。加密后的数串就是依次被删除的那个数串。现在输入一个数串，请将加密后的数串输出"><a href="#问题引入：有一种对数据进行加密的办法是：将第1位数删除，将第2位数放在数串末尾，将第3位数删除，将第4位数放在数串末尾…，直到只剩最后一位数，将最后一位数也删除。加密后的数串就是依次被删除的那个数串。现在输入一个数串，请将加密后的数串输出" class="headerlink" title="问题引入：有一种对数据进行加密的办法是：将第1位数删除，将第2位数放在数串末尾，将第3位数删除，将第4位数放在数串末尾…，直到只剩最后一位数，将最后一位数也删除。加密后的数串就是依次被删除的那个数串。现在输入一个数串，请将加密后的数串输出"></a>问题引入：有一种对数据进行加密的办法是：将第1位数删除，将第2位数放在数串末尾，将第3位数删除，将第4位数放在数串末尾…，直到只剩最后一位数，将最后一位数也删除。加密后的数串就是依次被删除的那个数串。现在输入一个数串，请将加密后的数串输出</h4><p>思考：首先想办法将此数串定义为一个数据结构，我们观察加密过程可以发现，该数据结构要从头删除，从尾添加（原题为将头部数字转移到尾部，我们看作删除头部，将删除的数字添加至尾部）。很明显用队列来解决此问题
+        
+          <a class="article-more-a" href="/2020/02/04/%E6%A0%88%E3%80%81%E9%98%9F%E5%88%97%E5%92%8C%E9%93%BE%E8%A1%A8%E7%9A%84%E7%9B%B8%E5%85%B3%E7%AE%97%E6%B3%95%E7%9A%84%E5%BA%94%E7%94%A8/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">c语言</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/02/04/%E6%A0%88%E3%80%81%E9%98%9F%E5%88%97%E5%92%8C%E9%93%BE%E8%A1%A8%E7%9A%84%E7%9B%B8%E5%85%B3%E7%AE%97%E6%B3%95%E7%9A%84%E5%BA%94%E7%94%A8/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-几种常见的排序算法对比" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -506,6 +586,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">C语言</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">c语言</a>
               </li>
             
             <div class="clearfix"></div>
