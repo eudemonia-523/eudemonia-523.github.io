@@ -6,16 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: C语言 | eudemonia</title>
+  <title>servlet学习 | eudemonia</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="这个博客记录和分享自己学习过程中的收获与总结，在分享知识的同时也期待着与各路道友共同交流">
-<meta property="og:type" content="website">
-<meta property="og:title" content="eudemonia">
-<meta property="og:url" content="http://yoursite.com/tags/C%E8%AF%AD%E8%A8%80/index.html">
+  <meta name="description" content="servlet学习过程：java web开发的核心知识点  什么是web开发：两台计算机之间资源文件共享的过程，比如我向www.baidu.com索要资源  两台计算机的角色：客户端、服务端  资源文件：计算机上的所有文件都是资源共享文件，分为静态资源文件和动态资源文件  两台计算机如何通信：C&#x2F;S   B&#x2F;S  即客户端服务器与浏览器服务器  网络协议包：用于包裹在网络中传送的二进制数据，便于客">
+<meta property="og:type" content="article">
+<meta property="og:title" content="servlet学习">
+<meta property="og:url" content="http://yoursite.com/2020/03/23/servlet%E5%AD%A6%E4%B9%A0/index.html">
 <meta property="og:site_name" content="eudemonia">
-<meta property="og:description" content="这个博客记录和分享自己学习过程中的收获与总结，在分享知识的同时也期待着与各路道友共同交流">
+<meta property="og:description" content="servlet学习过程：java web开发的核心知识点  什么是web开发：两台计算机之间资源文件共享的过程，比如我向www.baidu.com索要资源  两台计算机的角色：客户端、服务端  资源文件：计算机上的所有文件都是资源共享文件，分为静态资源文件和动态资源文件  两台计算机如何通信：C&#x2F;S   B&#x2F;S  即客户端服务器与浏览器服务器  网络协议包：用于包裹在网络中传送的二进制数据，便于客">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-03-23T07:40:54.000Z">
+<meta property="article:modified_time" content="2020-03-24T23:19:48.095Z">
 <meta property="article:author" content="吴祥飞">
+<meta property="article:tag" content="java">
+<meta property="article:tag" content="servlet">
+<meta property="article:tag" content="web">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="eudemonia" type="application/atom+xml">
@@ -160,110 +165,377 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-servlet学习" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/06/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2%E5%92%8C%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/" class="archive-article-date">
-  	<time datetime="2020-02-06T02:40:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-06</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/06/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2%E5%92%8C%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/">深度优先搜索和广度优先搜索</a>
+    <h1 class="article-title" itemprop="name">
+      servlet学习
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2020/03/23/servlet%E5%AD%A6%E4%B9%A0/" class="archive-article-date">
+  	<time datetime="2020-03-23T07:40:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="servlet学习过程："><a href="#servlet学习过程：" class="headerlink" title="servlet学习过程："></a>servlet学习过程：</h2><p>java web开发的核心知识点</p>
+<ol>
+<li><p>什么是web开发：两台计算机之间资源文件共享的过程，比如我向<a href="http://www.baidu.com索要资源" target="_blank" rel="noopener">www.baidu.com索要资源</a></p>
+</li>
+<li><p>两台计算机的角色：客户端、服务端</p>
+</li>
+<li><p>资源文件：计算机上的所有文件都是资源共享文件，分为静态资源文件和动态资源文件</p>
+</li>
+<li><p>两台计算机如何通信：C/S   B/S  即客户端服务器与浏览器服务器</p>
+</li>
+<li><p>网络协议包：用于包裹在网络中传送的二进制数据，便于客户端解析数据，目前为止B/S通信结构中只用到http网络协议包<a id="more"></a></p>
+</li>
+<li><p>http网络协议包内部结构：</p>
+<ol>
+<li>http请求协议包：<ol>
+<li>请求行：{ url：请求资源文件地址   method：浏览器采用的请求方式}</li>
+<li>请求头：{get方式 浏览器希望获得的资源文件类型   浏览器希望获得资源文件的字符集}</li>
+<li>空白行：{   隔离层   }</li>
+<li>请求体：{post方式发送请求就要放在请求体中}</li>
+</ol>
+</li>
+<li>http响应协议包：在服务端计算机的资源调度软件准备推送文件时负责创建的，内容可由资源调度软件写入也可以由java命令写入<ol>
+<li>状态行：{  状态码}</li>
+<li>响应头：{返回文件内容类型、返回文件内容字符集、对接受内容进行解码}</li>
+<li>空白行：{  隔离层}</li>
+<li>响应体：{  静态资源文件，动态资源文件运行结果}</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="客户端计算机上浏览器管理"><a href="#客户端计算机上浏览器管理" class="headerlink" title="客户端计算机上浏览器管理"></a>客户端计算机上浏览器管理</h3><h4 id="如何命令浏览器向指定网站发送请求-唯三"><a href="#如何命令浏览器向指定网站发送请求-唯三" class="headerlink" title="如何命令浏览器向指定网站发送请求(唯三)"></a>如何命令浏览器向指定网站发送请求(唯三)</h4><ol>
+<li>通过form表单命令<form action="www.baidu.com"></form></li>
+<li>通过超链接命令<a href="www.baidu.com"></a></li>
+<li>通过浏览器的地址栏对象Window.location=”http://www.sina.com”;</li>
+</ol>
+<h4 id="get和post请求方式"><a href="#get和post请求方式" class="headerlink" title="get和post请求方式"></a>get和post请求方式</h4><ol>
+<li>get方式：<ol>
+<li>要求浏览器发送请求时携带的参数数量不能超过4k</li>
+<li>要求浏览器将请求参数写入请求头中</li>
+<li>要求浏览器将请求参数在地址栏中显示出来</li>
+<li>要求浏览器对所接受的资源文件缓存到内存中</li>
+</ol>
+</li>
+<li>post方式：<ol>
+<li>不会限制浏览器发送请求时携带的请求参数</li>
+<li>要求浏览器将请求参数写入到响应体中</li>
+<li>要求浏览器不要将请求参数在地址栏中显示出来</li>
+<li>要求浏览器对所接受的资源文件不缓存在内存中</li>
+</ol>
+</li>
+</ol>
+<h4 id="如何控制浏览器采用的请求方式"><a href="#如何控制浏览器采用的请求方式" class="headerlink" title="如何控制浏览器采用的请求方式"></a>如何控制浏览器采用的请求方式</h4><ol>
+<li>让浏览器用get方式：<ol>
+<li>超链接标签命令一定会用get</li>
+<li>location对象一定会用get</li>
+<li>form标签中method属性可控制采用get方式</li>
+</ol>
+</li>
+<li>让浏览器采用post方式<ol>
+<li>设置form标签中method属性为post</li>
+</ol>
+</li>
+</ol>
+<h4 id="如何命令浏览器发送请求时携带指定参数"><a href="#如何命令浏览器发送请求时携带指定参数" class="headerlink" title="如何命令浏览器发送请求时携带指定参数"></a>如何命令浏览器发送请求时携带指定参数</h4><ol>
+<li>超链接标签命令可以命令浏览器携带请求参数</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"http://www.baidu.com?uname=jack&amp;age=23"</span>&gt;</span>百度<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>location命令也可以命令浏览器携带请求参数</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">window.location=<span class="string">"http://www.baidu.com?uname=jack&amp;age=23"</span></span><br></pre></td></tr></table></figure>
+
+<p>以上两种方式存在弊端就是写死了，没办法动态请求参数</p>
+<ol start="3">
+<li><p>表单域标签可以接受用户输入的内容，作为参数请求内容</p>
+<ol>
+<li>表单域标签分类：input/ select/ textarea</li>
+<li>表单域标签作为请求参数条件<ol>
+<li>表单域标签必须声明在当前form标签内部</li>
+<li>表单域标签必须声明name属性</li>
+<li>针对checkbox和radio，只有被选中的情况下才能作为请求参数</li>
+</ol>
+</li>
+</ol>
+<h3 id="http服务器"><a href="#http服务器" class="headerlink" title="http服务器"></a>http服务器</h3><h4 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h4></li>
+<li><p>它是安装在服务端计算机上的一种软件</p>
+</li>
+<li><p>可以解析来自于浏览器所发送的请求协议包</p>
+</li>
+<li><p>调用服务端上被请求的资源文件</p>
+</li>
+<li><p>负责生成一个响应协议包</p>
+</li>
+<li><p>将文件内容或文件运行结果写入到响应体当中</p>
+</li>
+<li><p>负责将响应协议包推送到当前服务器</p>
+<h4 id="http服务器分类"><a href="#http服务器分类" class="headerlink" title="http服务器分类"></a>http服务器分类</h4></li>
+<li><p>德国sap</p>
+</li>
+<li><p>IBM：weblogic</p>
+</li>
+<li><p>JBOSS</p>
+</li>
+<li><p>Apache： Tomcat  唯一一个不收钱的，用！！</p>
+<h4 id="Tomcat相关介绍"><a href="#Tomcat相关介绍" class="headerlink" title="Tomcat相关介绍"></a>Tomcat相关介绍</h4></li>
+<li><p>它是一个java应用程序编写的资源文件调用器</p>
+</li>
+<li><p>可以调用服务端静态资源文件和动态资源文件</p>
+</li>
+<li><p>Tomcat负责生成响应协议包，负责将响应协议包推送到浏览器</p>
+</li>
+<li><p>Tomcat属于Apache公司</p>
+<h4 id="Tomcat下载安装"><a href="#Tomcat下载安装" class="headerlink" title="Tomcat下载安装"></a>Tomcat下载安装</h4></li>
+<li><p>去官网下载64位的Tomcat9压缩包，注意Tomcat9需要配置jdk1.9，向下兼容jdk1.8也可以，但是jdk1.7及以下就不行了</p>
+</li>
+<li><p>解压安装</p>
+</li>
+<li><p>添加系统变量CATALINA_HOME:  D:/tools/apache-tomcat-9.0.0</p>
+</li>
+<li><p>jdk的路径也要配置好JAVA_HOME、 </p>
+<p>启动Tomcat后，打开浏览器，输入地址http://localhost:8080进入tomcat网站即安装成功<br>启动之后要记得关闭直到抛异常才叫成功关闭          </p>
+<h4 id="Tomcat端口号问题"><a href="#Tomcat端口号问题" class="headerlink" title="Tomcat端口号问题"></a>Tomcat端口号问题</h4><p>Tomcat端口号存储位置在Tomcat安装目录下/conf/server.xml找到port：8080修改成你想要的端口号即可</p>
+<h4 id="网站"><a href="#网站" class="headerlink" title="网站"></a>网站</h4></li>
+<li><p>全称：网络中的资源站点</p>
+</li>
+<li><p>作用：仓库，存储可以共享的静态资源文件和动态资源文件</p>
+</li>
+<li><p>文件管理：由http服务器来调用共享资源文件</p>
+</li>
+<li><p>本质：就是一个文件夹</p>
+</li>
+</ol>
+<h4 id="网站分类"><a href="#网站分类" class="headerlink" title="网站分类"></a>网站分类</h4><ol>
+<li>静态资源网站（存储的都是图片，html这样的静态资源文件）</li>
+<li>动态资源网站（存放的是静态资源文件和动态资源文件）</li>
+</ol>
+<h4 id="如何创建一个静态资源网站"><a href="#如何创建一个静态资源网站" class="headerlink" title="如何创建一个静态资源网站"></a>如何创建一个静态资源网站</h4><ol>
+<li>Tomcat安装目录/webapps/ 创建一个文件夹，这个文件夹就是一个网站</li>
+<li>在网站中存入静态资源文件</li>
+<li>启动Tomcat</li>
+</ol>
+<h4 id="idea配置管理Tomcat"><a href="#idea配置管理Tomcat" class="headerlink" title="idea配置管理Tomcat"></a>idea配置管理Tomcat</h4><p>  新建空工程，run-&gt;edit configurations-&gt;+-&gt;Tomcat Server-&gt;Local-&gt;填好应填的内容-&gt;apply-&gt;ok</p>
+<h4 id="动态网站结构"><a href="#动态网站结构" class="headerlink" title="动态网站结构"></a>动态网站结构</h4><ol>
+<li>src存放java文件</li>
+<li>web静态资源文件和配置文件</li>
+<li>WEB-INF/web.xml</li>
+</ol>
+<h4 id="指定Tomcat管理的网站"><a href="#指定Tomcat管理的网站" class="headerlink" title="指定Tomcat管理的网站"></a>指定Tomcat管理的网站</h4><p>  run-&gt;edit configuration-&gt;Tomcat管理通道-&gt;deployment-&gt;+</p>
+<h4 id="servlet规范"><a href="#servlet规范" class="headerlink" title="servlet规范"></a>servlet规范</h4><ol>
+<li><p>JAVA SE ： JAVA开发的基本规范</p>
+</li>
+<li><p>JAVA EE ：JAVA企业级开发规范，指定了JVM与13类系统之间的交流规则，因此java ee有13种规范，其中我们学过的JDBC就是其中一种，用于设置JVM与所有的关系型数据库管理系统之间的交流规则</p>
+</li>
+<li><p>Servlet规范：</p>
+<ol>
+<li>Servlet是JAVA EE 规范中的一种</li>
+<li>Servlet规范中设置JVM 与http服务器之间的交流规则</li>
+<li>交流规则：<ol>
+<li>定义何种java类可以作为动态资源文件</li>
+<li>http服务器应该如何管理动态资源文件<h4 id="何种java类可以被Tomcat调用作为网站的动态共享资源文件"><a href="#何种java类可以被Tomcat调用作为网站的动态共享资源文件" class="headerlink" title="何种java类可以被Tomcat调用作为网站的动态共享资源文件"></a>何种java类可以被Tomcat调用作为网站的动态共享资源文件</h4></li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<p>servlet规范中认为，只有servlet接口实现类有资格作为网站的动态共享资源文件</p>
+<p>servlet接口实现类必须由开发人员负责创建</p>
+<h4 id="如何创建Servlet接口实现类"><a href="#如何创建Servlet接口实现类" class="headerlink" title="如何创建Servlet接口实现类"></a>如何创建Servlet接口实现类</h4><ol>
+<li><p>创建一个实现类，需要继承于httpServlet</p>
+</li>
+<li><p>httpServlet存在于Tomcat中lib/Servlet-api.jar;  完整路径： javax.servlet.http.HttpServlet</p>
+</li>
+<li><p>根据来访的浏览器来重写doGet 和doPost方法</p>
+</li>
+<li><p>在WEB-INF/lib中web.xml注册Servlet接口实现类，通知在Tomcat当前网站存在一个动态资源文件</p>
+</li>
+</ol>
+<h4 id="Tomcat调用Servlet接口实现类流程"><a href="#Tomcat调用Servlet接口实现类流程" class="headerlink" title="Tomcat调用Servlet接口实现类流程"></a>Tomcat调用Servlet接口实现类流程</h4><ol>
+<li>浏览器向服务端发送一次请求 http://localhost:555/myWeb/first</li>
+<li>Tomcat接收到这个请求，首先将请求资源文件作为动态资源文件。到web.xml进行文件定位，如果有就调用如果没有找到对应的动态资源文件，则认定为静态资源文件，从web下进行定位，如果有就返回，如果还没有就返回404状态码</li>
+<li>Tomcat到web.xml中根据<url-pattern>进行定位<servlet>标签</servlet></url-pattern></li>
+<li><servlet-name>定位<servlet-class>找到本次请求</servlet-class></servlet-name></li>
+<li>Tomcat根据浏览器采用的请求方式，调用Servlet的doGet或者doPost方法</li>
+<li>在doGet/doPost方法调用完毕之后，Tomcat负责将响应包推送给浏览器</li>
+</ol>
+<h4 id="Servlet请求路径写法规则：4种"><a href="#Servlet请求路径写法规则：4种" class="headerlink" title="Servlet请求路径写法规则：4种"></a>Servlet请求路径写法规则：4种</h4><ol>
+<li>具体请求路径：如果浏览器请求的资源文件地址与当前Servlet的<url-pattern>完全一致，Tomcat才会调用当前Servlet。例如OneServlet中<url-pattern>on.do</url-pattern>当我们访问http://localhost:8080/myWeb/on.do时，就能够判断出Tomcat调用OneServlet。【注意：】具体请求路径必须以“/”开头，这是Tomcat惯用截取方式</url-pattern></li>
+<li>前置条件请求路径:如果浏览器请求的资源文件地址以Servlet中<url-pattern>的内容为开头的，Tomcat才会调用当前Servlet。例如：Servlet中<url-pattern>/abc/*</url-pattern>代表以abc开头的都会调用这个Servlet</url-pattern></li>
+<li>后置条件请求路径：如果浏览器请求的资源文件地址以Servlet中<url-pattern>的内容为结尾的，Tomcat才会调用当前Servlet。与上类似。注意后置时不能以“/”开头，以*开头</url-pattern></li>
+<li>通配符请求路径：当前Servlet可以接受对当前网站所有的请求例如：Servlet中<url-pattern>/*</url-pattern></li>
+</ol>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你的鼓励<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/asset/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/asset/wechat.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C语言</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">servlet</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">web</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/03/23/servlet%E5%AD%A6%E4%B9%A0/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/02/%E5%87%A0%E7%A7%8D%E5%B8%B8%E8%A7%81%E7%9A%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E5%AF%B9%E6%AF%94/" class="archive-article-date">
-  	<time datetime="2020-02-02T10:34:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-02</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/03/22/%E5%85%AD%E6%AD%A5%E8%A7%A3%E5%86%B3JDBC/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">六步解决JDBC</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/02/%E5%87%A0%E7%A7%8D%E5%B8%B8%E8%A7%81%E7%9A%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E5%AF%B9%E6%AF%94/">几种常见的排序算法对比</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">排序</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C语言</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -286,9 +558,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
@@ -571,42 +843,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
                 <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
 
                 <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-
-                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-
-                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
-                <!-- element will get class pswp__preloader--active when preloader is running -->
-                <div class="pswp__preloader">
-                    <div class="pswp__preloader__icn">
-                      <div class="pswp__preloader__cut">
-                        <div class="pswp__preloader__donut"></div>
-                      </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-                <div class="pswp__share-tooltip"></div> 
-            </div>
-
-            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-            </button>
-
-            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-            </button>
-
-            <div class="pswp__caption">
-                <div class="pswp__caption__center"></div>
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-  </div>
-</body>
-</html>          <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
 
                 <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
 
