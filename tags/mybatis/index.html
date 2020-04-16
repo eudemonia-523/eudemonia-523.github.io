@@ -6,21 +6,16 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>jsp+servlet+mysql 自己搭建一个电商网站 | eudemonia</title>
+  <title>Tag: mybatis | eudemonia</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="jsp+servlet+mysql 自己搭建一个电商网站这篇博客是我在准备毕业设计的时候想要提前预热而准备的一个基于jsp+servlet+mysql的电商网站项目开发，此次内容来源于bilibili.com中学习猿地的一个java项目开发实战视频。这次的内容主要有：  项目需求分析和基础环境搭建 用户模块实战开发过程 标准的项目注册登录的过程实现 分类模块的前台菜单设计和实现 上坪模块的前台商品">
-<meta property="og:type" content="article">
-<meta property="og:title" content="jsp+servlet+mysql 自己搭建一个电商网站">
-<meta property="og:url" content="http://yoursite.com/2020/02/27/jsp-servlet-mysql-%E8%87%AA%E5%B7%B1%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%94%B5%E5%95%86%E7%BD%91%E7%AB%99/index.html">
+  <meta name="description" content="这个博客记录和分享自己学习过程中的收获与总结，在分享知识的同时也期待着与各路道友共同交流">
+<meta property="og:type" content="website">
+<meta property="og:title" content="eudemonia">
+<meta property="og:url" content="http://yoursite.com/tags/mybatis/index.html">
 <meta property="og:site_name" content="eudemonia">
-<meta property="og:description" content="jsp+servlet+mysql 自己搭建一个电商网站这篇博客是我在准备毕业设计的时候想要提前预热而准备的一个基于jsp+servlet+mysql的电商网站项目开发，此次内容来源于bilibili.com中学习猿地的一个java项目开发实战视频。这次的内容主要有：  项目需求分析和基础环境搭建 用户模块实战开发过程 标准的项目注册登录的过程实现 分类模块的前台菜单设计和实现 上坪模块的前台商品">
+<meta property="og:description" content="这个博客记录和分享自己学习过程中的收获与总结，在分享知识的同时也期待着与各路道友共同交流">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-02-27T02:34:28.000Z">
-<meta property="article:modified_time" content="2020-03-04T13:25:49.502Z">
 <meta property="article:author" content="吴祥飞">
-<meta property="article:tag" content="servlet">
-<meta property="article:tag" content="jsp">
-<meta property="article:tag" content="mysql">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="eudemonia" type="application/atom+xml">
@@ -165,184 +160,46 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-jsp-servlet-mysql-自己搭建一个电商网站" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      jsp+servlet+mysql 自己搭建一个电商网站
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2020" class="archive-year">2020</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2020/04/04/MyBatis/" class="archive-article-date">
+  	<time datetime="2020-04-04T00:27:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-04</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2020/04/04/MyBatis/">MyBatis</a>
     </h1>
   
 
-        
-        <a href="/2020/02/27/jsp-servlet-mysql-%E8%87%AA%E5%B7%B1%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%94%B5%E5%95%86%E7%BD%91%E7%AB%99/" class="archive-article-date">
-  	<time datetime="2020-02-27T02:34:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="jsp-servlet-mysql-自己搭建一个电商网站"><a href="#jsp-servlet-mysql-自己搭建一个电商网站" class="headerlink" title="jsp+servlet+mysql 自己搭建一个电商网站"></a>jsp+servlet+mysql 自己搭建一个电商网站</h2><p>这篇博客是我在准备毕业设计的时候想要提前预热而准备的一个基于jsp+servlet+mysql的电商网站项目开发，此次内容来源于bilibili.com中学习猿地的一个java项目开发实战视频。这次的内容主要有：</p>
-<ol>
-<li>项目需求分析和基础环境搭建</li>
-<li>用户模块实战开发过程</li>
-<li>标准的项目注册登录的过程实现</li>
-<li>分类模块的前台菜单设计和实现</li>
-<li>上坪模块的前台商品展示设计和实现</li>
-<li>购物流程的设计和实现</li>
-</ol>
-<p>需要用到的工具有：eclipse + JDK + Tomcat + MYSQL8 + Navicat 。可在该软件的官网下载，也可在学习猿地官网，点击java，要用到的东西都可以在里面找到。<a id="more"></a></p>
-<h4 id="一：安装软件："><a href="#一：安装软件：" class="headerlink" title="一：安装软件："></a>一：安装软件：</h4><p>在学习猿地<a href="https://www.lmonkey.com/首页点击java工具，在里面下载eclipse、jdk1.8、Tomcat、Mysql8、Navicat这几个软件" target="_blank" rel="noopener">https://www.lmonkey.com/首页点击java工具，在里面下载eclipse、jdk1.8、Tomcat、Mysql8、Navicat这几个软件</a></p>
-<ol>
-<li>对于jdk环境配置：</li>
-<li>对于Mysql8环境配置：</li>
-<li>对eclipse操作、</li>
-</ol>
-<h4 id="二：对于电商网站模板的导入："><a href="#二：对于电商网站模板的导入：" class="headerlink" title="二：对于电商网站模板的导入："></a>二：对于电商网站模板的导入：</h4><p>在学习猿地<a href="https://www.lmonkey.com/首页点击h5网页开发模板，在里面找到合适的电商网站前台和后台的模板，保存并下载到自己的电脑，解压到合适的文件夹" target="_blank" rel="noopener">https://www.lmonkey.com/首页点击h5网页开发模板，在里面找到合适的电商网站前台和后台的模板，保存并下载到自己的电脑，解压到合适的文件夹</a></p>
-<p>新建一个dynamic Java web的项目（我的项目名称为MonkeyShop），在MonkeyShop中粘贴下前端模板的所有内容，新建一个manage文件夹，在其中粘贴下后台模板的所有内容</p>
-<h4 id="三：对于此模板的修改"><a href="#三：对于此模板的修改" class="headerlink" title="三：对于此模板的修改"></a>三：对于此模板的修改</h4><p>一、先从用户模块开始 ， 增删改查</p>
-<p>先创建一个数据库LmonkeyShop</p>
-<ol>
-<li>先从用户表开始设计</li>
-</ol>
-<table>
-<thead>
-<tr>
-<th align="center">字段名称</th>
-<th align="center">类型</th>
-<th align="center">约束</th>
-<th align="center">描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">USER_ID</td>
-<td align="center">varchar(32)</td>
-<td align="center">NOT NULL&amp;&amp; PRIMARY KEY</td>
-<td align="center">用户名id</td>
-</tr>
-<tr>
-<td align="center">USER_NAME</td>
-<td align="center">varchar(20)</td>
-<td align="center">NOT NULL</td>
-<td align="center">姓名</td>
-</tr>
-<tr>
-<td align="center">USER_PASSWORD</td>
-<td align="center">varchar(20)</td>
-<td align="center">NOTNULL</td>
-<td align="center">用户密码</td>
-</tr>
-<tr>
-<td align="center">USER_SEX</td>
-<td align="center">varchar(1)</td>
-<td align="center">NOT NULL</td>
-<td align="center">性别(T|F)</td>
-</tr>
-<tr>
-<td align="center">USER_BIRTHDAY</td>
-<td align="center">datatime()</td>
-<td align="center">DEFAULT null</td>
-<td align="center">出生日期</td>
-</tr>
-<tr>
-<td align="center">USER_IDENITY_CODE</td>
-<td align="center">varchar(60)</td>
-<td align="center">DEFAULT null</td>
-<td align="center">扩展字段</td>
-</tr>
-<tr>
-<td align="center">USER_EMAIL</td>
-<td align="center">varchar(60)</td>
-<td align="center">DEFAULT null</td>
-<td align="center">电子邮箱</td>
-</tr>
-<tr>
-<td align="center">USER_MOBILE</td>
-<td align="center">varchar(11)</td>
-<td align="center">DEFAULT null</td>
-<td align="center">电话号码</td>
-</tr>
-<tr>
-<td align="center">USER_ADDRESS</td>
-<td align="center">varchar(200)</td>
-<td align="center">NOT NULL</td>
-<td align="center">地址</td>
-</tr>
-<tr>
-<td align="center">USER_STATUS</td>
-<td align="center">demical(6,0)</td>
-<td align="center">NOT NULL</td>
-<td align="center">状态（1|2）</td>
-</tr>
-</tbody></table>
-<ol start="2">
-<li>在数据库中创建用户表</li>
-</ol>
-<p>打开navicat，在项目中添加一个用户表，使用sql语句或者直接在界面中操作，制作这个用户表保存</p>
-<ol start="2">
-<li>做成一个用户实体</li>
-</ol>
-<p>因为我们的网页要时刻和数据库交换数据所以要将html页面的内容重新制作成jsp文件，这个时候我们注意到这些页面中的菜单部分内容是一样的，就再制作一个menu菜单页面，将所有的菜单内容保存在这个页面中，其他jsp页面就可以不要这部分内容了。</p>
-<p>将admin_menu页面中菜单项目改成我们所需要的图书管理所需要的内容。如用户管理，分类管理，图书管理，订单管理，留言管理，新闻管理</p>
-<p>将admin_useradd.jsp中的添加用户的内容变成我们表格中用户信息所需要的内容，用户名，用户姓名，登录密码，确认密码，性别，电子邮箱，电话号码，送货地址等。修改form action = “ / MonkeyShop / manage / admin_douseradd”，让servlet去执行。</p>
-<p>在java resources中的src文件夹下新建一个servlet文件DoUserAdd.java文件，构建一个用户实体，传入上表的参数，加入数据库的用户表中并指明成功或失败会重定向到哪个页面。</p>
-<ol start="2">
-<li>后台页面规划</li>
-</ol>
-<p>查询用户记录</p>
-<p>二、用户登录（前台、后台）</p>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你的鼓励<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/asset/alipay.jpg">
-                      <span class="reward-type">支付宝</span>
-                    </div>
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/asset/wechat.jpg">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">servlet</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">jsp</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">mybatis</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -352,115 +209,19 @@
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/02/27/jsp-servlet-mysql-%E8%87%AA%E5%B7%B1%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%94%B5%E5%95%86%E7%BD%91%E7%AB%99/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2020/03/04/html-css%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E5%9B%9E%E9%A1%BE/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          html+css基础知识回顾
-        
-      </div>
-    </a>
   
   
-    <a href="/2020/02/22/spring%E5%AD%A6%E4%B9%A0%E8%BF%87%E7%A8%8B/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">spring学习过程</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -483,9 +244,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
@@ -557,11 +318,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">servlet</a>
+                <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">web</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -577,11 +338,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+                <a href="javascript:void(0)" class="js-tag color3">servlet</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">jdbc</a>
+                <a href="javascript:void(0)" class="js-tag color4">web</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">c语言</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -593,11 +366,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">c语言</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+                <a href="javascript:void(0)" class="js-tag color5">jdbc</a>
               </li>
              
               <li class="article-tag-list-item">

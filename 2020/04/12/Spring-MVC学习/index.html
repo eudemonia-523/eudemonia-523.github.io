@@ -6,21 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>html+css基础知识回顾 | eudemonia</title>
+  <title>Spring MVC学习 | eudemonia</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、html常见标签1.基本结构12345678910111213141516&lt;!DOCTYPE html&gt;&lt;html&gt;  html主要标签，所有内容要涵盖在这里面    &lt;head&gt;   此标签内容不显示，是对于整个html文件的描述    &lt;meta hcontent&#x3D;&quot;text&#x2F;html; charset&#x3D;utf-8&quot; &#x2F;&gt;  字符集为utf-">
+  <meta name="description" content="这是颜群老师课上的笔记 首先导入springmvc的jar包：spring-aop.jar、spring-bean.jar、spring-context.jar、spring-core.jar、spring-web.jar、spring-webmvc.jar、commons-logging.jar 编写第一个SpringMVC程序：">
 <meta property="og:type" content="article">
-<meta property="og:title" content="html+css基础知识回顾">
-<meta property="og:url" content="http://yoursite.com/2020/03/04/html-css%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E5%9B%9E%E9%A1%BE/index.html">
+<meta property="og:title" content="Spring MVC学习">
+<meta property="og:url" content="http://yoursite.com/2020/04/12/Spring-MVC%E5%AD%A6%E4%B9%A0/index.html">
 <meta property="og:site_name" content="eudemonia">
-<meta property="og:description" content="一、html常见标签1.基本结构12345678910111213141516&lt;!DOCTYPE html&gt;&lt;html&gt;  html主要标签，所有内容要涵盖在这里面    &lt;head&gt;   此标签内容不显示，是对于整个html文件的描述    &lt;meta hcontent&#x3D;&quot;text&#x2F;html; charset&#x3D;utf-8&quot; &#x2F;&gt;  字符集为utf-">
+<meta property="og:description" content="这是颜群老师课上的笔记 首先导入springmvc的jar包：spring-aop.jar、spring-bean.jar、spring-context.jar、spring-core.jar、spring-web.jar、spring-webmvc.jar、commons-logging.jar 编写第一个SpringMVC程序：">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-03-04T12:41:03.000Z">
-<meta property="article:modified_time" content="2020-03-04T13:24:21.614Z">
+<meta property="article:published_time" content="2020-04-12T08:24:02.000Z">
+<meta property="article:modified_time" content="2020-04-16T02:29:05.467Z">
 <meta property="article:author" content="吴祥飞">
-<meta property="article:tag" content="web">
-<meta property="article:tag" content="html">
-<meta property="article:tag" content="css">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="eudemonia" type="application/atom+xml">
@@ -165,59 +162,151 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-html-css基础知识回顾" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Spring-MVC学习" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      html+css基础知识回顾
+      Spring MVC学习
     </h1>
   
 
         
-        <a href="/2020/03/04/html-css%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E5%9B%9E%E9%A1%BE/" class="archive-article-date">
-  	<time datetime="2020-03-04T12:41:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-04</time>
+        <a href="/2020/04/12/Spring-MVC%E5%AD%A6%E4%B9%A0/" class="archive-article-date">
+  	<time datetime="2020-04-12T08:24:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-12</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="一、html常见标签"><a href="#一、html常见标签" class="headerlink" title="一、html常见标签"></a>一、html常见标签</h2><h4 id="1-基本结构"><a href="#1-基本结构" class="headerlink" title="1.基本结构"></a>1.基本结构</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span>  html主要标签，所有内容要涵盖在这里面</span><br><span class="line">    </span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span>   此标签内容不显示，是对于整个html文件的描述    </span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">hcontent</span>=<span class="string">"text/html; charset=utf-8"</span> /&gt;</span>  字符集为utf-8否则中文乱码</span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>网页标题<span class="tag">&lt;/<span class="name">title</span>&gt;</span>    定义标题内容</span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"keywords"</span> <span class="attr">content</span>=<span class="string">"html 基础知识"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"description"</span> <span class="attr">content</span>=<span class="string">"这是用来回顾静态网页设计内容的文件"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">type</span>=<span class="string">"text/css"</span> <span class="attr">href</span>=<span class="string">"main.css"</span> /&gt;</span>  css格式链接</span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"main.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span>   js内容</span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span>  //这里添加需要在网页中显示的内容</span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+        <p>这是颜群老师课上的笔记</p>
+<h4 id="首先导入springmvc的jar包："><a href="#首先导入springmvc的jar包：" class="headerlink" title="首先导入springmvc的jar包："></a>首先导入springmvc的jar包：</h4><p>spring-aop.jar、spring-bean.jar、spring-context.jar、spring-core.jar、spring-web.jar、spring-webmvc.jar、commons-logging.jar</p>
+<h4 id="编写第一个SpringMVC程序："><a href="#编写第一个SpringMVC程序：" class="headerlink" title="编写第一个SpringMVC程序："></a>编写第一个SpringMVC程序：</h4><a id="more"></a>
 
-<a id="more"></a>
+<p>springMVC就相当于我们学过的servlet，这样的话它的工作流程就变成了jsp -&gt;Servlet (Springmvc)-&gt;Jsp</p>
+<p>springmvc配置文件为 springmvc.xml，在这里面选中常用的命名空间：beans  aop context  mvc</p>
+<p>普通的servlet流程是请求-url-pattern -交给对应的servlet去处理，如果现在想用springmvc，而不是普通的servlet，如何告知程序？-如何让springmvc 介入程序：</p>
+<p>需要配置一个 Springmvc自带的servlet通过以下配置，拦截所有请求，交给SpringMVC处理：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">servlet</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>springDispatcherServlet<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span>org.springframework.web.servlet.DispatcherServlet<span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">  			<span class="tag">&lt;<span class="name">param-name</span>&gt;</span>contextConfigLocation<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">  			<span class="tag">&lt;<span class="name">param-value</span>&gt;</span>classpath:springmvc.xml<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;<span class="name">load-on-startup</span>&gt;</span>1<span class="tag">&lt;/<span class="name">load-on-startup</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>springDispatcherServlet<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h4 id="2-常用标签"><a href="#2-常用标签" class="headerlink" title="2.常用标签"></a>2.常用标签</h4><p>h1-h6                  定义标题，字体逐渐减小</p>
-<p>p                          定义段落</p>
-<p>b                          加粗</p>
-<p>em                      来表示强调</p>
-<p>strong                 表示重要文本</p>
-<p>u                          下划线</p>
-<p>s                            删除线</p>
-<p>br                         表示回车换行</p>
-<p>hr                         表示水平线</p>
-<p>span                     被用来组合文档中的行内元素。</p>
-<p>blockquote         表示块引用</p>
-<p>pre                       可定义预格式化的文本，保持原有格式的一种标签。</p>
-<p>sub                      下标</p>
-<p>sup                      上标</p>
-<p>a                           超链接</p>
-<p>img                       引入图片</p>
-<p>video                    引入视频</p>
-<p>ul和li                    无序列表标签</p>
-<p>ol和li                    有序列表标签</p>
-<p>dl,dt,dd                定义了自定义列表</p>
-<p>table                    表格</p>
-<p>tr,th,td                表格换行</p>
-<p>form                    表单</p>
-<p>input                    用于搜集用户信息</p>
-<p>radio                    单选</p>
-<p>checkbox            多选</p>
-<p>textarea              设置文本区内的可见行数和宽度</p>
-<p>button                 标签定义一个按钮</p>
-<p>select和option    下拉列表</p>
+<p>注意其中一下几个小点：<url-pattern>.action</url-pattern></p>
+<p>/:一切请求  ，注意不是 /*<br>/user:拦截以 /user开头的请求<br>/user/abc.do  :只拦截该请求<br>.action:只拦截 .action结尾的请求</p>
+<p>如果要项目中同时兼容 springMVC和Servlet的话可以这样做：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>springDispatcherServlet<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>.action<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">servlet</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>springDispatcherServlet<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span>org.springframework.web.servlet.DispatcherServlet<span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">  			<span class="tag">&lt;<span class="name">param-name</span>&gt;</span>contextConfigLocation<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">  			<span class="tag">&lt;<span class="name">param-value</span>&gt;</span>classpath:springmvc.xml<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--这里用来指定springmvc配置文件的路径，如果要省略，必须放到 默认路径：默认路径为</span></span><br><span class="line"><span class="comment">/WEB-INF/springDispatcherServlet-servlet.xml--&gt;</span></span><br><span class="line">  	<span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;<span class="name">load-on-startup</span>&gt;</span>1<span class="tag">&lt;/<span class="name">load-on-startup</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>映射是 去匹配@RequestMapping注解，可以和方法名、类名不一致<br>通过method指定 请求方式（get  post  delete put 对应着增删改查）<br>    例如@RequestMapping(value=”welcome”,method=RequestMethod.POST)//映射</p>
+<p>设置name=”xxxx”的情况：params= {“name2=zs”,”age!=23”}<br>name2:必须有name=”name2”参数<br>age!=23 :    a.如果有name=”age”，则age值不能是23   b.没有age<br>!name2  ：不能name=”name2”的属性</p>
+<h4 id="ant风格的请求路径"><a href="#ant风格的请求路径" class="headerlink" title="ant风格的请求路径"></a>ant风格的请求路径</h4><p>? 表示 单字符   <em>表示任意个字符（0或多个）   *</em> 表示任意目录</p>
+<p>@RequestMapping(value=”welcome3/**/test”)<br>接受示例：a href=”welcome3/abc/xyz/abccc/test”</p>
+<p>&lt; a href=”handler/welcome5/zs”&gt;…<br>通过@PathVariable获取动态参数</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> String  <span class="title">welcome5</span><span class="params">(@PathVariable(<span class="string">"name"</span>)</span> String name ) </span>&#123;</span><br><span class="line">	System.out.println(name);</span><br><span class="line">	<span class="keyword">return</span> <span class="string">"success"</span> ;</span><br><span class="line">&#125;<span class="comment">//这样就能在jsp页面将参数值传入servlet时，将其接受到</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="REST风格-：软件编程风格"><a href="#REST风格-：软件编程风格" class="headerlink" title="REST风格 ：软件编程风格"></a>REST风格 ：软件编程风格</h4><p>Springmvc:  GET  :查  POST  ：增  DELETE ：删  PUT ：改</p>
+<p>普通浏览器 只支持get post方式 ；其他请求方式 如 delelte|put请求是通过 过滤器新加入的支持。</p>
+<p>springmvc实现 ：put|post请求方式的步骤<br>a.增加过滤器</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">	<span class="comment">&lt;!-- 增加HiddenHttpMethodFilte过滤器：目的是给普通浏览器 增加 put|delete请求方式 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">filter</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>HiddenHttpMethodFilte<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">filter-class</span>&gt;</span>org.springframework.web.filter.HiddenHttpMethodFilter<span class="tag">&lt;/<span class="name">filter-class</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">filter</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">filter-mapping</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>HiddenHttpMethodFilte<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/*<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">filter-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>b.表单</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;form action=<span class="string">"handler/testRest/1234"</span> method=<span class="string">"post"</span>&gt;</span><br><span class="line">	&lt;input type=<span class="string">"hidden"</span>  name=<span class="string">"_method"</span> value=<span class="string">"DELETE"</span>/&gt;</span><br><span class="line">	&lt;input type=<span class="string">"submit"</span> value=<span class="string">"删"</span>&gt;</span><br><span class="line">&lt;/form&gt;</span><br></pre></td></tr></table></figure>
+<p>i:必须是post方式<br>ii:通过隐藏域 的value值 设置实际的请求方式 DELETE|PUT</p>
+<p>c.控制器</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping</span>(value=<span class="string">"testRest/&#123;id&#125;"</span>,method=RequestMethod.DELETE)</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String  <span class="title">testDelete</span><span class="params">(@PathVariable(<span class="string">"id"</span>)</span> Integer id) </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"delete：删 "</span> +id);</span><br><span class="line">		<span class="comment">//Service层实现 真正的增</span></span><br><span class="line">		<span class="keyword">return</span> <span class="string">"success"</span> ;<span class="comment">//  views/success.jsp，默认使用了 请求转发的 跳转方式</span></span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>通过    method=RequestMethod.DELETE    匹配具体的请求方式</p>
+<p>此外，可以发现 ，当映射名相同时@RequestMapping(value=”testRest)，可以通过method处理不同的请求。</p>
+<p>过滤器中 处理put|delete请求的部分源码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doFilterInternal</span><span class="params">(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)</span>  <span class="keyword">throws</span> ServletException, IOException </span>&#123;	</span><br><span class="line">	HttpServletRequest requestToUse = request;</span><br><span class="line">	<span class="keyword">if</span> (<span class="string">"POST"</span>.equals(request.getMethod()) &amp;&amp; request.getAttribute(WebUtils.ERROR_EXCEPTION_ATTRIBUTE) == <span class="keyword">null</span>) &#123;</span><br><span class="line">		String paramValue = request.getParameter(<span class="keyword">this</span>.methodParam);</span><br><span class="line">		<span class="keyword">if</span> (StringUtils.hasLength(paramValue)) &#123;</span><br><span class="line">			requestToUse = <span class="keyword">new</span> HttpMethodRequestWrapper(request, paramValue);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	filterChain.doFilter(requestToUse, response);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>原始请求：request，改请求默认只支持get post  header<br>但是如果 是”POST”  并且有隐藏域        &lt; input type=”hidden”  name=”_method” value=”DELETE”/&gt;<br>则，过滤器 将原始的请求 request加入新的请求方式DELETE，并将原始请求 转为 requestToUse 请求（request+Delete请求）<br>最后将requestToUse 放入 请求链中， 后续再事情request时  实际就使用改造后的 requestToUse</p>
+<p>@RequestParam(“uname”) String name,@RequestParam(value=”uage”,required=false,defaultValue=”23”)</p>
+<p>@RequestParam(“uname”):接受前台传递的值，等价于request.getParameter(“uname”);</p>
+<p>required=false:该属性 不是必须的。<br>defaultValue=”23”：默认值23</p>
+<p>获取请求头信息 @RequestHeader<br>public String  testRequestHeader(@RequestHeader(“Accept-Language”)  String al  ) {<br>通过@RequestHeader(“Accept-Language”)  String al   获取请求头中的Accept-Language值，并将值保存再al变量中 </p>
+<p>通过mvc获取cookie值（JSESSIONID）<br>@CookieValue<br>(前置知识： 服务端在接受客户端第一次请求时，会给该客户端分配一个session （该session包含一个sessionId）),并且服务端会在第一次响应客户端时 ，请该sessionId赋值给JSESSIONID 并传递给客户端的cookie中</p>
+<p>小结：<br>SpringMVC处理各种参数的流程/逻辑：<br>请求：  前端发请求a-&gt; @RequestMappting(“a”)<br>处理请求中的参数xyz：</p>
+<pre><code>@RequestMappting(&quot;a&quot;) 
+    public String  aa(@Xxx注解(&quot;xyz&quot;)  xyz)
+    {
+    }</code></pre><p>使用对象（实体类Student）接受请求参数</p>
+<p>在SpringMVC中使用原生态的Servlet API  :HttpServletRequest ：直接将 servlet-api中的类、接口等 写在springMVC所映射的方法参数中即可：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping</span>(value=<span class="string">"testServletAPI"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">testServletAPI</span><span class="params">(HttpServletRequest  request,HttpServletResponse response)</span> </span>&#123;</span><br><span class="line">	<span class="comment">//request.getParameter("uname") ;</span></span><br><span class="line">	System.out.println(request);</span><br><span class="line">	<span class="keyword">return</span> <span class="string">"success"</span> ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>1.处理模型数据<br>如果跳转时需要带数据：V、M,则可以使用以下方式：<br>ModelAndView、ModelMap  、Map、Model   -数据放在了request作用域 </p>
+<p>@SessionAttributes、@ModelAttribute</p>
+<p>示例：<br>public String testModel(Model model|    Map&lt;String,Object&gt; m) {</p>
+<p>m.put(x,”..”); 就会将x对象 放入request域中</p>
+<p>如何将上述数据放入session中？@SessionAttributes(..)</p>
+<p>@ModelAttribute<br>i.经常在 更新时使用<br>ii.在不改变原有代码的基础之上，插入一个新方法。</p>
+<p>通过@ModelAttribute修饰的方法 ，会在每次请求前先执行；<br>并且该方法的参数map.put()可以将 对象 放入 即将查询的参数中；<br>必须满足的约定：<br>map.put(k,v) 其中的k 必须是即将查询的方法参数 的首字母小写<br>testModelAttribute(Student xxx)  ，即student；<br>如果不一致，需要通过@ModelAttribute声明。如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ModelAttribute</span><span class="comment">//在任何一次请求前，都会先执行@ModelAttribute修饰的方法</span></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">queryStudentById</span><span class="params">(Map&lt;String,Object&gt; map)</span> </span>&#123;</span><br><span class="line">			<span class="comment">//StuentService stuService = new StudentServiceImpl();</span></span><br><span class="line">			<span class="comment">//Student student = stuService.queryStudentById(31);</span></span><br><span class="line">			<span class="comment">//模拟调用三层查询数据库的操作</span></span><br><span class="line">			Student student = <span class="keyword">new</span> Student();</span><br><span class="line">			student.setId(<span class="number">31</span>);</span><br><span class="line">			student.setName(<span class="string">"zs"</span>);</span><br><span class="line">			student.setAge(<span class="number">23</span>);</span><br><span class="line">			map.put(<span class="string">"stu"</span>, student) ;<span class="comment">//约定：map的key 就是方法参数 类型的首字母小写</span></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//修改:Zs-ls</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(value=<span class="string">"testModelAttribute"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">testModelAttribute</span><span class="params">(@ModelAttribute(<span class="string">"stu"</span>)</span>Student student) </span>&#123;</span><br><span class="line">	student.setName(student.getName());<span class="comment">//将名字修改为ls</span></span><br><span class="line">	System.out.println(student.getId()+<span class="string">","</span>+student.getName()+<span class="string">","</span>+student.getAge());</span><br><span class="line">	<span class="keyword">return</span> <span class="string">"success"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>一个Servlet 对应一个功能：增删改查  对应于 4个Servlet</p>
+<p>更新：    Servlet  - SpringMVC的Controller</p>
+<p>查询<br>@ModelAttribute<br>public void query()<br>{</p>
+<p>}</p>
+<p>修改<br>public String update()<br>{</p>
+<p>}</p>
+<p>@ModelAttribute会在 该类的每个方法执行前 均被执行一次，因为使用时需要注意。</p>
+<p>2.视图、视图解析器</p>
+<p>视图的顶级接口:View<br>视图解析器：ViewResolver</p>
+<p>常见的视图和解析器：<br>InternalResourceView、InternalResourceViewResolver</p>
+<p>public class JstlView extends InternalResourceView：</p>
+<p>springMVC解析jsp时 会默认使用InternalResourceView，<br>如果发现Jsp中包含了jstl语言相关的内容，则自动转为JstlView。</p>
+<p>JstlView 可以解析jstl\实现国际化操作</p>
+<p>国际化： 针对不同地区、不同国家 ，进行不同的显示 </p>
+<p>中国:（大陆、香港）     欢迎<br>美国：            welcome  </p>
+<p>i18n_zh_CH.properties<br>resource.welcome=你好<br>resource.exist=退出</p>
+<p>i18n.properties    </p>
+<p>具体实现国际化步骤：<br>a.创建资源文件<br>基名_语言_地区.properties<br>基名_语言.properties</p>
+<p>b.配置springmvc.xml，加载资源文件</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 加载国际化资源文件 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"messageSource"</span> <span class="attr">class</span>=<span class="string">"org.springframework.context.support.ResourceBundleMessageSource"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"basename"</span> <span class="attr">value</span>=<span class="string">"i18n"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>ResourceBundleMessageSource会在springmvc响应程序时 介入（解析国际化资源文件）</p>
+<p>c.通过jstl使用国际化<br>    jstl.jar  standar.jar<br>springmvc在启动时，会自动查找一个id=”messageSource”的bean，如果有  则自动加载</p>
+<h3 id="linux"><a href="#linux" class="headerlink" title="linux:"></a>linux:</h3><p>  Ubuntu  redhat  centos  debain  fedora suSe</p>
+<p>centos</p>
+<p>安装：<br>vmware: NAT<br>在vmware中安装centos：<br>划分空间  200 /boot      10240 /<br>时区：Shanghai<br>DeskTop  ：Base System  将java去掉</p>
+<p>安装时可能会遇到错误：“此主机支持Intel VT-x,但Intel VT-x处于禁用状态…”<br>解决方法：重启电脑（真实的计算机，不是虚拟机），进入BIOS，找到Intel Virtual Technology ，将其属性会改为Enabled</p>
+<p>鼠标在虚拟机和真实机之间浮动：ctrl+alt</p>
+<p>安装完centos后，安装vmware tools： 虚拟机-安装vmware tools - 解压缩 - 执行 perl vmware-install.pl</p>
+<p>重启：reboot<br>关机：halt</p>
+<p>共享文件夹</p>
+<p>linux：一切皆文件、一切皆命令</p>
+<p>通过命令修改文件内容：<br>vi  路径/文件名<br>修改：  a  在修改<br>保存：  esc   Shift+z  Shift+z</p>
+<p>设置网络：<br>a.设置windows真实机的网络 ：vmnet8<br>ip:  192.168.2.2<br>网关：192.168.2.1</p>
+<p>b.在vmware中配置</p>
+<p>编辑-虚拟网络编辑器</p>
+<p>c.配置各个虚拟机的 网络信息</p>
+<p>/etc/sysconfig/network-scripts/ifcfg-eth0<br>IPADDR=<br>GATEWAY=<br>BROADCAST=-</p>
+<p>主机名- IP映射<br>etc/hosts<br>192.168.2.128  db1</p>
+<p>真实机：C:\Windows\System32\drivers\etc\hosts</p>
+<p>确保虚拟机能上网<br>service NetworkManager stop<br>/etc/init.d/network restart<br>chkconfig NetworkManager off<br>vi /etc/resolv.conf<br>nameserver 192.168.2.1</p>
+<p>关闭防火墙<br>service iptables stop<br>chkconfig iptables off<br>service iptables status </p>
+<p>同步系统时间<br>yum -y install ntp ntpdate<br>ntpdate cn.pool.ntp.org<br>hwclock –systohc</p>
+<p>创建用户：<br>groupadd bigdata<br>useradd -g bigdata bd1<br>passwd  bd1 写新密码<br>给sudoers设置为读写权限<br>chmod 777 /etc/sudoers        –默认权限chmod 440 /etc/sudoers</p>
+<p>vi /etc/sudoers<br>新加bd1 ALL=(ALL)ALL</p>
+<p>之后通过sudo执行系统级别的命令</p>
+<p>安装jdk<br>下载rpm版<br>rpm -ivh jdkxxxx.rpm<br>RPM安装的默认路径：usr</p>
+<p>环境变量： /etc/profile<br>export JAVA_HOME=/usr/java/jdk1.8.0_171-amd64<br>export CLASSPATH=$JAVA_HOME/lib:$CLASSPATH<br>export PATH=$JAVA_HOME/bin:$PATH</p>
+<p>查看当前路径：/usr/java/jdk1.8.0_171-amd64</p>
+<p>强制退出：shift+z Shift +z 或者 :wq!</p>
+<p>刷新环境变量：source /etc/profile</p>
+<p>克隆-完全克隆 3份<br>（如果报错：sudo :/etc/sudoers is world writable<br>解决：pkexec chmod   0440 /etc/sudoers<br>）</p>
+<p>权限：<br>vi etc/sudoers  该成当前计算机的名字<br>–vi /etc/hosts<br>–vi /etc/sysconfig/network<br>在su模式下：切换到root用户：su<br>–vi /etc/sysconfig/network-scripts/ifcfg-eth0 删除UUID 和硬件地址 即可<br>–让设置永久生效：删除 etc/udev/rules.d/70-persistent-net-rules </p>
+<p>2：虚拟机能上网 、 多台计算机和主机间相互通信</p>
+<p>在每个节点 删除其他用户，创建自己的用户<br>userdel </p>
+<p>useradd -g bigdata bd3<br>passwd  bd3 写新密码<br>给sudoers设置为读写权限<br>chmod 777 /etc/sudoers        –默认权限chmod 440 /etc/sudoers</p>
+<p>vi /etc/sudoers<br>新加bd3 ALL=(ALL)ALL</p>
+<p>windows映射：<br>C:\Windows\System32\drivers\etc\hosts</p>
+<p>192.168.2.128    bd1<br>192.168.2.129    bd2<br>192.168.2.130    bd3</p>
+<p>linux映射：<br>vi /etc/hosts<br>192.168.2.128    bd1<br>192.168.2.129    bd2<br>192.168.2.130    bd3</p>
+<p>切换到超级管理员模式：su 输入密码</p>
+<p>执行sudo时，如果报错： /etc/sudoers is world writable<br>解决： pkexec chmod 0440 /etc/sudoers</p>
+<p>免密钥 :A-B</p>
+<p>生成密钥 :用超级管理员身份执行：su<br>ssh-keygen -t rsa<br>私钥留给自己<br>ssh-copy-id localhost<br>公钥发送给其他节点<br>ssh-copy-id bd2<br>ssh-copy-id bd3</p>
 
       
 
@@ -257,25 +346,6 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">web</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">html</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 
       
@@ -326,7 +396,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/03/04/html-css%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E5%9B%9E%E9%A1%BE/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/04/12/Spring-MVC%E5%AD%A6%E4%B9%A0/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -340,18 +410,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/03/22/%E5%85%AD%E6%AD%A5%E8%A7%A3%E5%86%B3JDBC/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/04/15/html-css/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          六步解决JDBC
+          html+css
         
       </div>
     </a>
   
   
-    <a href="/2020/02/27/jsp-servlet-mysql-%E8%87%AA%E5%B7%B1%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%94%B5%E5%95%86%E7%BD%91%E7%AB%99/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">jsp+servlet+mysql 自己搭建一个电商网站</div>
+    <a href="/2020/04/09/java%E9%81%97%E5%BF%98%E7%9F%A5%E8%AF%86%E7%82%B9%E8%A1%A5%E5%85%85/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">java遗忘知识点补充</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -481,11 +551,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">servlet</a>
+                <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">web</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -501,11 +571,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+                <a href="javascript:void(0)" class="js-tag color3">servlet</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">jdbc</a>
+                <a href="javascript:void(0)" class="js-tag color4">web</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">c语言</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -517,11 +599,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">c语言</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+                <a href="javascript:void(0)" class="js-tag color5">jdbc</a>
               </li>
              
               <li class="article-tag-list-item">

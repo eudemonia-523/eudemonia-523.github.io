@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>servlet学习 | eudemonia</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="servlet学习过程：java web开发的核心知识点  什么是web开发：两台计算机之间资源文件共享的过程，比如我向www.baidu.com索要资源  两台计算机的角色：客户端、服务端  资源文件：计算机上的所有文件都是资源共享文件，分为静态资源文件和动态资源文件  两台计算机如何通信：C&#x2F;S   B&#x2F;S  即客户端服务器与浏览器服务器  网络协议包：用于包裹在网络中传送的二进制数据，便于客">
+  <meta name="description" content="servlet学习过程：java web开发的核心知识点 ​    什么是web开发：两台计算机之间资源文件共享的过程，比如我向 www.baidu.com 索要资源 ​    两台计算机的角色：客户端、服务端 ​    资源文件：计算机上的所有文件都是资源共享文件，分为静态资源文件和动态资源文件 ​    两台计算机如何通信：C&#x2F;S   B&#x2F;S  即客户端服务器与浏览器服务器 ​    网络协议">
 <meta property="og:type" content="article">
 <meta property="og:title" content="servlet学习">
 <meta property="og:url" content="http://yoursite.com/2020/03/23/servlet%E5%AD%A6%E4%B9%A0/index.html">
 <meta property="og:site_name" content="eudemonia">
-<meta property="og:description" content="servlet学习过程：java web开发的核心知识点  什么是web开发：两台计算机之间资源文件共享的过程，比如我向www.baidu.com索要资源  两台计算机的角色：客户端、服务端  资源文件：计算机上的所有文件都是资源共享文件，分为静态资源文件和动态资源文件  两台计算机如何通信：C&#x2F;S   B&#x2F;S  即客户端服务器与浏览器服务器  网络协议包：用于包裹在网络中传送的二进制数据，便于客">
+<meta property="og:description" content="servlet学习过程：java web开发的核心知识点 ​    什么是web开发：两台计算机之间资源文件共享的过程，比如我向 www.baidu.com 索要资源 ​    两台计算机的角色：客户端、服务端 ​    资源文件：计算机上的所有文件都是资源共享文件，分为静态资源文件和动态资源文件 ​    两台计算机如何通信：C&#x2F;S   B&#x2F;S  即客户端服务器与浏览器服务器 ​    网络协议">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-03-23T07:40:54.000Z">
-<meta property="article:modified_time" content="2020-03-24T23:19:48.095Z">
+<meta property="article:modified_time" content="2020-03-31T01:47:52.612Z">
 <meta property="article:author" content="吴祥飞">
 <meta property="article:tag" content="java">
 <meta property="article:tag" content="servlet">
@@ -186,18 +186,12 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="servlet学习过程："><a href="#servlet学习过程：" class="headerlink" title="servlet学习过程："></a>servlet学习过程：</h2><p>java web开发的核心知识点</p>
-<ol>
-<li><p>什么是web开发：两台计算机之间资源文件共享的过程，比如我向<a href="http://www.baidu.com索要资源" target="_blank" rel="noopener">www.baidu.com索要资源</a></p>
-</li>
-<li><p>两台计算机的角色：客户端、服务端</p>
-</li>
-<li><p>资源文件：计算机上的所有文件都是资源共享文件，分为静态资源文件和动态资源文件</p>
-</li>
-<li><p>两台计算机如何通信：C/S   B/S  即客户端服务器与浏览器服务器</p>
-</li>
-<li><p>网络协议包：用于包裹在网络中传送的二进制数据，便于客户端解析数据，目前为止B/S通信结构中只用到http网络协议包<a id="more"></a></p>
-</li>
-<li><p>http网络协议包内部结构：</p>
+<p>​    什么是web开发：两台计算机之间资源文件共享的过程，比如我向 <a href="http://www.baidu.com" target="_blank" rel="noopener">www.baidu.com</a> 索要资源</p>
+<p>​    两台计算机的角色：客户端、服务端</p>
+<p>​    资源文件：计算机上的所有文件都是资源共享文件，分为静态资源文件和动态资源文件</p>
+<p>​    两台计算机如何通信：C/S   B/S  即客户端服务器与浏览器服务器</p>
+<p>​    网络协议包：用于包裹在网络中传送的二进制数据，便于客户端解析数据，目前为止B/S通信结构中只用到http网络协议包<a id="more"></a></p>
+<p>​    http网络协议包内部结构：</p>
 <ol>
 <li>http请求协议包：<ol>
 <li>请求行：{ url：请求资源文件地址   method：浏览器采用的请求方式}</li>
@@ -211,8 +205,6 @@
 <li>响应头：{返回文件内容类型、返回文件内容字符集、对接受内容进行解码}</li>
 <li>空白行：{  隔离层}</li>
 <li>响应体：{  静态资源文件，动态资源文件运行结果}</li>
-</ol>
-</li>
 </ol>
 </li>
 </ol>
@@ -249,135 +241,213 @@
 </ol>
 </li>
 </ol>
-<h4 id="如何命令浏览器发送请求时携带指定参数"><a href="#如何命令浏览器发送请求时携带指定参数" class="headerlink" title="如何命令浏览器发送请求时携带指定参数"></a>如何命令浏览器发送请求时携带指定参数</h4><ol>
-<li>超链接标签命令可以命令浏览器携带请求参数</li>
-</ol>
+<h4 id="如何命令浏览器发送请求时携带指定参数"><a href="#如何命令浏览器发送请求时携带指定参数" class="headerlink" title="如何命令浏览器发送请求时携带指定参数"></a>如何命令浏览器发送请求时携带指定参数</h4><p>1.超链接标签命令可以命令浏览器携带请求参数</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"http://www.baidu.com?uname=jack&amp;age=23"</span>&gt;</span>百度<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<ol start="2">
-<li>location命令也可以命令浏览器携带请求参数</li>
-</ol>
+<p>2.location命令也可以命令浏览器携带请求参数</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">window.location=<span class="string">"http://www.baidu.com?uname=jack&amp;age=23"</span></span><br></pre></td></tr></table></figure>
 
 <p>以上两种方式存在弊端就是写死了，没办法动态请求参数</p>
-<ol start="3">
-<li><p>表单域标签可以接受用户输入的内容，作为参数请求内容</p>
+<p>3.表单域标签可以接受用户输入的内容，作为参数请求内容</p>
 <ol>
-<li>表单域标签分类：input/ select/ textarea</li>
-<li>表单域标签作为请求参数条件<ol>
+<li><p>表单域标签分类：input/ select/ textarea</p>
+</li>
+<li><p>表单域标签作为请求参数条件</p>
+<ol>
 <li>表单域标签必须声明在当前form标签内部</li>
 <li>表单域标签必须声明name属性</li>
 <li>针对checkbox和radio，只有被选中的情况下才能作为请求参数</li>
 </ol>
-</li>
+<h3 id="http服务器"><a href="#http服务器" class="headerlink" title="http服务器"></a>http服务器</h3><h4 id="1-介绍"><a href="#1-介绍" class="headerlink" title="1. 介绍"></a>1. 介绍</h4></li>
 </ol>
-<h3 id="http服务器"><a href="#http服务器" class="headerlink" title="http服务器"></a>http服务器</h3><h4 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h4></li>
-<li><p>它是安装在服务端计算机上的一种软件</p>
-</li>
-<li><p>可以解析来自于浏览器所发送的请求协议包</p>
-</li>
-<li><p>调用服务端上被请求的资源文件</p>
-</li>
-<li><p>负责生成一个响应协议包</p>
-</li>
-<li><p>将文件内容或文件运行结果写入到响应体当中</p>
-</li>
-<li><p>负责将响应协议包推送到当前服务器</p>
-<h4 id="http服务器分类"><a href="#http服务器分类" class="headerlink" title="http服务器分类"></a>http服务器分类</h4></li>
-<li><p>德国sap</p>
-</li>
-<li><p>IBM：weblogic</p>
-</li>
-<li><p>JBOSS</p>
-</li>
-<li><p>Apache： Tomcat  唯一一个不收钱的，用！！</p>
-<h4 id="Tomcat相关介绍"><a href="#Tomcat相关介绍" class="headerlink" title="Tomcat相关介绍"></a>Tomcat相关介绍</h4></li>
-<li><p>它是一个java应用程序编写的资源文件调用器</p>
-</li>
-<li><p>可以调用服务端静态资源文件和动态资源文件</p>
-</li>
-<li><p>Tomcat负责生成响应协议包，负责将响应协议包推送到浏览器</p>
-</li>
-<li><p>Tomcat属于Apache公司</p>
-<h4 id="Tomcat下载安装"><a href="#Tomcat下载安装" class="headerlink" title="Tomcat下载安装"></a>Tomcat下载安装</h4></li>
-<li><p>去官网下载64位的Tomcat9压缩包，注意Tomcat9需要配置jdk1.9，向下兼容jdk1.8也可以，但是jdk1.7及以下就不行了</p>
-</li>
-<li><p>解压安装</p>
-</li>
-<li><p>添加系统变量CATALINA_HOME:  D:/tools/apache-tomcat-9.0.0</p>
-</li>
-<li><p>jdk的路径也要配置好JAVA_HOME、 </p>
-<p>启动Tomcat后，打开浏览器，输入地址http://localhost:8080进入tomcat网站即安装成功<br>启动之后要记得关闭直到抛异常才叫成功关闭          </p>
-<h4 id="Tomcat端口号问题"><a href="#Tomcat端口号问题" class="headerlink" title="Tomcat端口号问题"></a>Tomcat端口号问题</h4><p>Tomcat端口号存储位置在Tomcat安装目录下/conf/server.xml找到port：8080修改成你想要的端口号即可</p>
-<h4 id="网站"><a href="#网站" class="headerlink" title="网站"></a>网站</h4></li>
-<li><p>全称：网络中的资源站点</p>
-</li>
-<li><p>作用：仓库，存储可以共享的静态资源文件和动态资源文件</p>
-</li>
-<li><p>文件管理：由http服务器来调用共享资源文件</p>
-</li>
-<li><p>本质：就是一个文件夹</p>
-</li>
-</ol>
-<h4 id="网站分类"><a href="#网站分类" class="headerlink" title="网站分类"></a>网站分类</h4><ol>
-<li>静态资源网站（存储的都是图片，html这样的静态资源文件）</li>
-<li>动态资源网站（存放的是静态资源文件和动态资源文件）</li>
-</ol>
-<h4 id="如何创建一个静态资源网站"><a href="#如何创建一个静态资源网站" class="headerlink" title="如何创建一个静态资源网站"></a>如何创建一个静态资源网站</h4><ol>
-<li>Tomcat安装目录/webapps/ 创建一个文件夹，这个文件夹就是一个网站</li>
-<li>在网站中存入静态资源文件</li>
-<li>启动Tomcat</li>
-</ol>
-<h4 id="idea配置管理Tomcat"><a href="#idea配置管理Tomcat" class="headerlink" title="idea配置管理Tomcat"></a>idea配置管理Tomcat</h4><p>  新建空工程，run-&gt;edit configurations-&gt;+-&gt;Tomcat Server-&gt;Local-&gt;填好应填的内容-&gt;apply-&gt;ok</p>
-<h4 id="动态网站结构"><a href="#动态网站结构" class="headerlink" title="动态网站结构"></a>动态网站结构</h4><ol>
-<li>src存放java文件</li>
-<li>web静态资源文件和配置文件</li>
-<li>WEB-INF/web.xml</li>
-</ol>
-<h4 id="指定Tomcat管理的网站"><a href="#指定Tomcat管理的网站" class="headerlink" title="指定Tomcat管理的网站"></a>指定Tomcat管理的网站</h4><p>  run-&gt;edit configuration-&gt;Tomcat管理通道-&gt;deployment-&gt;+</p>
-<h4 id="servlet规范"><a href="#servlet规范" class="headerlink" title="servlet规范"></a>servlet规范</h4><ol>
-<li><p>JAVA SE ： JAVA开发的基本规范</p>
-</li>
-<li><p>JAVA EE ：JAVA企业级开发规范，指定了JVM与13类系统之间的交流规则，因此java ee有13种规范，其中我们学过的JDBC就是其中一种，用于设置JVM与所有的关系型数据库管理系统之间的交流规则</p>
-</li>
-<li><p>Servlet规范：</p>
-<ol>
-<li>Servlet是JAVA EE 规范中的一种</li>
-<li>Servlet规范中设置JVM 与http服务器之间的交流规则</li>
-<li>交流规则：<ol>
-<li>定义何种java类可以作为动态资源文件</li>
-<li>http服务器应该如何管理动态资源文件<h4 id="何种java类可以被Tomcat调用作为网站的动态共享资源文件"><a href="#何种java类可以被Tomcat调用作为网站的动态共享资源文件" class="headerlink" title="何种java类可以被Tomcat调用作为网站的动态共享资源文件"></a>何种java类可以被Tomcat调用作为网站的动态共享资源文件</h4></li>
-</ol>
-</li>
-</ol>
-</li>
-</ol>
-<p>servlet规范中认为，只有servlet接口实现类有资格作为网站的动态共享资源文件</p>
-<p>servlet接口实现类必须由开发人员负责创建</p>
-<h4 id="如何创建Servlet接口实现类"><a href="#如何创建Servlet接口实现类" class="headerlink" title="如何创建Servlet接口实现类"></a>如何创建Servlet接口实现类</h4><ol>
-<li><p>创建一个实现类，需要继承于httpServlet</p>
-</li>
-<li><p>httpServlet存在于Tomcat中lib/Servlet-api.jar;  完整路径： javax.servlet.http.HttpServlet</p>
-</li>
-<li><p>根据来访的浏览器来重写doGet 和doPost方法</p>
-</li>
-<li><p>在WEB-INF/lib中web.xml注册Servlet接口实现类，通知在Tomcat当前网站存在一个动态资源文件</p>
-</li>
-</ol>
-<h4 id="Tomcat调用Servlet接口实现类流程"><a href="#Tomcat调用Servlet接口实现类流程" class="headerlink" title="Tomcat调用Servlet接口实现类流程"></a>Tomcat调用Servlet接口实现类流程</h4><ol>
-<li>浏览器向服务端发送一次请求 http://localhost:555/myWeb/first</li>
-<li>Tomcat接收到这个请求，首先将请求资源文件作为动态资源文件。到web.xml进行文件定位，如果有就调用如果没有找到对应的动态资源文件，则认定为静态资源文件，从web下进行定位，如果有就返回，如果还没有就返回404状态码</li>
-<li>Tomcat到web.xml中根据<url-pattern>进行定位<servlet>标签</servlet></url-pattern></li>
-<li><servlet-name>定位<servlet-class>找到本次请求</servlet-class></servlet-name></li>
-<li>Tomcat根据浏览器采用的请求方式，调用Servlet的doGet或者doPost方法</li>
-<li>在doGet/doPost方法调用完毕之后，Tomcat负责将响应包推送给浏览器</li>
-</ol>
-<h4 id="Servlet请求路径写法规则：4种"><a href="#Servlet请求路径写法规则：4种" class="headerlink" title="Servlet请求路径写法规则：4种"></a>Servlet请求路径写法规则：4种</h4><ol>
-<li>具体请求路径：如果浏览器请求的资源文件地址与当前Servlet的<url-pattern>完全一致，Tomcat才会调用当前Servlet。例如OneServlet中<url-pattern>on.do</url-pattern>当我们访问http://localhost:8080/myWeb/on.do时，就能够判断出Tomcat调用OneServlet。【注意：】具体请求路径必须以“/”开头，这是Tomcat惯用截取方式</url-pattern></li>
-<li>前置条件请求路径:如果浏览器请求的资源文件地址以Servlet中<url-pattern>的内容为开头的，Tomcat才会调用当前Servlet。例如：Servlet中<url-pattern>/abc/*</url-pattern>代表以abc开头的都会调用这个Servlet</url-pattern></li>
-<li>后置条件请求路径：如果浏览器请求的资源文件地址以Servlet中<url-pattern>的内容为结尾的，Tomcat才会调用当前Servlet。与上类似。注意后置时不能以“/”开头，以*开头</url-pattern></li>
-<li>通配符请求路径：当前Servlet可以接受对当前网站所有的请求例如：Servlet中<url-pattern>/*</url-pattern></li>
-</ol>
+<p>​    它是安装在服务端计算机上的一种软件</p>
+<p>​    可以解析来自于浏览器所发送的请求协议包</p>
+<p>​    调用服务端上被请求的资源文件</p>
+<p>​    负责生成一个响应协议包</p>
+<p>​    将文件内容或文件运行结果写入到响应体当中</p>
+<p>​    负责将响应协议包推送到当前服务器</p>
+<h4 id="2-http服务器分类"><a href="#2-http服务器分类" class="headerlink" title="2. http服务器分类"></a>2. http服务器分类</h4><p>​    德国sap</p>
+<p>​    IBM：weblogic</p>
+<p>​    JBOSS</p>
+<p>​    Apache： Tomcat  唯一一个不收钱的，用！！</p>
+<h4 id="3-Tomcat相关介绍"><a href="#3-Tomcat相关介绍" class="headerlink" title="3. Tomcat相关介绍"></a>3. Tomcat相关介绍</h4><p>​    它是一个java应用程序编写的资源文件调用器</p>
+<p>​    可以调用服务端静态资源文件和动态资源文件</p>
+<p>​    Tomcat负责生成响应协议包，负责将响应协议包推送到浏览器</p>
+<p>​    Tomcat属于Apache公司</p>
+<h4 id="4-Tomcat下载安装"><a href="#4-Tomcat下载安装" class="headerlink" title="4. Tomcat下载安装"></a>4. Tomcat下载安装</h4><p>​    去官网下载64位的Tomcat9压缩包，注意Tomcat9需要配置jdk1.9，向下兼容jdk1.8也可以，但是jdk1.7及以下就不行了</p>
+<p>​    解压安装</p>
+<p>​    添加系统变量CATALINA_HOME:  D:/tools/apache-tomcat-9.0.0</p>
+<p>​    jdk的路径也要配置好JAVA_HOME、 </p>
+<p>  启动Tomcat后，打开浏览器，输入地址http://localhost:8080进入tomcat网站即安装成功<br>  启动之后要记得关闭直到抛异常才叫成功关闭          </p>
+<h4 id="5-Tomcat端口号问题"><a href="#5-Tomcat端口号问题" class="headerlink" title="5. Tomcat端口号问题"></a>5. Tomcat端口号问题</h4><p>  Tomcat端口号存储位置在Tomcat安装目录下/conf/server.xml找到port：8080修改成你想要的端口号即可</p>
+<h4 id="6-网站"><a href="#6-网站" class="headerlink" title="6. 网站"></a>6. 网站</h4><p>​    全称：网络中的资源站点</p>
+<p>​    作用：仓库，存储可以共享的静态资源文件和动态资源文件</p>
+<p>​    文件管理：由http服务器来调用共享资源文件</p>
+<p>​    本质：就是一个文件夹</p>
+<h4 id="7-网站分类"><a href="#7-网站分类" class="headerlink" title="7. 网站分类"></a>7. 网站分类</h4><p>​    静态资源网站（存储的都是图片，html这样的静态资源文件）</p>
+<p>​    动态资源网站（存放的是静态资源文件和动态资源文件）</p>
+<h4 id="8-如何创建一个静态资源网站"><a href="#8-如何创建一个静态资源网站" class="headerlink" title="8. 如何创建一个静态资源网站"></a>8. 如何创建一个静态资源网站</h4><p>​    Tomcat安装目录/webapps/ 创建一个文件夹，这个文件夹就是一个网站</p>
+<p>​    在网站中存入静态资源文件</p>
+<p>​    启动Tomcat</p>
+<h4 id="9-idea配置管理Tomcat"><a href="#9-idea配置管理Tomcat" class="headerlink" title="9. idea配置管理Tomcat"></a>9. idea配置管理Tomcat</h4><p>  新建空工程，run-&gt;edit configurations-&gt;+-&gt;Tomcat Server-&gt;Local-&gt;填好应填的内容-&gt;apply-&gt;ok</p>
+<h4 id="10-动态网站结构"><a href="#10-动态网站结构" class="headerlink" title="10. 动态网站结构"></a>10. 动态网站结构</h4><p>​    src存放java文件</p>
+<p>​    web静态资源文件和配置文件</p>
+<p>​    WEB-INF/web.xml</p>
+<h4 id="11-指定Tomcat管理的网站"><a href="#11-指定Tomcat管理的网站" class="headerlink" title="11. 指定Tomcat管理的网站"></a>11. 指定Tomcat管理的网站</h4><p>  run-&gt;edit configuration-&gt;Tomcat管理通道-&gt;deployment-&gt;+</p>
+<h4 id="12-servlet规范"><a href="#12-servlet规范" class="headerlink" title="12. servlet规范"></a>12. servlet规范</h4><p>​    <strong>JAVA SE</strong> ： JAVA开发的基本规范</p>
+<p>​    <strong>JAVA EE</strong> ：JAVA企业级开发规范，指定了JVM与13类系统之间的交流规则，因此java ee有13种规范，其中我们学过的JDBC就是其中一种，用于设置JVM与所有的关系型数据库管理系统之间的交流规则</p>
+<p>​    <strong>Servlet规范：</strong></p>
+<p>​        Servlet是JAVA EE 规范中的一种</p>
+<p>​        Servlet规范中设置JVM 与http服务器之间的交流规则</p>
+<p>​    <strong>交流规则：</strong></p>
+<p>​        定义何种java类可以作为动态资源文件</p>
+<p>​        http服务器应该如何管理动态资源文件</p>
+<h4 id="13-何种java类可以被Tomcat调用作为网站的动态共享资源文件"><a href="#13-何种java类可以被Tomcat调用作为网站的动态共享资源文件" class="headerlink" title="13. 何种java类可以被Tomcat调用作为网站的动态共享资源文件"></a>13. 何种java类可以被Tomcat调用作为网站的动态共享资源文件</h4><p>​    servlet规范中认为，只有servlet接口实现类有资格作为网站的动态共享资源文件</p>
+<p>​    servlet接口实现类必须由开发人员负责创建</p>
+<h4 id="14-如何创建Servlet接口实现类"><a href="#14-如何创建Servlet接口实现类" class="headerlink" title="14. 如何创建Servlet接口实现类"></a>14. 如何创建Servlet接口实现类</h4><p>​    创建一个实现类，需要继承于httpServlet</p>
+<p>​    httpServlet存在于Tomcat中lib/Servlet-api.jar;  完整路径： javax.servlet.http.HttpServlet</p>
+<p>​    根据来访的浏览器来重写doGet 和doPost方法</p>
+<p>​    在WEB-INF/lib中web.xml注册Servlet接口实现类，通知在Tomcat当前网站存在一个动态资源文件</p>
+<h4 id="15-Tomcat调用Servlet接口实现类流程"><a href="#15-Tomcat调用Servlet接口实现类流程" class="headerlink" title="15. Tomcat调用Servlet接口实现类流程"></a>15. Tomcat调用Servlet接口实现类流程</h4><p>​    浏览器向服务端发送一次请求 http://localhost:555/myWeb/first</p>
+<p>​    Tomcat接收到这个请求，首先将请求资源文件作为动态资源文件。到web.xml进行文件定位，如果有就调用如果没有找到对应的动态资源文件，则认定为静态资源文件，从web下进行定位，如果有就返回，如果还没有就返回404状态码</p>
+<p>​    Tomcat到web.xml中根据<url-pattern>进行定位<servlet>标签</servlet></url-pattern></p>
+<p>​    <servlet-name>定位<servlet-class>找到本次请求</servlet-class></servlet-name></p>
+<p>​    Tomcat根据浏览器采用的请求方式，调用Servlet的doGet或者doPost方法</p>
+<p>​    在doGet/doPost方法调用完毕之后，Tomcat负责将响应包推送给浏览器</p>
+<h4 id="16-Servlet请求路径写法规则：4种"><a href="#16-Servlet请求路径写法规则：4种" class="headerlink" title="16. Servlet请求路径写法规则：4种"></a>16. Servlet请求路径写法规则：4种</h4><p>1.具体请求路径：如果浏览器请求的资源文件地址与当前Servlet的<url-pattern>完全一致，Tomcat才会调用当前Servlet。例如OneServlet中<url-pattern>on.do</url-pattern>当我们访问http://localhost:8080/myWeb/on.do时，就能够判断出Tomcat调用OneServlet。【注意：】具体请求路径必须以“/”开头，这是Tomcat惯用截取方式</url-pattern></p>
+<p>2.前置条件请求路径:如果浏览器请求的资源文件地址以Servlet中<url-pattern>的内容为开头的，Tomcat才会调用当前Servlet。例如：Servlet中<url-pattern>/abc/*</url-pattern>代表以abc开头的都会调用这个Servlet</url-pattern></p>
+<p>3.后置条件请求路径：如果浏览器请求的资源文件地址以Servlet中<url-pattern>的内容为结尾的，Tomcat才会调用当前Servlet。与上类似。注意后置时不能以“/”开头，以*开头</url-pattern></p>
+<p>4.通配符请求路径：当前Servlet可以接受对当前网站所有的请求例如：Servlet中<url-pattern>/*</url-pattern></p>
+<h4 id="17-请求路径优先级"><a href="#17-请求路径优先级" class="headerlink" title="17.请求路径优先级"></a>17.请求路径优先级</h4><p>具体请求路径&gt;前置请求路径&gt;通配符请求路径&gt;后置请求路径</p>
+<h4 id="18-Servlet实例对象生命周期"><a href="#18-Servlet实例对象生命周期" class="headerlink" title="18.Servlet实例对象生命周期"></a>18.Servlet实例对象生命周期</h4><p>1.项目中，所有的Servlet实例对象都是Tomcat负责创建的，开发人员没有权利创建Servlet实例对象</p>
+<p>2.默认情况下，当第一个用户来访问Servlet时，Tomcat会创建一个实例对象</p>
+<p>3.要求Tomcat启动时，会创建Servlet实例对象</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;servlet&gt;</span><br><span class="line">    &lt;servlet-name&gt;OneServlet&lt;/servlet-name&gt;</span><br><span class="line">    &lt;servlet-<span class="class"><span class="keyword">class</span>&gt;<span class="title">com</span>.<span class="title">bjpowernode</span>.<span class="title">controller</span>.<span class="title">OneServlet</span>&lt;/<span class="title">servlet</span>-<span class="title">class</span>&gt;</span></span><br><span class="line"><span class="class">    &lt;<span class="title">load</span>-<span class="title">on</span>-<span class="title">startup</span>&gt;890&lt;/<span class="title">load</span>-<span class="title">on</span>-<span class="title">startup</span>&gt;</span></span><br><span class="line"><span class="class">&lt;/<span class="title">servlet</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>4.在Tomcat运行期间一个Servlet只能被创建一个实例对象</p>
+<p>5.在Tomcat关闭时，由Tomcat负责销毁所有的Servlet实例对象</p>
+<h4 id="19-servlet开发时需要用到五种工具对象"><a href="#19-servlet开发时需要用到五种工具对象" class="headerlink" title="19.servlet开发时需要用到五种工具对象"></a>19.servlet开发时需要用到五种工具对象</h4><p>1.HttpServletResponse接口：负责将运行结果写入响应包</p>
+<p>2.HttpServletRequest接口：负责读取请求协议包信息</p>
+<p>3.ServletContext接口：可以为当前网站中的所有Servlet提供共享数据</p>
+<p>4.Cookie接口：在一次会话过程中，存储浏览器在服务端产生的私人数据</p>
+<p>5.Session接口：在一次会话过程中，存储浏览器在服务端产生的私人数据</p>
+<h4 id="20-HttpServletResponse接口"><a href="#20-HttpServletResponse接口" class="headerlink" title="20.HttpServletResponse接口"></a>20.HttpServletResponse接口</h4><p>一个来自于Servlet规范的接口：由Tomcat负责创建这个接口的实现类</p>
+<p>负责在Servlet运行完毕后将相关数据写入响应头和响应体中</p>
+<p>开发人员习惯于将将HttpServletResponse接口修饰的对象称为响应对象</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OneServlet</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest request,HttpServletResponse response)</span><span class="keyword">throws</span> ServletException, IOException</span>&#123;</span><br><span class="line">        <span class="comment">//int num=50;</span></span><br><span class="line">        String s=<span class="string">"welcom Servlet"</span>;</span><br><span class="line">        response.setCharacterEncoding(<span class="string">"GBK"</span>);<span class="comment">//设置响应头中字符集，否则默认ISO-8859-1</span></span><br><span class="line">        response.setContentType(<span class="string">"text/html"</span>);<span class="comment">//这样才能识别html标签</span></span><br><span class="line">        PrintWriter out= response.getWriter();</span><br><span class="line">        <span class="comment">//out.print(num);</span></span><br><span class="line">        out.write(s);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>response.setCharacterEncoding与response.setContentType</p>
+<p>相同点：都可以设置响应头字符集</p>
+<p>不同点：response.setContenType（）还可以设置内容类型</p>
+<h4 id="21-HttpServletRequest接口"><a href="#21-HttpServletRequest接口" class="headerlink" title="21.HttpServletRequest接口"></a>21.HttpServletRequest接口</h4><p>一个来自于Servlet规范的接口：由Tomcat负责创建这个接口的实现类</p>
+<p>由HttpServletRequest接口修饰对象，可以帮助我们读取请求协议包中的信息，相当于Scanner</p>
+<p>开发人员习惯于将将HttpServletRequest接口修饰的对象称为请求对象</p>
+<p>作用：</p>
+<p>1.读取请求行中的相关信息String url=request.getRequestRUL,  String method=request.getMethod();</p>
+<p>2.读取请求头或者请求体中所有的参数名称Enumeration paramNames[]=request.getParameterNames();</p>
+<p>3.读取请求头和请求体中的参数内容 String values=request.getParameter(“请求参数名”);  String array[]=request.getParameterValues(“请求参数名”)（一个参数带多个值）</p>
+<h4 id="请求对象与响应对象的生命周期"><a href="#请求对象与响应对象的生命周期" class="headerlink" title="请求对象与响应对象的生命周期"></a>请求对象与响应对象的生命周期</h4><p>都是Tomcat负责创建的，每当Tomcat收到一个请求协议包时，它就会为这个请求协议包创建一对请求对象和响应对象，<strong>一次请求对应一对请求对象和响应对象</strong>。在Tomcat调用被请求的Servlet服务方法（doGet/doPost）时，负责将本次请求对象和响应对象作为参数传入服务方法中，在服务方法工作完毕后，Tomcat会销毁本次request和response对象，并且负责将响应包推送到浏览器</p>
+<h4 id="中文请求参数乱码问题"><a href="#中文请求参数乱码问题" class="headerlink" title="中文请求参数乱码问题"></a>中文请求参数乱码问题</h4><p>原因：跟浏览器请求方式有关系，get方式发送请求，请求参数在请求头中存放。post方式发送请求，请求参数在请求体中存放，在请求协议包到达服务端时，由Tomcat负责解析。Tomcat9.0解析时默认采用字符集utf-8，所以get请求方式一般不发生乱码，而请求体中由对应请求对象负责解码，一般默认为ISO-8859-1，所以post就会出现中文乱码问题。所以解决方案：在Request请求对象 解析数据之前要重新<strong>设置request对象字符集为utf-8</strong>即可。</p>
+<p>request.setCharacterEncoding(“utf-8”);</p>
+<h4 id="22-ServletContext接口"><a href="#22-ServletContext接口" class="headerlink" title="22.ServletContext接口"></a>22.ServletContext接口</h4><p>一个来自于Servlet规范的接口：由Tomcat负责创建这个接口的实现类</p>
+<p>负责为当前工程的所有servlet提供共享数据，相当于所有<strong>Servlet的共享大仓库</strong></p>
+<p>开发人员习惯于将将ServletContext接口修饰的对象称为全局作用域对象</p>
+<p>全局作用域对象的生命周期：Tomcat启动时，由Tomcat创建，一个网站只能有一个全局作用域对象。网站关闭时由Tomcat负责销毁当前网站的全局作用域对象</p>
+<p>使用：向Tomcat讨要，ServletContext application=request.getServletContext();</p>
+<p>共享数据来源方式1：在网站启动之前，开发人员可以将网站中绝大多数Servlet使用的数据添加到web.xml中</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;context-param&gt;</span><br><span class="line">    &lt;param-name&gt;共享数据名称&lt;/param-name&gt;</span><br><span class="line">    &lt;param-value&gt;共享数据内容&lt;/param-value&gt;</span><br><span class="line">&lt;/context-param&gt;</span><br></pre></td></tr></table></figure>
+
+<p>在网站启动时，Tomcat为网站创建一个全局作用域对象，然后Tomcat将web.xml配置共享数据添加到全局作用域对象。在网站运行时，当某一个Servlet要使用共享数据时，可以从全局作用域对象索要数据</p>
+<p>共享数据内容=application.getInitParameter(“共享数据名称”)</p>
+<p>共享数据来源方式2：在Tomcat运行期间，可以将某一个Servlet提供的数据保存到全局作用域对象中，供当前网站其他Servlet使用</p>
+<p>AServlet:提供共享数据        application.setAttribute(“共享数据名”,共享数据); object</p>
+<p>BServlet:使用数据                共享数据=application.getAttribute(“共享数据”)</p>
+<h4 id="会话"><a href="#会话" class="headerlink" title="会话"></a>会话</h4><p>一个浏览器和一个服务端的一次完整交流就是一次会话，在一次会话过程中可能要经历多次的请求与响应。</p>
+<p>需求：在一次会话过程中，同一个浏览器往往要访问多个Servlet。在一次会话过程中在浏览器要访问的Servlet之间进行数据共享</p>
+<p>解决方案：Cookie 和HttpSession</p>
+<h4 id="Cookie："><a href="#Cookie：" class="headerlink" title="Cookie："></a>Cookie：</h4><p>Cookie是Servlet提供的一个工具类，在参与一个会话过程的Servlet之间进行数据共享，Cookie存储在浏览器上，保存本次会话的共享数据</p>
+<p>工作原理：在浏览器访问OneServlet的时候，OneServlet负责将当前的私人数据保存到Cookie，然后OneServlet负责将Cookie推送到浏览器，当浏览器再次访问TwoServlet时需要无条件的将服务端之前推送过来的Cookie再推送回去，这样TwoServlet就得到了OneServlet的共享数据</p>
+<p>Cookie的使用：</p>
+<p>创建一个Cookie对象来保存共享数据      Cookie c1=new Cookie(“key”,”共享数据”); </p>
+<p>将Cookie写入响应包的响应头     response.addCookie(c1);</p>
+<p>从请求协议包的请求头读取浏览器返回的Cookie     Cookie Array[]=request.getCookies();</p>
+<p>备注：一个Cookie只能有一个键值对，Cookie对象只能String类型的共享数据</p>
+<p>Cookie的生命周期：</p>
+<p>默认情况下，Cookie保存在浏览器的内存中，在关闭浏览器时，Cookie就会被windows销毁了</p>
+<p>要求将Cookie保存在客户端浏览器的硬盘上，同时制定Cookie在硬盘上的存活时间。在存活时间范围内，关闭浏览器关闭计算机都不会干扰到</p>
+<h4 id="Http’Session接口"><a href="#Http’Session接口" class="headerlink" title="Http’Session接口"></a>Http’Session接口</h4><p>一个来自于Servlet规范的接口：由Tomcat负责创建这个接口的实现类</p>
+<p>为参与同一个会话的Servlet提供共享数据</p>
+<p> 习惯于将HttpSession接口修饰的对象称为会话作用域对象，也可以叫做Session对象</p>
+<h4 id="HttpSession与Cookie区别："><a href="#HttpSession与Cookie区别：" class="headerlink" title="HttpSession与Cookie区别："></a>HttpSession与Cookie区别：</h4><p>Cookie存储在浏览器的内存或者硬盘上，而HttpSession存储在服务端计算机内存上。Cookie只能存储String类型的数据，而HttpSession可以存储任意类型的数据。一个Cookie只能存储一个键值对，而一个HttpSession对象可以存储任意个数的键值对</p>
+<p>在浏览器来访时，Tomcat不会主动为当前浏览器创建对应的HttpSession对象。只有浏览器访问的Servlet向Tomcat提出请求时，Tomcat才会为浏览器创建一个HttpSession对象</p>
+<p>如何在Servlet中要求Tomcat创建一个HttpSession对象：</p>
+<p>HttpSession session=request.getSession();</p>
+<p>HttpSession session=request.getSession(true);</p>
+<p>如果浏览器在服务端已经有了一个Session对象时Tomcat需要将这个Session对象进行返回</p>
+<p>如果浏览器在服务端没有Session对象时，Tomcat需要创建一个全新的Session对象进行返回</p>
+<p>HttpSession session=request.getSession(false);</p>
+<p>如果浏览器在服务端已经有了一个Session对象时Tomcat需要将这个Session对象进行返回</p>
+<p>如果浏览器在服务端没有Session对象时，Tomcat返回null</p>
+<p>如果来访的身份已经确认合法就可以用前两种，如果来访的身份尚未确认，就用最后一种</p>
+<p><strong>Tomcat如何将浏览器与Session对象关联起来呢</strong></p>
+<p>在Tomcat创建一个Session对象时，会对这个Session对象生成唯一编号，保存在Cookie中打回内存。等到浏览器再次访问时，Tomcat就可以通过Cookie判断服务端中是否有Session对象</p>
+<p><strong>如何使用HttpSession对象</strong></p>
+<p>在本次会话中AServlet要为其他Servlet提供共享数据   session.setAttribute(“key”,共享数据)</p>
+<p>在本次会话中BServlet需要得到当前浏览器的Session对象   session.getAttribute(“key”)</p>
+<h3 id="Servlet开发中涉及到的两个常用的知识："><a href="#Servlet开发中涉及到的两个常用的知识：" class="headerlink" title="Servlet开发中涉及到的两个常用的知识："></a>Servlet开发中涉及到的两个常用的知识：</h3><p><strong>1.http状态码：</strong></p>
+<p>介绍：Http状态码是由一个三位的数字组成的符号，是由Tomcat负责创建生成的，是由Tomcat写入响应包的状态行的。Http状态码通知浏览器在接收到响应包之后的行为。Http通知浏览器服务端无法提供本次服务的原因</p>
+<p>分类：1xx:通知浏览器本次返回的资源文件并不完整，需要浏览器继续向服务端发送申请</p>
+<p>​            2xx:通知浏览器，将一个完整的文件推送给浏览器</p>
+<p>​            3xx:服务器推送给浏览器的是一个网址，要求浏览器在接受到这个网址后，立刻自动向这个网站发送请求</p>
+<p>​                                                                response.sendRedirect(“地址”);</p>
+<p>​            4xx:通知浏览器服务端本次未能提供服务的原因是由于服务端没有对应资源</p>
+<p>​                    404：服务端没有对应的资源文件</p>
+<p>​                    405：有本次请求对应的Servlet，但是这个Servlet不负责当前浏览器的请求.例如浏览器使用</p>
+<p>​                                get方式发送请求，但是Servlet没有重写doGet方法</p>
+<p>​            5xx:通知浏览器，服务端本次未能提供服务的原因是被调用Servlet在运行时抛出了异常</p>
+<p><strong>2.默认资源欢迎文件</strong></p>
+<p>第一种方式：手动在web.xml中配置</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;welcom-file-list&gt;</span><br><span class="line">&lt;welcom-file&gt;one.html&lt;/welcome-file&gt;</span><br><span class="line">&lt;/welcom-file-list&gt;</span><br></pre></td></tr></table></figure>
+
+<p>第二种方式，由Tomcat自行决定</p>
+<p>如果Tomcat在当前网站没有找到<welcome-file-list>标签，那么Tomcat会回到自己的config文件夹下寻找web.xml文件，在这个x ml文件下寻找<welcome-file-list>来寻找默认资源欢迎文件地址</welcome-file-list></welcome-file-list></p>
+<p>默认资源欢迎文件分类 ：</p>
+<p>首选html或者Jsp，也可以是一个Servlet文件，但是这个Servlet应该是一个查询Servlet并且在运行时不需要得到浏览器发送的请求参数</p>
+<p><strong>3.多个servlet来处理 同一次请求方案</strong></p>
+<p>一个servlet只负责一个功能，浏览器一次请求只能请求一个资源文件，如果浏览器的请求需要由多个Servlet来协同完成，需要用户多次手动提交来完成任务，这样降低了服务质量</p>
+<p>方案分类：1.请求重定向 2.请求转发方案</p>
+<p>重定向方案：第一个Servlet工作完毕之后将第二个Servlet地址推送给浏览器，由用户浏览器根据这个地址来自动向第二个Servlet发送请求</p>
+<p>重定向方案涉及命令：response.sendRedirect(第二个Servlet地址)；将一个地址写入响应头的location,浏览器接受响应包之后，自动根据location地址发送第二次请求，避免多次手动发送请求</p>
+<p>重定向方案特征：</p>
+<p>​    发生位置：在客户端的浏览器上</p>
+<p>​    浏览器发送的请求次数：多次</p>
+<p>​    地址栏中的内容是否会发生变化：会发生变化，内容时浏览器第二次需要访问的资源地址</p>
+<p>​    重定向时浏览器采用的请求方式：只能是get，因为是用的location方式</p>
+<p>​    重定向时我们要访问的资源文件范围:可以是同一个网站的也可以是其他网站的</p>
+<p>重定向方案适用的场景：</p>
+<p>​    添加功能Servlet            调用查询功能Servlet</p>
+<p>​    查询功能Servlet            调用查询功能Servlet</p>
+<p>​    更新功能Servlet            调用查询功能Servlet</p>
+<p>servlet请求转发</p>
+<p>在第一个Servlet工作完毕之后代替当前浏览器向Tomcat申请调用第二个Servlet。Tomcat在接收到申请后调用第二个Servlet来完成剩余任务</p>
+<p>请求转发涉及的命令：</p>
+<p>1.创建一个资源申请报告对象    RequestDispatcher report = request.getRequestDispatcher(“第二个Servlet地址”)；</p>
+<p>2.将申请报告推送给Tomcat，同时将OneServlet拥有的Request和Response对象一并交给Tomcat   report.forward(request, response )</p>
+<p>3.Tomcat在接受报告后就会调用TwoServlet去完成剩余命令</p>
+<p>请求转发特征</p>
+<p>​    1.发生的位置    发生在服务端</p>
+<p>​    2.浏览器发送的请求次数：一次</p>
+<p>​    3.地址栏中的内容是否会发生变化：不会发生变化，因为请求转发发生在服务端与浏览器无关</p>
+<p>​    4.要访问的资源文件范围:只可以是同一个网站的资源</p>
+<p>​    5.请求转发时浏览器采用的请求方式：与第一次浏览器发送的请求方式保持一致</p>
+<p>​    6.参与同一次请求转发的所有Servlet之间如何进行数据共享：</p>
+<p>​        可以使用全局作用域对象提供共享数据，还可以使用会话作用域对象提供共享数据，也可以使用请求作用域对象提供共享数据</p>
+<p>请求转发不适合的场景：</p>
+<p>​    添加功能Servlet            调用查询功能Servlet</p>
+<p>​    删除功能Servlet            调用查询功能Servlet</p>
+<p>​    更新功能Servlet            调用查询功能Servlet</p>
+<p>请求转发适合的场景：</p>
+<p>​    查询Servlet调用jsp</p>
 
       
 
@@ -499,6 +569,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2020/03/26/java-web%E5%85%A5%E9%97%A8/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          java web入门
+        
+      </div>
+    </a>
   
   
     <a href="/2020/03/22/%E5%85%AD%E6%AD%A5%E8%A7%A3%E5%86%B3JDBC/" id="article-nav-older" class="article-nav-link-wrap">
@@ -632,11 +711,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">servlet</a>
+                <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">web</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -652,11 +731,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+                <a href="javascript:void(0)" class="js-tag color3">servlet</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">jdbc</a>
+                <a href="javascript:void(0)" class="js-tag color4">web</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">c语言</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -668,11 +759,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">c语言</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+                <a href="javascript:void(0)" class="js-tag color5">jdbc</a>
               </li>
              
               <li class="article-tag-list-item">
