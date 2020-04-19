@@ -6,20 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>学会git玩转github | eudemonia</title>
+  <title>java集合 | eudemonia</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、了解Github1.使用github的目的：​    借助github托管项目代码 2.github相关概念​    仓库（repository）:放项目代码的地方。一个github开源项目需要一个仓库，多个项目就要多个repositories。 ​    收藏（star ）：仓库主页的收藏按钮，收藏了仓库，下一次查找就很方便了。 ​    复制克隆项目（fork）：相当于你自己有一个开源项目">
+  <meta name="description" content="对于java 中的集合，包含内容过多。我们只需要掌握最常用的几种即可。 集合分类由两种，Collection和Map。 Collection集合主要包括list集合和set集合： ​        List集合主要是ArrayList集合，存储的是有序可以重复的元素，根据哈希码存储。​        Set集合主要是HashSet集合，存储的是无序的不可重复的元素。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="学会git玩转github">
-<meta property="og:url" content="http://yoursite.com/2020/02/19/%E5%AD%A6%E4%BC%9Agit%E7%8E%A9%E8%BD%ACgithub/index.html">
+<meta property="og:title" content="java集合">
+<meta property="og:url" content="http://yoursite.com/2020/04/18/java%E9%9B%86%E5%90%88/index.html">
 <meta property="og:site_name" content="eudemonia">
-<meta property="og:description" content="一、了解Github1.使用github的目的：​    借助github托管项目代码 2.github相关概念​    仓库（repository）:放项目代码的地方。一个github开源项目需要一个仓库，多个项目就要多个repositories。 ​    收藏（star ）：仓库主页的收藏按钮，收藏了仓库，下一次查找就很方便了。 ​    复制克隆项目（fork）：相当于你自己有一个开源项目">
+<meta property="og:description" content="对于java 中的集合，包含内容过多。我们只需要掌握最常用的几种即可。 集合分类由两种，Collection和Map。 Collection集合主要包括list集合和set集合： ​        List集合主要是ArrayList集合，存储的是有序可以重复的元素，根据哈希码存储。​        Set集合主要是HashSet集合，存储的是无序的不可重复的元素。">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-02-19T13:51:28.000Z">
-<meta property="article:modified_time" content="2020-02-21T22:58:52.000Z">
+<meta property="article:published_time" content="2020-04-18T01:24:19.000Z">
+<meta property="article:modified_time" content="2020-04-19T02:59:31.893Z">
 <meta property="article:author" content="吴祥飞">
-<meta property="article:tag" content="git">
-<meta property="article:tag" content="github">
+<meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="eudemonia" type="application/atom+xml">
@@ -164,103 +163,78 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-学会git玩转github" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-java集合" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      学会git玩转github
+      java集合
     </h1>
   
 
         
-        <a href="/2020/02/19/%E5%AD%A6%E4%BC%9Agit%E7%8E%A9%E8%BD%ACgithub/" class="archive-article-date">
-  	<time datetime="2020-02-19T13:51:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-19</time>
+        <a href="/2020/04/18/java%E9%9B%86%E5%90%88/" class="archive-article-date">
+  	<time datetime="2020-04-18T01:24:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-18</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="一、了解Github"><a href="#一、了解Github" class="headerlink" title="一、了解Github"></a>一、了解Github</h2><h4 id="1-使用github的目的："><a href="#1-使用github的目的：" class="headerlink" title="1.使用github的目的："></a>1.使用github的目的：</h4><p>​    借助github托管项目代码</p>
-<h4 id="2-github相关概念"><a href="#2-github相关概念" class="headerlink" title="2.github相关概念"></a>2.github相关概念</h4><p>​    仓库（repository）:放项目代码的地方。一个github开源项目需要一个仓库，多个项目就要多个repositories。</p>
-<p>​    收藏（star ）：仓库主页的收藏按钮，收藏了仓库，下一次查找就很方便了。</p>
-<p>​    复制克隆项目（fork）：相当于你自己有一个开源项目。而别人看到了你的项目并且想在这个基础上做一些改进拿来自己用，这个时候就可以点击你的项目的右上角fork按钮。然后他的github主页上就多了一个项目，虽然这个项目是基于你的项目形成的，但是它只是一个分叉（fork），对它进行操作不会对你的项目产生任何影响（独立存在）。<a id="more"></a></p>
-<p>​    发起请求（pull request）：如果别人fork了你的项目做出改进之后觉得很棒，想把自己的改进合并进来，就会给你发一个pr请求，你就要重新review它的代码，测试通过之后就可以同意他的pr请求，将修改同步到原仓库。</p>
-<p>​    关注（watch）：如果你watch了某个项目，那么今后这个项目做了任何的修改你都会第一时间收到通知。</p>
-<p>​    事务卡片（issue）：别人在你项目的代码里发现了bug或者可以优化的地方，就会给你发一个issue。如果你否定了它的想法或者按照他的想法改进之后就可以把这些issues都close掉。</p>
-<p>​    github主页：左侧展示用户动态或者关注用户或者关注仓库的动态，右侧显示所有的git库。</p>
-<p>​    仓库主页：主要显示项目的信息，如项目代码，版本，收藏，关注/fork情况等。</p>
-<p>​    个人主页：个人信息，我关注的人，我关注的git库，我的开源项目，我贡献的开源项目等。</p>
-<h4 id="3-注册github账号："><a href="#3-注册github账号：" class="headerlink" title="3.注册github账号："></a>3.注册github账号：</h4><p>​    官方网站：github.com  点击sign up注册，输入自己的身份信息，通过邮箱接受的验证码来完成注册。</p>
-<p>​    github是国外服务器，访问较慢或者无法访问。可利用梯子（ Shadowsocks）。</p>
-<p>​    私有仓库只有自己或者指定朋友才能操作（私有仓库是收费的）。</p>
-<h4 id="4-创建仓库-创建新项目"><a href="#4-创建仓库-创建新项目" class="headerlink" title="4.创建仓库/创建新项目"></a>4.创建仓库/创建新项目</h4><p>​    一个git库（仓库）对应一个开源项目，通过git管理git库</p>
-<p>​    点击new repository创建仓库。</p>
-<h4 id="5-github-issues"><a href="#5-github-issues" class="headerlink" title="5.github issues"></a>5.github issues</h4><p>​    new issues 之后添加对于这个issue的描述，使用markdown书写。</p>
-<h2 id="二、git的安装和使用"><a href="#二、git的安装和使用" class="headerlink" title="二、git的安装和使用"></a>二、git的安装和使用</h2><h4 id="1-安装git"><a href="#1-安装git" class="headerlink" title="1.安装git"></a>1.安装git</h4><p>1.git官网下载 <a href="https://www.git-scm.com/download/win" target="_blank" rel="noopener">https://www.git-scm.com/download/win</a></p>
-<p>2.选择安装目录点击安装</p>
-<p>3.检验是否安装成功：桌面鼠标右键能看到多了两个git功能则安装成功</p>
-<h4 id="2-git工作区域"><a href="#2-git工作区域" class="headerlink" title="2.git工作区域"></a>2.git工作区域</h4><ol>
-<li>git repository：最终确定的文件保存到仓库</li>
-<li>暂存区：暂存已经修改好的文件最后统一提交到git仓库中</li>
-<li>working directory：添加，编辑，修改文件等动作</li>
-</ol>
-<p>git add filename.php 将其从工作区提交到暂存区， git commit -m “提交描述” 将其提交到Git仓库。</p>
-<h4 id="3-git初始化及仓库创建和操作"><a href="#3-git初始化及仓库创建和操作" class="headerlink" title="3.git初始化及仓库创建和操作"></a>3.git初始化及仓库创建和操作</h4><p>git基础设置</p>
-<ol>
-<li>设置用户名： git config –global user.name ”username“</li>
-<li>设置用户名邮箱： git config –global user.email “youremail.com”</li>
-<li>查看设置： git config-list</li>
-</ol>
-<p>初始化一个新的GitHub仓库</p>
-<ol>
-<li><p>创建文件夹 mkdir test</p>
-</li>
-<li><p>在文件内初始化git（创建git仓库）</p>
-<p>​    cd test</p>
-<p>​    git init</p>
-<p>初始化之后会生成一个.git文件，如果看不见就设置电脑显示隐藏文件</p>
-</li>
-<li><p>向仓库中添加文件（如前面所说的三个步骤）</p>
-<p>touch a1.php</p>
-<p>git status 可以查看当前状态</p>
-<p>git add a1.php 添加到暂存区</p>
-</li>
-<li><p>修改仓库文件</p>
-<p>vi a1.php 可以利用vim编辑器进行编辑，当然也可以直接在文件夹里面利用编辑器修改。然后 cat a1.php可以查看这个文件的内容(注意要添加到暂存区)</p>
-</li>
-<li><p>删除仓库文件</p>
-<p>​     rm -rf a1.php</p>
-<p>​     git rm a1.php</p>
-<pre><code>git commit -m “第一次通过git 删除文件”</code></pre><p>删除本地文件，删除暂存区文件，将删除提交到仓库</p>
-</li>
-</ol>
-<h4 id="用git管理远程仓库"><a href="#用git管理远程仓库" class="headerlink" title="用git管理远程仓库"></a>用git管理远程仓库</h4><p>​    远程仓库的目的：备份，实现代码共享集中化管理</p>
-<p>​    一共要三步，工作区-&gt;暂存区-&gt;本地git仓库-&gt;远程仓库</p>
-<h4 id="git克隆操作"><a href="#git克隆操作" class="headerlink" title="git克隆操作"></a>git克隆操作</h4><p>​    目的：将远程仓库（GitHub对应的项目）复制到本地</p>
-<p>​    代码：git clone 仓库地址（可在clone or download里面找）</p>
-<h4 id="将本地仓库同步到git远程仓库"><a href="#将本地仓库同步到git远程仓库" class="headerlink" title="将本地仓库同步到git远程仓库"></a>将本地仓库同步到git远程仓库</h4><p>​    git push（同样的三个步骤）</p>
-<h4 id="githubpages-搭建网站"><a href="#githubpages-搭建网站" class="headerlink" title="githubpages 搭建网站"></a>githubpages 搭建网站</h4><p>​    个人站点：</p>
-<p>​    https://用户名.github.io</p>
-<pre><code>搭建步骤：</code></pre><ol>
-<li><p>创建个人站点-&gt;新建仓库（注：仓库名必须是：  用户名.github.io）</p>
-</li>
-<li><p>在仓库下新建index.html的文件即可</p>
-<p>注意： GitHub pages 仅支持静态网页</p>
-<p>​            仓库里面是.html文件</p>
-<h4 id="project-pages-项目站点"><a href="#project-pages-项目站点" class="headerlink" title="project pages 项目站点"></a>project pages 项目站点</h4><p>搭建步骤：</p>
-<ol>
-<li>进入项目主页，点击settings</li>
-<li>在settings页面，点击launch automatic page generator来自动生成主题页面</li>
-<li>新建站点基础信息设置</li>
-<li>选择主题</li>
-<li>生成网页</li>
-</ol>
-</li>
-</ol>
+        <p>对于java 中的集合，包含内容过多。我们只需要掌握最常用的几种即可。</p>
+<p><strong>集合分类由两种，Collection和Map。</strong></p>
+<p><strong>Collection集合主要包括list集合和set集合：</strong></p>
+<p>​        List集合主要是ArrayList集合，存储的是有序可以重复的元素，根据哈希码存储。<br>​        Set集合主要是HashSet集合，存储的是无序的不可重复的元素。</p>
+<a id="more"></a>
+
+<p><strong>collection接口的方法有</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">add</span><span class="params">(E e)</span></span>&#123;&#125;;<span class="comment">//添加进入集合</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">addAll</span><span class="params">(Collection&lt;? extends E&gt; c)</span></span>&#123;&#125;;<span class="comment">//把一个集合添加进入另一个集合</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">clear</span><span class="params">()</span></span>&#123;&#125;;<span class="comment">//移除集合的所有元素</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">contains</span><span class="params">(Object b)</span></span>&#123;&#125;;<span class="comment">//是否包含指定元素</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">containsAll</span><span class="params">(Collection&lt;? &gt; c)</span></span>&#123;&#125;;<span class="comment">//是否包含整个集合</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object o)</span></span>&#123;&#125;;<span class="comment">//比较此集合是否与指定对象相等</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span></span>&#123;&#125;;<span class="comment">//返回此集合的哈希码值</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">()</span></span>&#123;&#125;;<span class="comment">////此集合是否为空</span></span><br><span class="line"><span class="function">Iterator <span class="title">iterator</span><span class="params">()</span></span>&#123;&#125;;<span class="comment">//返回在此集合元素上进行迭代的迭代器</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">remove</span><span class="params">(Object o)</span></span>&#123;&#125;;<span class="comment">//移除该集合上的指定元素</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">removeAll</span><span class="params">(Collection&lt;? &gt; c)</span></span>&#123;&#125;;<span class="comment">//移除所有交集元素</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">retainAll</span><span class="params">(Collection&lt;? &gt; c)</span></span>&#123;&#125;;<span class="comment">//保存所有的交集元素</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">size</span><span class="params">()</span></span>&#123;&#125;;<span class="comment">//返回元素的个数</span></span><br><span class="line">Object[] toArray();<span class="comment">//转换为数组</span></span><br><span class="line">&lt;T&gt; T[] toArray(T[] a)&#123;&#125;;<span class="comment">//转换为数组，且返回的类型与指定类型相同</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>对于List的三种主要实现类：</strong></p>
+<p>​        ArrayList :这是一个主要实现类，底层由数组实现，线程不安全<br>​        LinkedList ,数据链存储的，对于频繁的新增，删除集合中的元素效率很高<br>​        Vector,古老的，线程安全</p>
+<p><strong>arrayList的方法：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> index, Object element)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">addAll</span><span class="params">(<span class="keyword">int</span> index, Collection elements)</span></span>;</span><br><span class="line"><span class="function">Object <span class="title">get</span><span class="params">(<span class="keyword">int</span> index)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">indexOf</span><span class="params">(Object obj)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">lastIndexOf</span><span class="params">(Object obj)</span></span>;</span><br><span class="line"><span class="function">Object <span class="title">remove</span><span class="params">(<span class="keyword">int</span> index)</span></span>;</span><br><span class="line"><span class="function">Object <span class="title">set</span><span class="params">(<span class="keyword">int</span> index, Object element)</span></span>;</span><br><span class="line"><span class="function">List <span class="title">subList</span><span class="params">(<span class="keyword">int</span> fromIndex, <span class="keyword">int</span> toIndex)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p><strong>LinkedList方法：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">addFirst</span><span class="params">(Object obj)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">addLast</span><span class="params">(Object obj)</span></span>;</span><br><span class="line"><span class="function">Object <span class="title">getFirst</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function">Object <span class="title">getLast</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function">Object <span class="title">removeFirst</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function">Object <span class="title">removeLast</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Vector方法：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">addElement</span><span class="params">(Object obj)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insertElementAt</span><span class="params">(Object obj,<span class="keyword">int</span> index)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setElementAt</span><span class="params">(Object obj,<span class="keyword">int</span> index)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">removeElement</span><span class="params">(Object obj)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">removeAllElements</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p><strong>set</strong></p>
+<p>​    ①没有额外提供的方法，全是collection的方法。</p>
+<p>​    ②无序不是指显示的顺序无序，而是存放的顺序无序。</p>
+<p>​    ③当set集合新增一个值时，会判断当前的值在集合中是否存在，如果不存在则添加到集合中，如果存在则不添加已存在的对象。</p>
+<p>​    ④在使用set集合存储引用数据类型时必须把引用数据类型的equals（）和hashcode（）方法进行重写。</p>
+<p>​    ⑤在set集合中存储元素的顺序，时先计算需要存放 到集合中的对象的哈希值，然后在内存中使用哈希值定义的位置进行值的存放，如果当前计算出来的哈希值在内存中未被占用，则直接把当前对象新增到集合中，如果当前计算出来的哈希值已被占用，则比较两个对象的equals方法。如果比较的两个对象的equals方法返回true说明两个对象相同。如果为false则不同。</p>
+<p><strong>set的三种实现：</strong></p>
+<p>hashset：存储值时是无序的，因为每个对象计算出来的哈希值不相同，通过哈希值指定当前的对象存放的位置。</p>
+<p>linkedhashset:跟linkedlist差不多</p>
+<p>treeset：存放的对象的类型必须相同，treeset中存放的对象取出来时是按照对象的大小进行了排序。在treeset集合中存放引用数据类型时，要在引用数据类型中实现Comparable接口中的compareto方法，比较两个对象属性大小，如果两个对象比较的属性相同则认为是相同对象，如果两个对象比较的属性不同，则计算它的哈希值</p>
+<p><strong>Map集合</strong>        </p>
+<p>Map集合是以“key-value”的方式存储的，是不可重复的。</p>
+<p>集合可以存储的内容有：①数组②基本数据类型③引用数据类型的对象</p>
+<p>数组的局限性：</p>
+<p>​    ①使用之前必须定义长度</p>
+<p>​    ②数组中存储的数据类型必须兼容</p>
+<p>​    ③数组长度一旦声明，不可修改。</p>
+<p>在集合中，泛型的使用的作用：规定当前的集合存放的数据类型</p>
+<p>ArrayList底层实现是使用数组来实现的</p>
+<p>map接口存储的是一串“key-value”键值对的entry。</p>
+<p>key使用set集合存放的。value值表示通过key可以查询到的值</p>
+<p><strong>Map常用方法：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//添加，删除操作:</span></span><br><span class="line"><span class="function">Object <span class="title">put</span><span class="params">(Object key,Object value)</span></span>;</span><br><span class="line"><span class="function">Object <span class="title">remove</span><span class="params">(Object key)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">putAll</span><span class="params">(Map t)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">clear</span><span class="params">()</span></span>;</span><br><span class="line"><span class="comment">//元视图操作</span></span><br><span class="line"><span class="function">Set <span class="title">KeySet</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function">Collection <span class="title">values</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function">Set <span class="title">entrySet</span><span class="params">()</span></span>;</span><br><span class="line"><span class="comment">//元素查询操作</span></span><br><span class="line"><span class="function">Object <span class="title">get</span><span class="params">(Object key)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">containsKey</span><span class="params">(Object key)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">containsValue</span><span class="params">(Object value)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">size</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object obj)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Map接口的常用 实现类：</strong></p>
+<p><strong>hashmap</strong>是使用频率最高的实现类。允许使用null，但是与hashset一样不保证映射顺序。hashmap判断两个key相等的标准是，两个key通过equals方法返回true，hashcode值也相等。</p>
+<p><strong>linkedhashmap</strong>是haspmap的子类，但是它可以维护map的迭代顺序，迭代顺序与k-v对的插入顺序一致</p>
+<p><strong>treemap</strong>存储key-value对时，需要根据key-value对进行排序，保证所有的key-value对处于有序状态，使用treemap定义map集合时，它的key键的数据类型必须相同。在key键上存储的引用数据类型需实现comparable接口。</p>
+<p>hashtable：古老的线程安全的。</p>
+<p>properties：使用实例如下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">test</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</span><br><span class="line">        Propertie properties=<span class="keyword">new</span> properties();</span><br><span class="line">        <span class="comment">//然后单独写一个properties文件，里面存储a=b这样的键值对即可。</span></span><br><span class="line">        properties.load(<span class="keyword">new</span> FileReader(<span class="keyword">new</span> File(<span class="string">"jdbc.properties"</span>)));</span><br><span class="line">        String a=properties.getproperty(<span class="string">"user"</span>);</span><br><span class="line">        System.out.println(a);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 
       
 
@@ -305,11 +279,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">github</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
         		</li>
       		
 		</ul>
@@ -365,7 +335,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/02/19/%E5%AD%A6%E4%BC%9Agit%E7%8E%A9%E8%BD%ACgithub/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/04/18/java%E9%9B%86%E5%90%88/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -379,18 +349,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/02/22/spring%E5%AD%A6%E4%B9%A0%E8%BF%87%E7%A8%8B/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          spring学习过程
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/02/10/%E4%B8%89%E7%A7%8D%E5%B8%B8%E8%A7%81%E7%AE%97%E6%B3%95%E8%A7%A3%E5%86%B3%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">三种常见算法解决最短路径问题</div>
+    <a href="/2020/04/16/Ajax%E3%80%81Json/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Ajax、Json</div>
       <i class="icon-circle-right"></i>
     </a>
   

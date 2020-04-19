@@ -162,6 +162,85 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-java集合" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/18/java%E9%9B%86%E5%90%88/">java集合</a>
+    </h1>
+  
+
+        
+        <a href="/2020/04/18/java%E9%9B%86%E5%90%88/" class="archive-article-date">
+  	<time datetime="2020-04-18T01:24:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>对于java 中的集合，包含内容过多。我们只需要掌握最常用的几种即可。</p>
+<p><strong>集合分类由两种，Collection和Map。</strong></p>
+<p><strong>Collection集合主要包括list集合和set集合：</strong></p>
+<p>​        List集合主要是ArrayList集合，存储的是有序可以重复的元素，根据哈希码存储。<br>​        Set集合主要是HashSet集合，存储的是无序的不可重复的元素。</p>
+        
+          <a class="article-more-a" href="/2020/04/18/java%E9%9B%86%E5%90%88/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/04/18/java%E9%9B%86%E5%90%88/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Ajax、Json" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -184,71 +263,9 @@
       
         <h3 id="Ajax和Json"><a href="#Ajax和Json" class="headerlink" title="Ajax和Json"></a>Ajax和Json</h3><h4 id="Ajax内容"><a href="#Ajax内容" class="headerlink" title="Ajax内容"></a>Ajax内容</h4><p>Ajax是一种网页开发技术，异步Javascript和XML；<br>Ajax是异步交互，局部刷新<br>Ajax能减少服务器压力<br>Ajax能提高用户体验</p>
 <p>传统交互：网页整体刷新，服务器压力大，用户体验不好<br>Ajax交互：局部刷新，服务器压力小，用户体验好</p>
-<p><strong>第一节：XMLHttpRequest对象的创建</strong></p>
-<p>所有浏览器都支持XMLHttpRequest，用于在后台与服务器交换数据，这意味着不重新加载整个网页的情况下，对网页的某部分进行更新</p>
-<p><strong>第二节XMLHttpRequest对象请求后台</strong></p>
-<p>open(method,url,async)<br>method：请求的类型Get或者Post<br>url：文件在服务器上的位置<br>async：同步（false）或异步（true）</p>
-<p>send（string）将请求发送到服务器，string：仅用于POST请求</p>
-<p>setRequestHeader(header,value)向请求添加HTTP头。header：规定头的名称，value规定头的值<br>xmlhttp.setRequestHeader(“Content-type”,”application/x-www-form-urlencoded”);   </p>
-<p>async：是否为异步，一般我们的Ajax要使用异步的方式，也就是设置async为true。这表示程序请求服务器的同时，程序可以继续执行，能提高系统的运行效率。如果为false就会导致javascript等到服务器响应就绪才会继续执行。如果服务器繁忙或者缓慢，应用程序会挂起或者停止。所以我们一般都是用true。</p>
-<p><strong>第三节：XMLHttpRequest对象响应服务器</strong></p>
-<p>onreadystatechange事件：当请求被发送到服务器时我们需要执行一些响应任务，每当readyState改变时就会触发onreadystatechange事件，readystate有0-4状态：0：请求未初始化 1：服务器已建立连接 2.请求已接受 3.请求处理中 4.请求已完成，且响应已就绪。<br>如需获得来自服务器的响应，请使用XMLHttpRequest对象的responseText或responseXML属性。<br>responseText获得字符串形式的响应数据<br>responseXML获得XML形式的响应数据</p>
-<p><strong>下面通过一个简单的例子来Ajax究竟能做什么</strong></p>
-<p>项目名HeadFirstAjaxJson</p>
-<p>建立一个jsp文件Ajax.jsp，编入代码</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">    &lt;head&gt;</span><br><span class="line">        &lt;title&gt;Ajax实例&lt;/title&gt;</span><br><span class="line">        &lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">        	<span class="function">function <span class="title">loadName</span><span class="params">()</span></span>&#123;</span><br><span class="line">                <span class="keyword">var</span> xmlHttp;</span><br><span class="line">                <span class="keyword">if</span>(window.XMLHttpRequest)&#123;<span class="comment">//固定写法</span></span><br><span class="line">                    xmlHttp=<span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    xmlHttp=<span class="keyword">new</span> ActiveXObject(<span class="string">"Microsoft.XMLHTTP"</span>);</span><br><span class="line">                &#125;<span class="comment">//观察readyState和Status的值</span></span><br><span class="line">                alert(<span class="string">"readyState状态："</span>+xmlHttp.readyState+<span class="string">";status状态"</span>+xmlHttp.status);</span><br><span class="line">                xmlHttp.onreadystatechange=function()&#123;</span><br><span class="line">                alert(<span class="string">"readyState状态："</span>+xmlHttp.readyState+<span class="string">";status状态"</span>+xmlHttp.status);</span><br><span class="line">               <span class="keyword">if</span>(xmlHttp.readyState==<span class="number">4</span>&amp;&amp;xmlHttp.status==<span class="number">200</span>)&#123;</span><br><span class="line">                   alert(xmlHttp.responseText);<span class="comment">//警告框中输出Ajax返回的文本内容</span></span><br><span class="line">                   document.getElementById(<span class="string">"name"</span>).value=xmlHttp.responseText();</span><br><span class="line">                   <span class="comment">//将Ajax返回的文本内容填入name为ID的文本value值</span></span><br><span class="line">               &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">//方式一</span></span><br><span class="line">                <span class="comment">//xmlHttp.open("get","getAjaxName?name=jack&amp;age=11",true);</span></span><br><span class="line">                <span class="comment">//xmlHttp.open("post","getAjaxName?name=jack&amp;age=11",true);</span></span><br><span class="line">                <span class="comment">//xmlHttp.send();</span></span><br><span class="line">                <span class="comment">//方式二</span></span><br><span class="line">                xmlHttp.open(<span class="string">"post"</span>,<span class="string">"getAjaxName"</span>,<span class="keyword">true</span>);</span><br><span class="line">           xmlHttp.setRequestHeader(<span class="string">"Content-type"</span>,<span class="string">"application/x-www-form-urlencoded"</span>);</span><br><span class="line">                xmlHttp.send(<span class="string">"name=jack&amp;age=11"</span>);    </span><br><span class="line">            &#125;</span><br><span class="line">        &lt;/script&gt;</span><br><span class="line">    &lt;/head&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line">        &lt;div style=<span class="string">"text-align:center;"</span>&gt;</span><br><span class="line">            &lt;div&gt;&lt;input type=<span class="string">"button"</span> value=<span class="string">"Ajax获取数据"</span> onclick=<span class="string">"loadName()"</span> /&gt;</span><br><span class="line">                &amp;nbsp&amp;nbsp&lt;input type="text" id="name" name="name"&gt;&lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-
-<p>建立一个servlet文件com.java.web.GetAjaxNameServlet.servlet</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.java.web;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServlet;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GetAjaxNameServlet</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID =<span class="number">1L</span>;</span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest request,HttpServletResponse response)</span>throw ServletException, IOException</span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.doPost(request,response);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doPost</span><span class="params">(HttpServletRequest request,HttpServletResponse response)</span>throw ServletException, IOException</span>&#123;</span><br><span class="line">        String name=request.getParameter(<span class="string">"name"</span>);<span class="comment">//接收这两个参数</span></span><br><span class="line">        String name=request.getParameter(<span class="string">"age"</span>);</span><br><span class="line">        System.out.println(<span class="string">"name="</span>+name+<span class="string">"   age="</span>+age)<span class="comment">//后台打印</span></span><br><span class="line">        response.setContentType(<span class="string">"test/html;charset=utf-8"</span>);<span class="comment">//设置字符集</span></span><br><span class="line">        PrintWriter out=response.getWriter();</span><br><span class="line">        out.println(<span class="string">"ajax返回的文本"</span>);</span><br><span class="line">        out.flush();<span class="comment">//刷新</span></span><br><span class="line">        out.close();<span class="comment">//关闭</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>web.xml中添加如下映射信息</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">servlet</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>getAjaxNameServlet<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span>com.java.web.GetAjaxNameServlet<span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>getAjaxNameServlet<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/getAjaxName<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="Json内容"><a href="#Json内容" class="headerlink" title="Json内容"></a>Json内容</h4><p><strong>第一节：Json引入：</strong></p>
-<p>JSON是一种轻量级的数据交换格式。它基于javaScript的一个子集，Json采用完全独立的文本格式，但是也使用了类似C语言家族的习惯。这些特性使JSON称为理想的数据交换语言。易于人阅读和编写，同时也易于机器解析和生成。JSON是存储和交换文本信息的语法，类似于xml，但是比xml更小更快更易解析</p>
-<p><strong>第二节：Json格式语法</strong>：</p>
-<p><strong>Json对象</strong>：{“name”:”zhangsan”,”age”:22}</p>
-<p><strong>Json数组</strong>：{</p>
-<p>“student”:[</p>
-<p>​                {“name”:”张三”,”age”:22}</p>
-<p>​                {“name”:”李四”,”age”:23}</p>
-<p>​                {“name”:”王五”,”age”:25}</p>
-<p>​        ]</p>
-<p>}</p>
-<p><strong>Json嵌套</strong>{</p>
-<p>“student”:[</p>
-<p>​                {“name”:”张三”,”age”:22,”score”:{“chinese”:90,”math”:100,”english”:80}},</p>
-<p>​                {“name”:”李四”,”age”:23,”score”:{“chinese”:70,”math”:90,”english”:90}},</p>
-<p>​                {“name”:”王五”,”age”:25,”score”:{“chinese”:80,”math”:60,”english”:90}},</p>
-<p>​        ]</p>
-<p>}</p>
-<p><strong>把Json串转换为json对象</strong></p>
-<p>var dataObj=eval(“(“+data+”)”);</p>
-<p><strong>第三节：Json第三方jar包引入</strong>：</p>
-<p>Json-lib</p>
-<p><strong>第四节：Ajax&amp;Json交互简单实例</strong>：</p>
-<p>Ajax.jsp</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">    &lt;head&gt;</span><br><span class="line">        &lt;title&gt;Ajax实例&lt;/title&gt;</span><br><span class="line">        &lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">        	<span class="function">function <span class="title">loadInfo</span><span class="params">()</span></span>&#123;</span><br><span class="line">                <span class="keyword">var</span> xmlHttp;</span><br><span class="line">                <span class="keyword">if</span>(window.XMLHttpRequest)&#123;</span><br><span class="line">                    xmlHttp=<span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    xmlHttp=<span class="keyword">new</span> ActiveXObject(<span class="string">"Microsoft.XMLHTTP"</span>);</span><br><span class="line">                &#125;;</span><br><span class="line">                xmlHttp.onreadystatechange=function()&#123;</span><br><span class="line">               <span class="keyword">if</span>(xmlHttp.readyState==<span class="number">4</span>&amp;&amp;xmlHttp.status==<span class="number">200</span>)&#123;</span><br><span class="line">                   <span class="keyword">var</span> dataObj=eval(<span class="string">"("</span>+xmlHttp.responseText()+<span class="string">")"</span>);</span><br><span class="line">                   document.getElementById(<span class="string">"name"</span>).value=dataObj.name;</span><br><span class="line">                   document.getElementById(<span class="string">"age"</span>).value=dataObj.age;</span><br><span class="line">               &#125;</span><br><span class="line">                &#125;;</span><br><span class="line">                xmlHttp.open(<span class="string">"post"</span>,<span class="string">"getAjaxInfo?action=jsonObject"</span>,<span class="keyword">true</span>);</span><br><span class="line">                xmlHttp.send();    </span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//获取表格</span></span><br><span class="line">            <span class="function">function <span class="title">loadInfo2</span><span class="params">()</span></span>&#123;</span><br><span class="line">                <span class="keyword">var</span> xmlHttp;</span><br><span class="line">                <span class="keyword">if</span>(window.XMLHttpRequest)&#123;</span><br><span class="line">                    xmlHttp=<span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    xmlHttp=<span class="keyword">new</span> ActiveXObject(<span class="string">"Microsoft.XMLHTTP"</span>);</span><br><span class="line">                &#125;;</span><br><span class="line">                xmlHttp.onreadystatechange=function()&#123;</span><br><span class="line">               <span class="keyword">if</span>(xmlHttp.readyState==<span class="number">4</span>&amp;&amp;xmlHttp.status==<span class="number">200</span>)&#123;</span><br><span class="line">                   <span class="keyword">var</span> dataObj=eval(<span class="string">"("</span>+xmlHttp.responseText()+<span class="string">")"</span>);</span><br><span class="line">                   <span class="keyword">var</span> st=document.getElementById(<span class="string">"studentTavle"</span>);</span><br><span class="line">                   <span class="keyword">var</span> newTr;</span><br><span class="line">                   <span class="keyword">var</span> newTd0;</span><br><span class="line">                   <span class="keyword">var</span> newTd1;</span><br><span class="line">                   <span class="keyword">var</span> newTd2;</span><br><span class="line">                   <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;dataObj.students.length;i++)&#123;</span><br><span class="line">                       <span class="keyword">var</span> student=dataObj.student[i];</span><br><span class="line">                       newTr=st.insertRow();</span><br><span class="line">                       newTd0=newTr.insertCell();</span><br><span class="line">                       newTd1=newTr.insertCell();</span><br><span class="line">                       newTd2=newTr.insertCell();</span><br><span class="line">                       newTd0.innerHTML=student.name;</span><br><span class="line">                       newTd1.innerHTML=student.age;</span><br><span class="line">                       newTd1.innerHTML=<span class="string">"语文："</span>+student.score.chinese<span class="string">",数学："</span>+student.score.math+<span class="string">",英语:"</span>+student.score.english;</span><br><span class="line">                   &#125;</span><br><span class="line">                   </span><br><span class="line">               &#125;</span><br><span class="line">                &#125;;</span><br><span class="line">               <span class="comment">// xmlHttp.open("post","getAjaxInfo?action=jsonArray",true);</span></span><br><span class="line">                xmlHttp.open(<span class="string">"post"</span>,<span class="string">"getAjaxInfo?action=jsonNested"</span>,<span class="keyword">true</span>);</span><br><span class="line">                xmlHttp.send();    </span><br><span class="line">            &#125;</span><br><span class="line">        &lt;/script&gt;</span><br><span class="line">    &lt;/head&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line">        &lt;div style=<span class="string">"text-align:center;"</span>&gt;</span><br><span class="line">            &lt;div&gt;&lt;input type="button" value="Ajax获取信息" onclick="loadInfo()" /&gt;&amp;nbsp&amp;nbsp姓名：&lt;input type="text" id="name" name="name"&gt; &amp;nbsp&amp;nbsp年龄：&lt;input type="text" id="age" name="age"&gt;&lt;/div&gt;</span><br><span class="line">            &lt;div&gt;</span><br><span class="line">                &lt;input type=<span class="string">"button"</span> onclick=<span class="string">"loadInfo2()"</span> value=<span class="string">"Ajax获取信息2"</span> /&gt;&lt;br/&gt;</span><br><span class="line">                &lt;table id=<span class="string">"studentTable"</span> align=<span class="string">"center"</span> border=<span class="string">"1px"</span>&gt;</span><br><span class="line">                    &lt;tr&gt;</span><br><span class="line">                    &lt;th&gt;姓名：&lt;/th&gt;&lt;th&gt;年龄：&lt;/th&gt;&lt;th&gt;得分：&lt;/th&gt;</span><br><span class="line">                    &lt;/tr&gt;</span><br><span class="line">                &lt;/table&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-
-<p>com.java.web.getAjaxInfoServlet.servlet中重写dopost方法</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.java.web;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServlet;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GetAjaxInfoServlet</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID =<span class="number">1L</span>;</span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest request,HttpServletResponse response)</span>throw ServletException, IOException</span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.doPost(request,response);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doPost</span><span class="params">(HttpServletRequest request,HttpServletResponse response)</span>throw ServletException, IOException</span>&#123;<span class="comment">//对不同方法使用同一个servlet时的处理办法：设置要给参数</span></span><br><span class="line">        response.setContentType(<span class="string">"test/html;charset=utf-8"</span>);</span><br><span class="line">      	String action=request.getParameter(<span class="string">"action"</span>);</span><br><span class="line">        <span class="keyword">if</span>(<span class="string">"jsonObject"</span>.equals(action))&#123;</span><br><span class="line">            <span class="keyword">this</span>.getJsonObject(request,response);</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(<span class="string">"jsonArray"</span>.equals(action))&#123;</span><br><span class="line">            <span class="keyword">this</span>.getJsonArray(request,response);</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(<span class="string">"jsonNested"</span>.equals(action))&#123;</span><br><span class="line">            <span class="keyword">this</span>.getJsonNested(request,response);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">     <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">getJsonObject</span><span class="params">(HttpServletRequest request,HttpServletResponse response)</span>throw ServletException, IOException</span>&#123;</span><br><span class="line">        PrintWriter out=response.getWriter();</span><br><span class="line">        JSONObject resultJson=<span class="keyword">new</span> JSONObject();</span><br><span class="line">        resultJson.put(<span class="string">"name"</span>,<span class="string">"张三"</span>);</span><br><span class="line">        reslutJson.put(<span class="string">"age"</span>,<span class="number">22</span>);</span><br><span class="line">        out.println(<span class="string">"resultJson"</span>);</span><br><span class="line">        out.flush();</span><br><span class="line">        out.close();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">getJsonArray</span><span class="params">(HttpServletRequest request,HttpServletResponse response)</span>throw ServletException, IOException</span>&#123;</span><br><span class="line">        PrintWriter out=response.getWriter();</span><br><span class="line">        JSONObject resultJson=<span class="keyword">new</span> JSONObject();</span><br><span class="line">        JOSNArray jsonArray=<span class="keyword">new</span> JSONArray();</span><br><span class="line">        JSONObject jsonObject1=<span class="keyword">new</span> JSONObject();</span><br><span class="line">        jsonObject1.put(<span class="string">"name"</span>,<span class="string">"张三"</span>);</span><br><span class="line">        jsonObject2.put(<span class="string">"age"</span>,<span class="number">22</span>);</span><br><span class="line">        JSONObject jsonObject2=<span class="keyword">new</span> JSONObject();</span><br><span class="line">        jsonObject1.put(<span class="string">"name"</span>,<span class="string">"李四"</span>);</span><br><span class="line">        jsonObject2.put(<span class="string">"age"</span>,<span class="number">23</span>);</span><br><span class="line">        JSONObject jsonObject3=<span class="keyword">new</span> JSONObject();</span><br><span class="line">        jsonObject1.put(<span class="string">"name"</span>,<span class="string">"王五"</span>);</span><br><span class="line">        jsonObject2.put(<span class="string">"age"</span>,<span class="number">25</span>);</span><br><span class="line">        jsonArray.add(jsonObject1);</span><br><span class="line">        jsonArray.add(jsonObject2);</span><br><span class="line">        jsonArray.add(jsonObject3);</span><br><span class="line">        </span><br><span class="line">        resultJson.put(<span class="string">"student"</span>,jsonArray)</span><br><span class="line">        </span><br><span class="line">        out.println(jsonArray);</span><br><span class="line">        out.flush();</span><br><span class="line">        out.close();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">getJsonNested</span><span class="params">(HttpServletRequest request,HttpServletResponse response)</span>throw ServletException, IOException</span>&#123;</span><br><span class="line">        PrintWriter out=response.getWriter();</span><br><span class="line">        JSONObject resultJson=<span class="keyword">new</span> JSONObject();</span><br><span class="line">        JOSNArray jsonArray=<span class="keyword">new</span> JSONArray();</span><br><span class="line">        JSONObject jsonObject1=<span class="keyword">new</span> JSONObject();</span><br><span class="line">        jsonObject1.put(<span class="string">"name"</span>,<span class="string">"张三"</span>);</span><br><span class="line">        jsonObject1.put(<span class="string">"age"</span>,<span class="number">22</span>);</span><br><span class="line">        JSONObject scoreObject1=<span class="keyword">new</span> JSONObject();</span><br><span class="line">        scoreObject1.put(<span class="string">"chinese"</span>,<span class="number">90</span>);</span><br><span class="line">        scoreObject1.put(<span class="string">"math"</span>,<span class="number">100</span>);</span><br><span class="line">        scoreObject1.put(<span class="string">"english"</span>,<span class="number">80</span>);</span><br><span class="line">        jsonObject1.put(<span class="string">"score"</span>,scoreObject1);</span><br><span class="line">        </span><br><span class="line">        JSONObject jsonObject2=<span class="keyword">new</span> JSONObject();</span><br><span class="line">        jsonObject2.put(<span class="string">"name"</span>,<span class="string">"李四"</span>);</span><br><span class="line">        jsonObject2.put(<span class="string">"age"</span>,<span class="number">23</span>);</span><br><span class="line">        JSONObject scoreObject1=<span class="keyword">new</span> JSONObject();</span><br><span class="line">        scoreObject2.put(<span class="string">"chinese"</span>,<span class="number">70</span>);</span><br><span class="line">        scoreObject2.put(<span class="string">"math"</span>,<span class="number">90</span>);</span><br><span class="line">        scoreObject2.put(<span class="string">"english"</span>,<span class="number">90</span>);</span><br><span class="line">        jsonObject2.put(<span class="string">"score"</span>,scoreObject1);</span><br><span class="line">        </span><br><span class="line">        JSONObject jsonObject3=<span class="keyword">new</span> JSONObject();</span><br><span class="line">        jsonObject3.put(<span class="string">"name"</span>,<span class="string">"王五"</span>);</span><br><span class="line">        jsonObject3.put(<span class="string">"age"</span>,<span class="number">25</span>);</span><br><span class="line">        JSONObject scoreObject1=<span class="keyword">new</span> JSONObject();</span><br><span class="line">        scoreObject3.put(<span class="string">"chinese"</span>,<span class="number">80</span>);</span><br><span class="line">        scoreObject3.put(<span class="string">"math"</span>,<span class="number">60</span>);</span><br><span class="line">        scoreObject3.put(<span class="string">"english"</span>,<span class="number">90</span>);</span><br><span class="line">        jsonObject3.put(<span class="string">"score"</span>,scoreObject1);</span><br><span class="line">        </span><br><span class="line">        jsonArray.add(jsonObject1);</span><br><span class="line">        jsonArray.add(jsonObject2);</span><br><span class="line">        jsonArray.add(jsonObject3);</span><br><span class="line">        </span><br><span class="line">        resultJson.put(<span class="string">"student"</span>,jsonArray)</span><br><span class="line">        </span><br><span class="line">        out.println(jsonArray);</span><br><span class="line">        out.flush();</span><br><span class="line">        out.close();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>web.xml中配置</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">servlet</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>getAjaxInfoServlet<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span>com.java.web.GetAjaxInfoServlet<span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>getAjaxInfoServlet<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/getAjaxInfo<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        
+          <a class="article-more-a" href="/2020/04/16/Ajax%E3%80%81Json/#more">more >></a>
+        
       
 
       
@@ -700,6 +717,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="MyBatis"><a href="#MyBatis" class="headerlink" title="MyBatis"></a>MyBatis</h1><p>mybatis:原名为ibatis是apache公司开发的。后来于2010年google vode收购改为了MyBatis。它可以简化JDBC操作，实现数据的持久化 。属于半ORM:Object Relational Mapping，是用来将对象和关系型数据库建立映射关系的。Mybatis是ORM的一个实现/Hibernate 也是。orm可以使得开发人员像操作对象一样操作数据库表。</p>
+<p>Mybatis相当于自己编写sql语句，消除了几乎所有的JDBC代码和参数的手工设置和对结果集的检索封装，Mybatis可以用简单的XML或者注解用于配置和原始映射，将接口和Java的POJO映射成数据库记录</p>
 <h3 id="一、开发mybatis程序的步骤"><a href="#一、开发mybatis程序的步骤" class="headerlink" title="一、开发mybatis程序的步骤"></a>一、开发mybatis程序的步骤</h3><p>1.配置mybatis：<br>        在conf.xml中配置数据库信息 和 需要加载的映射文件（一个表和一个类）<br>        在映射文件xxMapper.xml  中增加增删改查标签<select>用来映射类操作数据库<br>        语句session.selectOne(“需要查询的SQL的namespace.id”,”SQL的参数值”);</select></p>
         
           <a class="article-more-a" href="/2020/04/04/MyBatis/#more">more >></a>
@@ -806,11 +824,11 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">servlet</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">jsp</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">jsp</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">servlet</a>
         		</li>
       		
 		</ul>
@@ -910,94 +928,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/03/23/servlet%E5%AD%A6%E4%B9%A0/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-六步解决JDBC" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/22/%E5%85%AD%E6%AD%A5%E8%A7%A3%E5%86%B3JDBC/">六步解决JDBC</a>
-    </h1>
-  
-
-        
-        <a href="/2020/03/22/%E5%85%AD%E6%AD%A5%E8%A7%A3%E5%86%B3JDBC/" class="archive-article-date">
-  	<time datetime="2020-03-22T05:51:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="JDBC流程整理"><a href="#JDBC流程整理" class="headerlink" title="JDBC流程整理"></a>JDBC流程整理</h2><p>这篇博客的内容是来自动力节点杜聚宾面授课的内容，将JDBC整理为一个流程的六步，这六步必须死记硬背下来。</p>
-<h3 id="jdbc的本质："><a href="#jdbc的本质：" class="headerlink" title="jdbc的本质："></a>jdbc的本质：</h3><ol>
-<li>jdbc全称是 Java Database Connectivity 是用来将java语言编写的程序连接到数据库的一种方法。</li>
-<li>jdbc是sun公司制定的一套接口（interface），接口有调用者和实现者</li>
-<li>因为每一个数据库的底层实现原理都不一样，而为了面向jdbc程序员的方便，程序员直接调用jdbc接口，具体的实现方法交给各个数据库厂家去做</li></ol>
-        
-          <a class="article-more-a" href="/2020/03/22/%E5%85%AD%E6%AD%A5%E8%A7%A3%E5%86%B3JDBC/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">jsp</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">jdbc</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/22/%E5%85%AD%E6%AD%A5%E8%A7%A3%E5%86%B3JDBC/">展开全文 >></a>
         </p>
       
 
@@ -1156,6 +1086,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">jsp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">servlet</a>
               </li>
              
@@ -1164,7 +1098,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">jsp</a>
+                <a href="javascript:void(0)" class="js-tag color2">spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">eclipse</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">jdbc</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1185,18 +1127,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Typora</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">spring</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">eclipse</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">jdbc</a>
               </li>
              
               <li class="article-tag-list-item">
