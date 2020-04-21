@@ -6,16 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020/2 | eudemonia</title>
+  <title>svn | eudemonia</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="这个博客记录和分享自己学习过程中的收获与总结，在分享知识的同时也期待着与各路道友共同交流">
-<meta property="og:type" content="website">
-<meta property="og:title" content="eudemonia">
-<meta property="og:url" content="http://yoursite.com/archives/2020/02/index.html">
+  <meta name="description" content="svn版本控制常见有两种工具。svn&#x2F;git。两者都用的很多。 svn的工作原理是客户端-服务端，相当于在中央仓库放项目代码，然后每一个开发人员都从中央仓库拷一个副本。通过提交和更新来实现的。中央仓库存储项目的所有版本（每一次修改的版本） 1.svn常见操作：a.发布项目(share project)：  项目组长 将本机的项目 第一次发布的中央仓库b.下载项目（检出项目、check out）：组">
+<meta property="og:type" content="article">
+<meta property="og:title" content="svn">
+<meta property="og:url" content="http://yoursite.com/2020/04/21/svn/index.html">
 <meta property="og:site_name" content="eudemonia">
-<meta property="og:description" content="这个博客记录和分享自己学习过程中的收获与总结，在分享知识的同时也期待着与各路道友共同交流">
+<meta property="og:description" content="svn版本控制常见有两种工具。svn&#x2F;git。两者都用的很多。 svn的工作原理是客户端-服务端，相当于在中央仓库放项目代码，然后每一个开发人员都从中央仓库拷一个副本。通过提交和更新来实现的。中央仓库存储项目的所有版本（每一次修改的版本） 1.svn常见操作：a.发布项目(share project)：  项目组长 将本机的项目 第一次发布的中央仓库b.下载项目（检出项目、check out）：组">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-04-20T23:37:05.000Z">
+<meta property="article:modified_time" content="2020-04-21T01:13:35.009Z">
 <meta property="article:author" content="吴祥飞">
+<meta property="article:tag" content="svn">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="eudemonia" type="application/atom+xml">
@@ -160,370 +163,204 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-svn" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      svn
+    </h1>
+  
+
+        
+        <a href="/2020/04/21/svn/" class="archive-article-date">
+  	<time datetime="2020-04-20T23:37:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-21</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="svn"><a href="#svn" class="headerlink" title="svn"></a>svn</h3><p>版本控制常见有两种工具。svn/git。两者都用的很多。</p>
+<p>svn的工作原理是客户端-服务端，相当于在中央仓库放项目代码，然后每一个开发人员都从中央仓库拷一个副本。通过提交和更新来实现的。中央仓库存储项目的所有版本（每一次修改的版本）</p>
+<h4 id="1-svn常见操作："><a href="#1-svn常见操作：" class="headerlink" title="1.svn常见操作："></a>1.svn常见操作：</h4><p>a.<strong>发布项目(share project)</strong>：  项目组长 将本机的项目 第一次发布的中央仓库<br>b.<strong>下载项目（检出项目、check out）</strong>：组员  将中央仓库的项目 第一次想在到本机<br>c.<strong>提交(commit)</strong>：将本地修改的内容，同步到服务器中 （本地-&gt;服务器）-编写完某一个小功能、每天下班前提交<br>d.<strong>更新(update)</strong>：将服务器中的最新代码  同步到本地，服务器-&gt;本地<br>    编写功能之前、每天上班前更新   –编写之前先更新、写完之后立刻提交。<br>    提交、更新一定要及时，否则会出现冲突</p>
+<a id="more"></a>
+
+<h4 id="2-svn安装"><a href="#2-svn安装" class="headerlink" title="2.svn安装"></a>2.svn安装</h4><p>配置Path (bin)<br>验证：  svn –version</p>
+<p>3.将本地目录设置为 中央仓库（保存项目的 各个历史版本）<br>    svnadmin create D:\svn</p>
+<p>4.启动svn服务<br>    a.命令行方式<br>    svnserve -d -r D:\svn</p>
+<p>​    b.注册系统方式（推荐）<br>以管理员方式运行cmd<br>sc create mysvn binpath=”E:\programs\Subversion\bin\svnserve.exe –service -r D:\svn” start=auto depend=Tcpip</p>
+<p>启动：  sc start 服务名<br>关闭： sc stop 服务名<br>删除：  sc delete 服务名</p>
+<p><strong>5.访问项目：</strong><br>a.匿名访问<br>    仓库..\conf\svnserve.conf<br>开始匿名访问： 19行附近<br>anon-access = read注释打开 （注意，一定要顶格写，不要留空格）<br>anon-access = read 只读<br>anon-access = write可读可写<br>anon-access = none无权   一般都是none</p>
+<p>b.授权访问<br>svnserve.conf<br>20行附近 auth-access = write 注释打开<br>27行附近 password-db = passwd注释打开（表示 授权人的用户名密码 存放在 passwd 文件中）<br>36行附近 authz-db = authz 注释打开（表示 权限文件是 authz）</p>
+<p>svnserve.conf<br>编写用户文件：<br>在passwd文件中[users]处写一行  用户名=密码 的kv对就行了</p>
+<p>编写授权文件authz：在分组：[groups]里写入dev=zs,ls<br>权限：<br>[/]                 表示根目录的内容<br>@dev=rw    表示这个组的人可读可写<br>*=                表示所有的人</p>
+<p><strong>6.Eclipse中使用SVN</strong></p>
+<p>在eclipse中安装svn插件<br>a.离线方式    eclipse_svn_site-1.10.5.zip 解压到 eclipse\dropins<br>b.在线方式    help-&gt;Eclipse Marketplace 搜：subversion /subeclipse</p>
+<p>使用：<br>项目组长：发布项目<br>    右键要发布的项目-team- share project - svn - ….输入发布的地址  svn://ip地址 …<br>    真正的发布/提交项目      右键提交</p>
+<p>组员：检出项目（下载）<br>    file-import-搜svn</p>
+<p>​    更新：右键待更新的文件/项目： team-更新<br>​    提交：右键待提交的文件/项目： team-提交</p>
+<p>黄色圆柱：本地无未提交代码<br>*/灰色箭头： 本地有未提交的代码<br>红色叹号：冲突</p>
+<p>蓝色箭头：服务端有最新代码，本地还没有更新</p>
+<p>修改svn用户名密码：<br>删除C:\Users\YANQUN\AppData\Roaming\Subversion\auth</p>
+<p>冲突：</p>
+<p>右键项目-与资源库同步<br>选中 有红色标识的文件，右键-编辑冲突 -&gt;修改-&gt;右键-&gt;team-&gt;编辑为解决</p>
+<p>冲突：  更新时或提交时 发现冲突-&gt;右键编辑冲突-&gt; 更新提交</p>
+<p>7.恢复/查看历史版本</p>
+<p>选中需要恢复/查看的 文件- team- 如果要恢复成历史版本 （获取内容），如果此操作报错：解决方法：<br>svnserve.conf  文件中的 anon-access=none</p>
+<p>8.<br>将svn发布到外网:<br>a.   nat123等软件 将内网映射成外网<br>b.   租一台互联网服务器（新网、万网、阿里云），将项目发布到服务器中<br>c.  svn托管网站  <a href="http://www.svnchina.com/" target="_blank" rel="noopener">http://www.svnchina.com/</a></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你的鼓励<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/asset/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/asset/wechat.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/22/spring%E5%AD%A6%E4%B9%A0%E8%BF%87%E7%A8%8B/" class="archive-article-date">
-  	<time datetime="2020-02-21T23:00:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/22/spring%E5%AD%A6%E4%B9%A0%E8%BF%87%E7%A8%8B/">spring学习过程</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">spring</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">eclipse</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">svn</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/04/21/svn/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/19/%E5%AD%A6%E4%BC%9Agit%E7%8E%A9%E8%BD%ACgithub/" class="archive-article-date">
-  	<time datetime="2020-02-19T13:51:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-19</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/04/20/maven/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">maven</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/19/%E5%AD%A6%E4%BC%9Agit%E7%8E%A9%E8%BD%ACgithub/">学会git玩转github</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">github</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/10/%E4%B8%89%E7%A7%8D%E5%B8%B8%E8%A7%81%E7%AE%97%E6%B3%95%E8%A7%A3%E5%86%B3%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2020-02-10T12:43:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/10/%E4%B8%89%E7%A7%8D%E5%B8%B8%E8%A7%81%E7%AE%97%E6%B3%95%E8%A7%A3%E5%86%B3%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E9%97%AE%E9%A2%98/">三种常见算法解决最短路径问题</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">c语言</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/10/%E5%9B%BE%E7%9A%84%E4%B8%A4%E7%A7%8D%E5%B8%B8%E8%A7%81%E9%81%8D%E5%8E%86%E6%96%B9%E5%BC%8F/" class="archive-article-date">
-  	<time datetime="2020-02-10T04:49:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/10/%E5%9B%BE%E7%9A%84%E4%B8%A4%E7%A7%8D%E5%B8%B8%E8%A7%81%E9%81%8D%E5%8E%86%E6%96%B9%E5%BC%8F/">图的两种常见遍历方式</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">c语言</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/06/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2%E5%92%8C%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/" class="archive-article-date">
-  	<time datetime="2020-02-06T02:40:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/06/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2%E5%92%8C%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/">深度优先搜索和广度优先搜索</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C语言</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/04/%E6%A0%88%E3%80%81%E9%98%9F%E5%88%97%E5%92%8C%E9%93%BE%E8%A1%A8%E7%9A%84%E7%9B%B8%E5%85%B3%E7%AE%97%E6%B3%95%E7%9A%84%E5%BA%94%E7%94%A8/" class="archive-article-date">
-  	<time datetime="2020-02-04T00:28:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/04/%E6%A0%88%E3%80%81%E9%98%9F%E5%88%97%E5%92%8C%E9%93%BE%E8%A1%A8%E7%9A%84%E7%9B%B8%E5%85%B3%E7%AE%97%E6%B3%95%E7%9A%84%E5%BA%94%E7%94%A8/">栈、队列和链表的相关算法的应用</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">c语言</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/02/%E5%87%A0%E7%A7%8D%E5%B8%B8%E8%A7%81%E7%9A%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E5%AF%B9%E6%AF%94/" class="archive-article-date">
-  	<time datetime="2020-02-02T10:34:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/02/%E5%87%A0%E7%A7%8D%E5%B8%B8%E8%A7%81%E7%9A%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E5%AF%B9%E6%AF%94/">几种常见的排序算法对比</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">排序</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C语言</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/01/%E5%85%B3%E4%BA%8E%E6%AD%A4%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E9%83%A8%E7%BD%B2%E7%9A%84%E6%94%B6%E8%8E%B7/" class="archive-article-date">
-  	<time datetime="2020-02-01T02:19:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/01/%E5%85%B3%E4%BA%8E%E6%AD%A4%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E9%83%A8%E7%BD%B2%E7%9A%84%E6%94%B6%E8%8E%B7/">关于此博客搭建部署的收获</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Github</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Typora</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -546,8 +383,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
