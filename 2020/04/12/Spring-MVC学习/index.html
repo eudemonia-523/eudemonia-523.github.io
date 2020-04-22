@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Spring MVC学习 | eudemonia</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="这是颜群老师课上的笔记 首先导入springmvc的jar包：spring-aop.jar、spring-bean.jar、spring-context.jar、spring-core.jar、spring-web.jar、spring-webmvc.jar、commons-logging.jar 编写第一个SpringMVC程序：">
+  <meta name="description" content="导语：Spring MVC属于SpringFrameWork的后续产品，已经融合在Spring Web Flow里面。Spring 框架提供了构建 Web 应用程序的全功能 MVC 模块。使用 Spring 可插入的 MVC 架构，从而在使用Spring进行WEB开发时，可以选择使用Spring的Spring MVC框架或集成其他MVC开发框架，如Struts1(现在一般不用)，Struts 2(">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spring MVC学习">
 <meta property="og:url" content="http://yoursite.com/2020/04/12/Spring-MVC%E5%AD%A6%E4%B9%A0/index.html">
 <meta property="og:site_name" content="eudemonia">
-<meta property="og:description" content="这是颜群老师课上的笔记 首先导入springmvc的jar包：spring-aop.jar、spring-bean.jar、spring-context.jar、spring-core.jar、spring-web.jar、spring-webmvc.jar、commons-logging.jar 编写第一个SpringMVC程序：">
+<meta property="og:description" content="导语：Spring MVC属于SpringFrameWork的后续产品，已经融合在Spring Web Flow里面。Spring 框架提供了构建 Web 应用程序的全功能 MVC 模块。使用 Spring 可插入的 MVC 架构，从而在使用Spring进行WEB开发时，可以选择使用Spring的Spring MVC框架或集成其他MVC开发框架，如Struts1(现在一般不用)，Struts 2(">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-04-12T08:24:02.000Z">
-<meta property="article:modified_time" content="2020-04-16T02:29:05.467Z">
+<meta property="article:modified_time" content="2020-04-22T00:56:07.717Z">
 <meta property="article:author" content="吴祥飞">
 <meta name="twitter:card" content="summary">
   
@@ -182,11 +182,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>这是颜群老师课上的笔记</p>
+        <p>导语：Spring MVC属于SpringFrameWork的后续产品，已经融合在Spring Web Flow里面。Spring 框架提供了构建 Web 应用程序的全功能 MVC 模块。使用 Spring 可插入的 MVC 架构，从而在使用Spring进行WEB开发时，可以选择使用Spring的Spring MVC框架或集成其他MVC开发框架，如Struts1(现在一般不用)，Struts 2(一般老项目使用)等。Spring MVC是我在学习完Spring之后紧跟着的，我个人的见解是。Spring+Spring MVC要完成的任务我们用jsp+servlet+JDBC就可以完成。但这两个框架可以完美的解决后者做不到的事，Spring引入的IOC和AOP，而Spring MVC就相当于我们的Servlet，之后的MyBatis就相当于我们的JDBC。这种框架能更加方便的开发Java web项目，以下是我的学习笔记<a id="more"></a></p>
 <h4 id="首先导入springmvc的jar包："><a href="#首先导入springmvc的jar包：" class="headerlink" title="首先导入springmvc的jar包："></a>首先导入springmvc的jar包：</h4><p>spring-aop.jar、spring-bean.jar、spring-context.jar、spring-core.jar、spring-web.jar、spring-webmvc.jar、commons-logging.jar</p>
-<h4 id="编写第一个SpringMVC程序："><a href="#编写第一个SpringMVC程序：" class="headerlink" title="编写第一个SpringMVC程序："></a>编写第一个SpringMVC程序：</h4><a id="more"></a>
-
-<p>springMVC就相当于我们学过的servlet，这样的话它的工作流程就变成了jsp -&gt;Servlet (Springmvc)-&gt;Jsp</p>
+<h4 id="编写第一个SpringMVC程序："><a href="#编写第一个SpringMVC程序：" class="headerlink" title="编写第一个SpringMVC程序："></a>编写第一个SpringMVC程序：</h4><p>springMVC就相当于我们学过的servlet，这样的话它的工作流程就变成了jsp -&gt;Servlet (Springmvc)-&gt;Jsp</p>
 <p>springmvc配置文件为 springmvc.xml，在这里面选中常用的命名空间：beans  aop context  mvc</p>
 <p>普通的servlet流程是请求-url-pattern -交给对应的servlet去处理，如果现在想用springmvc，而不是普通的servlet，如何告知程序？-如何让springmvc 介入程序：</p>
 <p>需要配置一个 Springmvc自带的servlet通过以下配置，拦截所有请求，交给SpringMVC处理：</p>
@@ -420,8 +418,8 @@
     </a>
   
   
-    <a href="/2020/04/09/java%E9%81%97%E5%BF%98%E7%9F%A5%E8%AF%86%E7%82%B9%E8%A1%A5%E5%85%85/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">java遗忘知识点补充</div>
+    <a href="/2020/04/04/MyBatis/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">MyBatis</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -547,18 +545,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Ajax</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Json</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
@@ -571,15 +557,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">css</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Ajax</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Json</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">集合</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -591,15 +589,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">svn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">web</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">maven</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">svn</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -619,23 +621,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">排序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C语言</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">jdbc</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">github</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -648,6 +634,22 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Typora</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">排序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">C语言</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">github</a>
               </li>
             
             <div class="clearfix"></div>

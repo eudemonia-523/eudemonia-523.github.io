@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>maven | eudemonia</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="maven1.maven的作用​    ①增加第三方Jar   (spring-context.jar   spring-aop.jar ….)​    ②jar包之间的依赖关系 （spring-context.jar 自动关联下载所有依赖的Jar，并且不会冲突） ​    ③将项目拆分成若干个模块">
+  <meta name="description" content="导语：Maven项目对象模型(POM)，可以通过一小段描述信息来管理项目的构建，报告和文档的项目管理工具软件。Maven 除了以程序构建能力为特色之外，还提供高级项目管理工具。由于 Maven 的缺省构建规则有较高的可重用性，所以常常用两三行 Maven 构建脚本就可以构建简单的项目。由于 Maven 的面向项目的方法，许多 Apache Jakarta 项目发文时使用 Maven，而且公司项目采">
 <meta property="og:type" content="article">
 <meta property="og:title" content="maven">
 <meta property="og:url" content="http://yoursite.com/2020/04/20/maven/index.html">
 <meta property="og:site_name" content="eudemonia">
-<meta property="og:description" content="maven1.maven的作用​    ①增加第三方Jar   (spring-context.jar   spring-aop.jar ….)​    ②jar包之间的依赖关系 （spring-context.jar 自动关联下载所有依赖的Jar，并且不会冲突） ​    ③将项目拆分成若干个模块">
+<meta property="og:description" content="导语：Maven项目对象模型(POM)，可以通过一小段描述信息来管理项目的构建，报告和文档的项目管理工具软件。Maven 除了以程序构建能力为特色之外，还提供高级项目管理工具。由于 Maven 的缺省构建规则有较高的可重用性，所以常常用两三行 Maven 构建脚本就可以构建简单的项目。由于 Maven 的面向项目的方法，许多 Apache Jakarta 项目发文时使用 Maven，而且公司项目采">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-04-20T06:52:36.000Z">
-<meta property="article:modified_time" content="2020-04-21T01:13:54.948Z">
+<meta property="article:modified_time" content="2020-04-22T00:46:14.221Z">
 <meta property="article:author" content="吴祥飞">
 <meta property="article:tag" content="java">
 <meta property="article:tag" content="maven">
@@ -184,10 +184,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="maven"><a href="#maven" class="headerlink" title="maven"></a>maven</h3><h3 id="1-maven的作用"><a href="#1-maven的作用" class="headerlink" title="1.maven的作用"></a>1.maven的作用</h3><p>​    ①增加第三方Jar   (spring-context.jar   spring-aop.jar ….)<br>​    ②jar包之间的依赖关系 （spring-context.jar 自动关联下载所有依赖的Jar，并且不会冲突）</p>
+        <p>导语：Maven项目对象模型(POM)，可以通过一小段描述信息来管理项目的构建，报告和文档的项目管理工具软件。Maven 除了以程序构建能力为特色之外，还提供高级项目管理工具。由于 Maven 的缺省构建规则有较高的可重用性，所以常常用两三行 Maven 构建脚本就可以构建简单的项目。由于 Maven 的面向项目的方法，许多 Apache Jakarta 项目发文时使用 Maven，而且公司项目采用 Maven 的比例在持续增长。Maven作为现在很火的工具在我们的开发过程中是必不可少的，接下来是我在学习Maven时的学习笔记<a id="more"></a></p>
+<h3 id="1-maven的作用"><a href="#1-maven的作用" class="headerlink" title="1.maven的作用"></a>1.maven的作用</h3><p>​    ①增加第三方Jar   (spring-context.jar   spring-aop.jar ….)<br>​    ②jar包之间的依赖关系 （spring-context.jar 自动关联下载所有依赖的Jar，并且不会冲突）</p>
 <p>​    ③将项目拆分成若干个模块</p>
-<a id="more"></a>
-
 <h3 id="2-Maven概念："><a href="#2-Maven概念：" class="headerlink" title="2.Maven概念："></a>2.Maven概念：</h3><p>​    maven是一个基于Java平台的 自动化构建工具<br>​    自动化构建工具的发展make-ant-maven-gradle，但最后一个学习成本高，所以还是maven用的最多</p>
 <p><strong>清理</strong>：删除编译的结果，为重新编译做准备。<br><strong>编译</strong>：java-&gt;class<br><strong>测试</strong>： 针对于 项目中的关键点进行测试，亦可用 项目中的测试代码 去测试开发代码；<br><strong>报告</strong>：将测试的结果 进行显示<br><strong>打包</strong>： 将项目中包含的多个文件 压缩成一个文件， 用于安装或部署。 （java项目-jar、web项目-war）<br><strong>安装</strong>：将打成的包放到本地仓库，供其他项目使用。<br><strong>部署</strong>：将打成的包放到服务器上准备运行。<br>    –将java、js、jsp等各个文件 进行筛选、组装，变成一个 可以直接运行的项目相当于把大米变成米饭</p>
 <p>对于部署，有几段需要说明：Eclipse中部署的web项目可以运行，将Eclipse中的项目，复制到tomcat/webapps中则不能运行，项目可以在webapps中直接运行，Eclipse中的项目 ，在部署时会生成一个对应的部署项目(在wtpwebapps中)，区别在于： 部署项目没有源码文件src(java)，只有编译后的class文件和jsp文件。因为二者目录结构不一致，因此tomcat中无法直接运行 Eclips中复制过来的项目 （因为 如果要在tomcat中运行一个项目，则该项目 必须严格遵循tomcat的目录结构）Eclipse中的项目 要在tomcat中运行，就需要部署：<br>a.通过Eclipse中Add and Remove按钮进行部署<br>b.将Web项目打成一个war包，然后将该war包复制到tomcat/webapps中 即可执行运行</p>
@@ -517,18 +516,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Ajax</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Json</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
@@ -541,15 +528,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">css</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Ajax</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Json</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">集合</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -561,15 +560,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">svn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">web</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">maven</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">svn</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -589,23 +592,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">排序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C语言</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">jdbc</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">github</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -618,6 +605,22 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Typora</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">排序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">C语言</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">github</a>
               </li>
             
             <div class="clearfix"></div>
