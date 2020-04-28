@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>spring学习过程 | eudemonia</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="导语：Spring框架是一个开放源代码的J2EE应用程序框架，由Rod Johnson发起，是针对bean的生命周期进行管理的轻量级容器（lightweight container）。 Spring解决了开发者在J2EE开发中遇到的许多常见的问题，提供了功能强大IOC、AOP及Web MVC等功能。Spring可以单独应用于构筑应用程序，也可以和Struts、Webwork、Tapestry等众多">
+  <meta name="description" content="导语：Spring框架可能是现在企业使用中最热门、最成功的框架之一。这篇博客是我在学习完颜群老师的课程，自己看了JavaEE互联网轻量级整合开发之后写的，总算是对这个框架有所掌握。Spring的学习主要包括两个大的板块IoC和Aop。其中IOC是Spring的基础内容和思想，而AOP则是Spring最有用的功能。Ioc是控制反转（依赖注入）的意思。相当于把我们需要什么创建什么的思想转变为了要什么拿">
 <meta property="og:type" content="article">
 <meta property="og:title" content="spring学习过程">
 <meta property="og:url" content="http://yoursite.com/2020/02/22/spring%E5%AD%A6%E4%B9%A0%E8%BF%87%E7%A8%8B/index.html">
 <meta property="og:site_name" content="eudemonia">
-<meta property="og:description" content="导语：Spring框架是一个开放源代码的J2EE应用程序框架，由Rod Johnson发起，是针对bean的生命周期进行管理的轻量级容器（lightweight container）。 Spring解决了开发者在J2EE开发中遇到的许多常见的问题，提供了功能强大IOC、AOP及Web MVC等功能。Spring可以单独应用于构筑应用程序，也可以和Struts、Webwork、Tapestry等众多">
+<meta property="og:description" content="导语：Spring框架可能是现在企业使用中最热门、最成功的框架之一。这篇博客是我在学习完颜群老师的课程，自己看了JavaEE互联网轻量级整合开发之后写的，总算是对这个框架有所掌握。Spring的学习主要包括两个大的板块IoC和Aop。其中IOC是Spring的基础内容和思想，而AOP则是Spring最有用的功能。Ioc是控制反转（依赖注入）的意思。相当于把我们需要什么创建什么的思想转变为了要什么拿">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://yoursite.com/2020/02/22/spring%E5%AD%A6%E4%B9%A0%E8%BF%87%E7%A8%8B/%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%B5%8F%E8%A7%88%E5%99%A8.jpg">
 <meta property="og:image" content="http://yoursite.com/2020/02/22/spring%E5%AD%A6%E4%B9%A0%E8%BF%87%E7%A8%8B/spring%E6%A1%86%E6%9E%B6%E5%9B%BE.jpg">
 <meta property="article:published_time" content="2020-02-21T23:00:30.000Z">
-<meta property="article:modified_time" content="2020-04-22T00:57:25.876Z">
+<meta property="article:modified_time" content="2020-04-26T02:45:47.577Z">
 <meta property="article:author" content="吴祥飞">
 <meta property="article:tag" content="java">
 <meta property="article:tag" content="spring">
@@ -188,41 +188,22 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>导语：Spring框架是一个开放源代码的J2EE应用程序框架，由Rod Johnson发起，是针对bean的生命周期进行管理的轻量级容器（lightweight container）。 Spring解决了开发者在J2EE开发中遇到的许多常见的问题，提供了功能强大IOC、AOP及Web MVC等功能。Spring可以单独应用于构筑应用程序，也可以和Struts、Webwork、Tapestry等众多Web框架组合使用，并且可以与 Swing等桌面应用程序AP组合。因此， Spring不仅仅能应用于JEE应用程序之中，也可以应用于桌面应用程序以及小应用程序之中。Spring框架主要由七部分组成，分别是 Spring Core、 Spring AOP、 Spring ORM、 Spring DAO、Spring Context、 Spring Web和 Spring Web MVC。以下是我在学习时的学习笔记。<a id="more"></a></p>
-<h2 id="spring"><a href="#spring" class="headerlink" title="spring"></a>spring</h2><p>回顾：我们所学的三个框架</p>
-<p>struts：web层，比较简单（valuestack，拦截器）</p>
-<p>hibenate：dao层，知识点杂，不是很有用，很少优化。</p>
-<p>spring：大部分位于service层，但也整合了其他两层的内容。<strong>很重要</strong></p>
-<p><img src="/2020/02/22/spring%E5%AD%A6%E4%B9%A0%E8%BF%87%E7%A8%8B/%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%B5%8F%E8%A7%88%E5%99%A8.jpg" alt></p>
+        <p>导语：Spring框架可能是现在企业使用中最热门、最成功的框架之一。这篇博客是我在学习完颜群老师的课程，自己看了JavaEE互联网轻量级整合开发之后写的，总算是对这个框架有所掌握。Spring的学习主要包括两个大的板块IoC和Aop。其中IOC是Spring的基础内容和思想，而AOP则是Spring最有用的功能。Ioc是控制反转（依赖注入）的意思。相当于把我们需要什么创建什么的思想转变为了要什么拿什么的思想。而AOP面向切面编程则是在OOP不能满足我们需要的时候提出的，它能在我们流程式开发的时候让代码可读性变高。接下来就是我对这些内容的整理。<a id="more"></a></p>
+<h2 id="spring"><a href="#spring" class="headerlink" title="spring"></a>spring</h2><p>回顾：我们所学的三个框架<br>struts2：web层，比较简单（valuestack，拦截器）<br>hibenate：dao层，知识点杂，不是很有用，很少优化。<br>spring：大部分位于service层，但也整合了其他两层的内容。<strong>很重要</strong><br><img src="/2020/02/22/spring%E5%AD%A6%E4%B9%A0%E8%BF%87%E7%A8%8B/%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%B5%8F%E8%A7%88%E5%99%A8.jpg" alt></p>
 <h4 id="1-什么是spring"><a href="#1-什么是spring" class="headerlink" title="1.什么是spring:"></a>1.什么是spring:</h4><p>​     Spring是一个开源框架，是于2003 年兴起的一个轻量级的Java 开发框架，由Rod Johnson  在其著作Expert One-On-One J2EE Development and  Design中阐述的部分理念和原型衍生而来。它是为了解决企业应用开发的复杂性而创建的。框架的主要优势之一就是其分层架构，分层架构允许使用者选择使用哪一个组件，同时为 J2EE  应用程序开发提供集成的框架。Spring使用基本的JavaBean来完成以前只可能由EJB完成的事情。然而，Spring的用途不仅限于服务器端的开发。从简单性、可测试性和松耦合的角度而言，任何Java应用都可以从Spring中受益。Spring的核心是控制反转（IoC）和面向切面（AOP）。简单来说，Spring是一个分层的JavaSE/EE full-stack(一站式) 轻量级开源框架。 </p>
-<p>名词解释：</p>
-<p>​        ==轻量级==：与EJB对比，依赖资源少，销毁的资源少。 </p>
-<p>​        ==分层==： 一站式，每一个层都提供的解决方案 </p>
-<p>​                 web层：struts，spring-MVC </p>
-<pre><code>service层：spring （整合了其他两层的内容）</code></pre><p>​                 dao层：hibernate，mybatis ， jdbcTemplate  –&gt; spring-data </p>
-<p>​        <em>注：即前端层，业务处理层，数据库持久层</em></p>
+<p>名词解释：<br>==轻量级==：与EJB对比，依赖资源少，销毁的资源少。<br>==分层==： 一站式，每一个层都提供的解决方案<br>    web层：struts，spring-MVC<br>    service层：spring （整合了其他两层的内容）<br>    dao层：hibernate，mybatis ， jdbcTemplate  –&gt; spring-data<br><em>注：即前端层，业务处理层，数据库持久层</em></p>
 <h4 id="2-spring核心"><a href="#2-spring核心" class="headerlink" title="2.spring核心"></a>2.spring核心</h4><p>​    spring的核心是控制反转（IOC）和面向切面编程（AoP）</p>
-<h4 id="3-spring的优点"><a href="#3-spring的优点" class="headerlink" title="3.spring的优点"></a>3.spring的优点</h4><p>​    1. 方便解耦，简化开发  （高内聚低耦合） </p>
-<p>​    2.AOP编程的支持 </p>
-<p>​    3.声明式事务的支持 </p>
-<p>​    4.方便程序的测试 </p>
-<p>​    5.方便集成各种优秀框架 </p>
-<p>​    6.降低JavaEE API的使用难度 </p>
-<p><em>注：可以理解为spring就是一个大工厂，这个工厂用于生成bean。</em></p>
+<h4 id="3-spring的优点"><a href="#3-spring的优点" class="headerlink" title="3.spring的优点"></a>3.spring的优点</h4><p>​    1. 方便解耦，简化开发  （高内聚低耦合）<br>​    2.AOP编程的支持<br>​    3.声明式事务的支持<br>​    4.方便程序的测试<br>​    5.方便集成各种优秀框架<br>​    6.降低JavaEE API的使用难度<br><em>注：可以理解为spring就是一个大工厂，这个工厂用于生成bean。</em></p>
 <h4 id="4-spring的体系结构"><a href="#4-spring的体系结构" class="headerlink" title="4.spring的体系结构"></a>4.spring的体系结构</h4><p><img src="/2020/02/22/spring%E5%AD%A6%E4%B9%A0%E8%BF%87%E7%A8%8B/spring%E6%A1%86%E6%9E%B6%E5%9B%BE.jpg" alt></p>
 <h4 id="5-搭建Spring环境"><a href="#5-搭建Spring环境" class="headerlink" title="5.搭建Spring环境"></a>5.搭建Spring环境</h4><ol>
-<li><p>首先下载jar<a href="http://maven.springframework.org/release/org/springframework/spring/找到spring-framework-4.3.9.RELEASE-dist.zip进行下载，下载之后解压缩会有许多的jar包，直接将我们需要用到的jar包复制进我们项目的src中即可。一般来说开发spring至少需要使用的jar(5个+1个)" target="_blank" rel="noopener">http://maven.springframework.org/release/org/springframework/spring/找到spring-framework-4.3.9.RELEASE-dist.zip进行下载，下载之后解压缩会有许多的jar包，直接将我们需要用到的jar包复制进我们项目的src中即可。一般来说开发spring至少需要使用的jar(5个+1个)</a>:<br>spring-aop.jar        开发AOP特性时需要的JAR<br>spring-beans.jar    处理Bean的jar            <bean><br>spring-context.jar    处理spring上下文的jar        <context><br>spring-core.jar        spring核心jar<br>spring-expression.jar    spring表达式<br>commons-logging.jar    三方提供的日志jar</context></bean></p>
+<li><p>首先下载jar<a href="http://maven.springframework.org/release/org/springframework/spring/" target="_blank" rel="noopener">http://maven.springframework.org/release/org/springframework/spring/</a> 找到spring-framework-4.3.9.RELEASE-dist.zip 进行下载，下载之后解压缩会有许多的jar包，直接将我们需要用到的jar包复制进我们项目的src中即可。一般来说开发spring至少需要使用的jar(5个+1个):<br>spring-aop.jar        开发AOP特性时需要的JAR<br>spring-beans.jar    处理Bean的jar            <bean><br>spring-context.jar    处理spring上下文的jar        <context><br>spring-core.jar        spring核心jar<br>spring-expression.jar    spring表达式<br>commons-logging.jar    三方提供的日志jar    这一个需要自己去maven库里下载</context></bean></p>
 </li>
-<li><p>编写配置文件。这是为了编写时有一些提示、自动生成一些配置信息。我们可以通过两种方式：<br>方式一：增加sts插件<br>可以给eclipse增加 支持spring的插件：spring tool suite(<a href="https://spring.io/tools/sts/all" target="_blank" rel="noopener">https://spring.io/tools/sts/all</a>)<br>下载springsource-tool-suite-3.9.4.RELEASE-e4.7.3a-updatesite.zip,然后在Eclipse中安装：Help-Install new SoftWare.. - Add</p>
-<p>方式二：直接下载sts工具<br>（相当于一个集合了Spring tool suite的Eclipse）: <a href="https://spring.io/tools/sts/，使用方法跟eclipse一样" target="_blank" rel="noopener">https://spring.io/tools/sts/，使用方法跟eclipse一样</a></p>
-<p>新建一个Spring Bean configuration File 名字为 applicationContext.xml</p>
+<li><p>编写配置文件。这是为了编写时有一些提示、自动生成一些配置信息。我们可以通过两种方式：<br>方式一：增加sts插件<br>可以给eclipse增加 支持spring的插件：spring tool suite(<a href="https://spring.io/tools/sts/all" target="_blank" rel="noopener">https://spring.io/tools/sts/all</a>)<br>下载springsource-tool-suite-3.9.4.RELEASE-e4.7.3a-updatesite.zip,然后在Eclipse中安装：Help-Install new SoftWare.. - Add<br>方式二：直接下载sts工具<br>（相当于一个集合了Spring tool suite的Eclipse）: <a href="https://spring.io/tools/sts/" target="_blank" rel="noopener">https://spring.io/tools/sts/</a> 使用方法跟eclipse一样<br>新建一个Spring Bean configuration File 名字为 applicationContext.xml（如果安装成功能找到这个Spring Bean configuration File如果没安装成功就找不到）</p>
+</li>
+<li><p>开发Spring程序(IOC)<br>可以发现，springioc容器 帮我们new了对象，并且给对象赋了值</p>
 </li>
 </ol>
-<p>3.开发Spring程序(IOC)</p>
-<p>可以发现，springioc容器 帮我们new了对象，并且给对象赋了值</p>
-<p><strong>接下来演示一个SpringProject</strong></p>
-<p>新建一个java项目交SpringProject，新建一个Spring Bean configuration FIle名字为：applicationContext.xml。新建一个实体类为org.lanqiao.entity.student，新建一个测试类为org.lanqiao.test.test。</p>
-<p>在student里写入实体类的属性和set，get方法，再重写它的toString()方法：</p>
+<p><strong>接下来演示一个SpringProject</strong><br>新建一个java项目交SpringProject，新建一个Spring Bean configuration FIle名字为：applicationContext.xml。新建一个实体类为org.lanqiao.entity.student，新建一个测试类为org.lanqiao.test.test。<br>在student里写入实体类的属性和set，get方法，再重写它的toString()方法：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> org.lanqiao.entity;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.lanqiao.factory.CourseFactory;</span><br><span class="line"><span class="keyword">import</span> org.lanqiao.newinstance.HtmlCourse;</span><br><span class="line"><span class="keyword">import</span> org.lanqiao.newinstance.ICourse;</span><br><span class="line"><span class="keyword">import</span> org.lanqiao.newinstance.JavaCourse;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.ApplicationContext;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.support.ClassPathXmlApplicationContext;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> stuNo ; </span><br><span class="line">	<span class="keyword">private</span> String stuName ; </span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> stuAge ;</span><br><span class="line">	<span class="comment">//这里写入三个属性的setget方法，由于篇幅限制暂时省略</span></span><br><span class="line">	<span class="meta">@Override</span><span class="comment">//这里重写toString方法便于测试</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.stuNo+<span class="string">","</span>+<span class="keyword">this</span>.stuName+<span class="string">","</span>+<span class="keyword">this</span>.stuAge;</span><br><span class="line">	&#125;	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>在applicationContext.xml中写</p>
@@ -233,17 +214,12 @@
 
 <p>上述就是一个简单的SpringProject实例，整体框架就是这样，后面对其他内容进行阐述</p>
 <h4 id="6-SpringIOC发展史："><a href="#6-SpringIOC发展史：" class="headerlink" title="6.SpringIOC发展史："></a>6.SpringIOC发展史：</h4><ol>
-<li><p>我们常规的java创建对象的方式（new对象）<br>Student student = new Student();<br>student.setXxx();</p>
-</li>
-<li><p>简单工厂</p>
-</li>
-<li><p>ioc （相当于一个超级工厂）</p>
-</li>
+<li>我们常规的java创建对象的方式（new对象）<br>Student student = new Student();<br>student.setXxx();</li>
+<li>简单工厂</li>
+<li>ioc （相当于一个超级工厂）</li>
 </ol>
-<p><strong>IOC</strong>（控制反转）也可以称之为<strong>DI</strong>（依赖注入）：<br>控制反转：将 创建对象、属性值 的方式 进行了反转，从new、setXxx()  翻转为了 从springIOC容器getBean()<br>依赖注入：将属性值 注入给了属性，将属性 注入给了bean，将bean注入给了ioc容器；<br>总结：ioc/di ，无论要什么对象，都可以直接去springioc容器中获取，而不需要自己操作（new\setXxx()）因此之后的<strong>ioc分为2步</strong>：1 先给springioc中存放对象并赋值   2 取出需要的这个对象</p>
-<p><strong>DI</strong>:（依赖注入） 对于IOC容器赋值：如果是简单类型（8个基本类型+String）的话，设置value值。如果是对象类型，就设置ref=”需要引用的id值”，因此实现了 对象与对象之间的依赖关系。然后conext.getBean(需要获取的bean的id值)</p>
-<h4 id="7-依赖注入3种方式："><a href="#7-依赖注入3种方式：" class="headerlink" title="7.依赖注入3种方式："></a>7.依赖注入3种方式：</h4><p>1.set注入：通过setXxx()方法赋值。依赖注入底层是通过反射实现的。&lt;property…&gt;中写对象属性</p>
-<p>2.构造器注入：通过构造方法赋值</p>
+<p><strong>IOC</strong>（控制反转）也可以称之为<strong>DI</strong>（依赖注入）：<br>控制反转：将 创建对象、属性值 的方式 进行了反转，从new、setXxx()  翻转为了 从springIOC容器getBean()<br>依赖注入：将属性值 注入给了属性，将属性 注入给了bean，将bean注入给了ioc容器；<br>总结：ioc/di ，无论要什么对象，都可以直接去springioc容器中获取，而不需要自己操作（new\setXxx()）因此之后的<strong>ioc分为2步</strong>：1 先给springioc中存放对象并赋值   2 取出需要的这个对象<br><strong>DI</strong>:（依赖注入） 对于IOC容器赋值：如果是简单类型（8个基本类型+String）的话，设置value值。如果是对象类型，就设置ref=”需要引用的id值”，因此实现了 对象与对象之间的依赖关系。然后conext.getBean(需要获取的bean的id值)</p>
+<h4 id="7-依赖注入3种方式："><a href="#7-依赖注入3种方式：" class="headerlink" title="7.依赖注入3种方式："></a>7.依赖注入3种方式：</h4><p>1.set注入：通过setXxx()方法赋值。依赖注入底层是通过反射实现的。&lt;property…&gt;中写对象属性<br>2.构造器注入：通过构造方法赋值</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;constructor-arg value="ls" type="String" index="0" name="name"&gt;&lt;/constructor-arg&gt;</span><br></pre></td></tr></table></figure>
 
 
@@ -252,7 +228,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;bean id=<span class="string">"course"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"org.lanqiao.entity.Course"</span> p:courseHour=<span class="string">"300"</span> p:courseName=<span class="string">"hadoop"</span> p:teacher-ref=<span class="string">"teacher"</span>&gt;</span><br></pre></td></tr></table></figure>
 
 <p>简单类型：p:属性名=”属性值”    引用类型（除了String外）：p:属性名-ref=”引用的id”<br><strong>注意</strong>多个 p赋值的时候 要有空格。<br><strong>注意</strong>：无论是String还是Int/short/，赋值时都是 value=”值” ，因此建议此种情况需要配合name\type进行区分<br>注入各种集合数据类型: List  Set map properties时set、list、数组   各自都有自己的标签<set> <list> <array>，但是也可以混着用。</array></list></set></p>
-<p>给对象类型赋值null ：<br>        <property name="name"><br>                <null>       –&gt;注意 这个地方没有<value><br>        </value></null></property><br>赋空值 “”<br>        <property name="name"><br>                <value></value><br>        </property></p>
+<p>给对象类型赋值null ：<br>        &lt; property name=”name” &gt;<br>                &lt; null/&gt;       –&gt;注意 这个地方没有&lt; value&gt;<br>        &lt; /property&gt;<br>赋空值 “”<br>        &lt; property name=”name” &gt;<br>                &lt; value&gt;&lt; /value&gt;<br>        &lt; /property&gt;</p>
 <p><strong>注意：</strong>在ioc中定义bean的前提：该bean的类 必须提供了 无参构造</p>
 <h4 id="8-自动装配："><a href="#8-自动装配：" class="headerlink" title="8.自动装配："></a>8.自动装配：</h4><p>自动装配（只适用于 ref类型 ）：约定优于配置</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;bean ... <span class="class"><span class="keyword">class</span></span>=<span class="string">"org.lanqiao.entity.Course"</span>  autowire=<span class="string">"byName|byType|constructor|no"</span> &gt;</span><br></pre></td></tr></table></figure>
@@ -263,7 +239,7 @@
 
 <p><strong>注意：</strong>自动装配虽然可以减少代码量，但是会降低程序的可读性，使用时需要谨慎。</p>
 <p><strong>使用注解定义bean</strong>：通过注解的形式 将bean以及相应的属性值 放入ioc容器</p>
-<p>&lt;context:component-scan base-package=”org.lanqiao.dao”&gt;<br>Spring在启动的时候，会根据base-package在 该包中扫描所有类，查找这些类是否有注解@Component(“studentDao”),如果有，则将该类 加入spring Ioc容器。</p>
+<p>&lt; context:component-scan base-package=”org.lanqiao.dao”&gt;<br>&lt; /context:component-scan&gt;Spring在启动的时候，会根据base-package在 该包中扫描所有类，查找这些类是否有注解@Component(“studentDao”),如果有，则将该类 加入spring Ioc容器。</p>
 <p>@Component这个注解太宽泛了，我们将其细化为：dao层注解：@Repository。service层注解：@Service。控制器层注解：@Controller</p>
 <p><strong>使用注解实现事务</strong>（声明式事务）<br>目标：通过事务 使以下方法 要么全成功、要么全失败。</p>
 <p>先引入jar包 </p>
@@ -664,26 +640,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Ajax</a>
               </li>
              
@@ -696,7 +652,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">集合</a>
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -708,11 +684,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
+                <a href="javascript:void(0)" class="js-tag color3">集合</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">svn</a>
+                <a href="javascript:void(0)" class="js-tag color1">maven</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -720,7 +696,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">maven</a>
+                <a href="javascript:void(0)" class="js-tag color4">svn</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -729,14 +705,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">eclipse</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">c语言</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -753,6 +721,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Typora</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">c语言</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
