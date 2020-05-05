@@ -162,6 +162,215 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-redis缓存知识点总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/05/redis%E7%BC%93%E5%AD%98%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/">redis缓存知识点总结</a>
+    </h1>
+  
+
+        
+        <a href="/2020/05/05/redis%E7%BC%93%E5%AD%98%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/" class="archive-article-date">
+  	<time datetime="2020-05-05T01:16:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="关于redis缓存"><a href="#关于redis缓存" class="headerlink" title="关于redis缓存"></a>关于redis缓存</h2><p>课程计划:</p>
+<p>​    1.redis基础：</p>
+<p>​            redis入门</p>
+<p>​            数据类型</p>
+<p>​            通用 命令</p>
+<p>​            Jedis</p>
+<p>​    2.redis高级</p>
+<p>​            持久化</p>
+<p>​            redis.config</p>
+<p>​            事务</p>
+<p>​            集群</p>
+<p>​    3.redis应用</p>
+<p>​            企业级解决方案</p>
+<p>第一个板块在windows下讲解，二三在linux环境下讲解</p>
+<p>redis产生的意义：因为大部分情况下如果处理海量的数据很容易导致系统崩溃，这是诞生了NoSql数据库，这个数据库不是关系型数据库，只存数据不存关系，作为关系型数据库的补充。而常见的nosql数据库包括Redis,MongoDB,memcache等</p>
+<p>下载与安装：</p>
+<p><a href="https://github.com/MSOpenTech/redis/tags" target="_blank" rel="noopener">https://github.com/MSOpenTech/redis/tags</a> 这个网址去下载3.2版本的，直接下载、解压就可以使用了。</p>
+<p>使用：</p>
+<p>点击redis-server.exe就可以启动服务，点击redis-cli.exe就可以进入命令行界面进行操作</p>
+<p>Redis基本的操作指令：</p>
+<p>信息添加：   set key value</p>
+<p>信息查询：   get key        如果不存在，返回空（nil）</p>
+<p>清楚命令行内容    clear</p>
+<p>帮助命令 help   命令名     或者help  @组名</p>
+<p>退出命令  quit   或者exit   或者   &lt; ESC&gt;</p>
+<p>数据类型：</p>
+<p>redis数据类型一共有五种：  String   hash   list   set   sorted_set   </p>
+<p>这五种和我们学过的数据类型  String HashMap  Linklist  hashset  treeset  有点相像</p>
+<p>redis中所有的key都必须是string 类型的，我们说的数据类型都是指的value的数据类型</p>
+<p>String类型的基本操作   </p>
+<p>set    key    value</p>
+<p>get    key</p>
+<p>delete    key</p>
+<p>mset    key1    value1    key2    value2…</p>
+<p>mget    key1    key2    key3….</p>
+<p>strlen    key</p>
+<p>append    key    value</p>
+<p>String类型的扩展操作：</p>
+<p>incr    key</p>
+<p>incrby    key    increment</p>
+<p>decr    key</p>
+<p>decrby    key    decrement</p>
+<p>incrbyfloat    key    increment</p>
+<p>当碰到Incr，decr的时候String会变成一个整数来操作，但是记住它本质还是一个字符串</p>
+<p>另一个String扩展操作 </p>
+<p>设置数据具有指定的生命周期 </p>
+<p> setex key seconds value<br> psetex key milliseconds value     </p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">redis</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSM</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/05/05/redis%E7%BC%93%E5%AD%98%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-初步了解Spring-Boot" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/02/%E5%88%9D%E6%AD%A5%E4%BA%86%E8%A7%A3Spring-Boot/">初步了解Spring Boot</a>
+    </h1>
+  
+
+        
+        <a href="/2020/05/02/%E5%88%9D%E6%AD%A5%E4%BA%86%E8%A7%A3Spring-Boot/" class="archive-article-date">
+  	<time datetime="2020-05-02T10:55:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="初步了解Spring-Boot"><a href="#初步了解Spring-Boot" class="headerlink" title="初步了解Spring Boot"></a>初步了解Spring Boot</h1><p>Spring  Boot是由Pivotal团队提供的全新框架，其设计目的是用来简化新Spring应用的初始搭建以及开发过程。该框架使用了特定的方式来进行配置，从而使开发人员不再需要定义样板化的配置。通过这种方式，Spring Boot致力于在蓬勃发展的快速应用开发领域成为领导者。Spring boot主要有三个方面的作用<br>    1.简化j2ee开发<br>    2.整个spring技术栈的整合（整合springmvc  spring）<br>    3.整个j2ee技术的整合（整合mybatis redis）</p>
+<p>接下来对Spring boot 整合技术做详细的阐述</p>
+        
+          <a class="article-more-a" href="/2020/05/02/%E5%88%9D%E6%AD%A5%E4%BA%86%E8%A7%A3Spring-Boot/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">spring</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/05/02/%E5%88%9D%E6%AD%A5%E4%BA%86%E8%A7%A3Spring-Boot/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-一段程序学会sql语句" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -512,11 +721,11 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">jQuery</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">html</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">html</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">jQuery</a>
         		</li>
       		
 		</ul>
@@ -800,151 +1009,6 @@
 
 
   
-    <article id="post-html-css" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/15/html-css/">html+css</a>
-    </h1>
-  
-
-        
-        <a href="/2020/04/15/html-css/" class="archive-article-date">
-  	<time datetime="2020-04-15T07:37:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>导语：HTML称为超文本标记语言，是一种标识性的语言。它包括一系列标签．通过这些标签可以将网络上的文档格式统一，使分散的Internet资源连接为一个逻辑整体。HTML文本是由HTML命令组成的描述性文本，HTML命令可以说明文字、图形、动画、声音、表格、链接等。CSS层叠样式表(英文全称：Cascading Style Sheets)是一种用来表现XML或HTML等文件样式的计算机语言。CSS不仅可以静态地修饰网页，还可以配合各种脚本语言动态地对网页各元素进行格式化.html+css在大学期间是学过并且自己做过个人网站的，但是到找工作时已经忘得差不多了，现在在找工作之前再重新复习，拾起以前没有学扎实的前端技术。废话不多说，直接开干。</p>
-        
-          <a class="article-more-a" href="/2020/04/15/html-css/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">html</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/15/html-css/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Spring-MVC学习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/12/Spring-MVC%E5%AD%A6%E4%B9%A0/">Spring MVC学习</a>
-    </h1>
-  
-
-        
-        <a href="/2020/04/12/Spring-MVC%E5%AD%A6%E4%B9%A0/" class="archive-article-date">
-  	<time datetime="2020-04-12T08:24:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>导语：Spring MVC属于SpringFrameWork的后续产品，已经融合在Spring Web Flow里面。Spring 框架提供了构建 Web 应用程序的全功能 MVC 模块。使用 Spring 可插入的 MVC 架构，从而在使用Spring进行WEB开发时，可以选择使用Spring的Spring MVC框架或集成其他MVC开发框架，如Struts1(现在一般不用)，Struts 2(一般老项目使用)等。Spring MVC是我在学习完Spring之后紧跟着的，我个人的见解是。Spring+Spring MVC要完成的任务我们用jsp+servlet+JDBC就可以完成。但这两个框架可以完美的解决后者做不到的事，Spring引入的IOC和AOP，而Spring MVC就相当于我们的Servlet，之后的MyBatis就相当于我们的JDBC。这种框架能更加方便的开发Java web项目，以下是我的学习笔记</p>
-        
-          <a class="article-more-a" href="/2020/04/12/Spring-MVC%E5%AD%A6%E4%B9%A0/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/12/Spring-MVC%E5%AD%A6%E4%B9%A0/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
@@ -1042,6 +1106,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Ajax</a>
               </li>
              
@@ -1054,23 +1122,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1086,7 +1146,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sql</a>
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SSM</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1095,10 +1163,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">maven</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">svn</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1114,7 +1178,31 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">svn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">c语言</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">jdbc</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">排序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">C语言</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1127,22 +1215,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Typora</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">c语言</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">排序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C语言</a>
               </li>
              
               <li class="article-tag-list-item">

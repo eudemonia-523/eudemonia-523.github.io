@@ -16,7 +16,7 @@
 <meta property="og:description" content="导语：mybatis:原名为ibatis是apache公司开发的。后来于2010年google vode收购改为了MyBatis。它可以简化JDBC操作，实现数据的持久化 。属于半ORM:Object Relational Mapping，是用来将对象和关系型数据库建立映射关系的。Mybatis是ORM的一个实现&#x2F;Hibernate 也是。orm可以使得开发人员像操作对象一样操作数据库表。Myba">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-04-04T00:27:18.000Z">
-<meta property="article:modified_time" content="2020-04-22T00:47:09.449Z">
+<meta property="article:modified_time" content="2020-05-04T06:13:24.063Z">
 <meta property="article:author" content="吴祥飞">
 <meta property="article:tag" content="java">
 <meta property="article:tag" content="mybatis">
@@ -202,7 +202,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> org.lanqiao.entity;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> stuNo ;</span><br><span class="line">	<span class="keyword">private</span> String stuName ;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> stuAge ;</span><br><span class="line">	<span class="keyword">private</span> String graName ;</span><br><span class="line"><span class="comment">//这里通过eclipse自动导入八个setget方法和有参无参构造方法，为了简洁此处省略这些代码</span></span><br><span class="line">	<span class="meta">@Override</span>    <span class="comment">//这里重写toString方法方便测试程序</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.stuNo+<span class="string">"-"</span>+<span class="keyword">this</span>.stuName+<span class="string">"-"</span>+<span class="keyword">this</span>.stuAge+<span class="string">"-"</span>+<span class="keyword">this</span>.graName;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>StudentMapper.xml</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">mapper</span> <span class="meta-keyword">SYSTEM</span> <span class="meta-string">"http://mybatis.org/dtd/mybatis-3-mapper.dtd"</span> <span class="meta-keyword">PUBLIC</span> <span class="meta-string">"-//mybatis.org//DTD Mapper 3.0//EN"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- namespace很重要，这是该mapper.xml映射文件的 唯一标识 --&gt;</span></span><br><span class="line">-<span class="tag">&lt;<span class="name">mapper</span> <span class="attr">namespace</span>=<span class="string">"org.lanqiao.entity.studentMapper"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 后续通过 namespace.id--&gt;</span></span><br><span class="line"><span class="comment">&lt;!--parameterType:输入参数的类型 resultType：查询返回结果值的类型 ，返回类型 --&gt;</span></span><br><span class="line"><span class="comment">&lt;!--下面是根据学号查找学生，增加学生，删除学生，通过学号修改学生，查询全部学生的具体实现，注意输入参数类型，返回类型，以及占位符#&#123;&#125;。其余的自行体会--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">resultType</span>=<span class="string">"org.lanqiao.entity.Student"</span> <span class="attr">parameterType</span>=<span class="string">"int"</span> <span class="attr">id</span>=<span class="string">"queryStudentByStuno"</span>&gt;</span>select * from student where stuno = #&#123;stuno&#125; <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">insert</span> <span class="attr">parameterType</span>=<span class="string">"org.lanqiao.entity.Student"</span> <span class="attr">id</span>=<span class="string">"addStudent"</span>&gt;</span>insert into student(stuno,stuname,stuage,graname) values(#&#123;stuNo&#125;,#&#123;stuName&#125;,#&#123;stuAge&#125;,#&#123;graName&#125; ) <span class="tag">&lt;/<span class="name">insert</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">delete</span> <span class="attr">parameterType</span>=<span class="string">"int"</span> <span class="attr">id</span>=<span class="string">"deleteStudentByStuno"</span>&gt;</span>delete from student where stuno = #&#123;stuno&#125; <span class="tag">&lt;/<span class="name">delete</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">update</span> <span class="attr">parameterType</span>=<span class="string">"org.lanqiao.entity.Student"</span> <span class="attr">id</span>=<span class="string">"updateStudentByStuno"</span>&gt;</span>update student set stuname=#&#123;stuName&#125; ,stuage=#&#123;stuAge&#125;,graname=#&#123;graName&#125; where stuno=#&#123;stuNo&#125; <span class="tag">&lt;/<span class="name">update</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">resultType</span>=<span class="string">"org.lanqiao.entity.Student"</span> <span class="attr">id</span>=<span class="string">"queryAllStudents"</span>&gt;</span>select * from student <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">mapper</span> <span class="meta-keyword">SYSTEM</span> <span class="meta-string">"http://mybatis.org/dtd/mybatis-3-mapper.dtd"</span> <span class="meta-keyword">PUBLIC</span> <span class="meta-string">"-//mybatis.org//DTD Mapper 3.0//EN"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- namespace很重要，这是该mapper.xml映射文件的 唯一标识 --&gt;</span></span><br><span class="line">-<span class="tag">&lt;<span class="name">mapper</span> <span class="attr">namespace</span>=<span class="string">"org.lanqiao.entity.studentMapper"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 后续通过 namespace.id--&gt;</span></span><br><span class="line"><span class="comment">&lt;!--parameterType:输入参数的类型 resultType：查询返回结果值的类型 ，返回类型 --&gt;</span></span><br><span class="line"><span class="comment">&lt;!--下面是根据学号查找学生，增加学生，删除学生，通过学号修改学生，查询全部学生的具体实现，注意输入参数类型，返回类型，以及占位符#&#123;&#125;。其余的自行体会--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">resultType</span>=<span class="string">"org.lanqiao.entity.Student"</span> <span class="attr">parameterType</span>=<span class="string">"int"</span> <span class="attr">id</span>=<span class="string">"queryStudentByStuno"</span>&gt;</span>select * from student where stuno = #&#123;stuno&#125; <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line">    </span><br><span class="line"><span class="tag">&lt;<span class="name">insert</span> <span class="attr">parameterType</span>=<span class="string">"org.lanqiao.entity.Student"</span> <span class="attr">id</span>=<span class="string">"addStudent"</span>&gt;</span>insert into student(stuno,stuname,stuage,graname) values(#&#123;stuNo&#125;,#&#123;stuName&#125;,#&#123;stuAge&#125;,#&#123;graName&#125; ) <span class="tag">&lt;/<span class="name">insert</span>&gt;</span></span><br><span class="line">    </span><br><span class="line"><span class="tag">&lt;<span class="name">delete</span> <span class="attr">parameterType</span>=<span class="string">"int"</span> <span class="attr">id</span>=<span class="string">"deleteStudentByStuno"</span>&gt;</span>delete from student where stuno = #&#123;stuno&#125; <span class="tag">&lt;/<span class="name">delete</span>&gt;</span></span><br><span class="line">    </span><br><span class="line"><span class="tag">&lt;<span class="name">update</span> <span class="attr">parameterType</span>=<span class="string">"org.lanqiao.entity.Student"</span> <span class="attr">id</span>=<span class="string">"updateStudentByStuno"</span>&gt;</span>update student set stuname=#&#123;stuName&#125; ,stuage=#&#123;stuAge&#125;,graname=#&#123;graName&#125; where stuno=#&#123;stuNo&#125; <span class="tag">&lt;/<span class="name">update</span>&gt;</span></span><br><span class="line">    </span><br><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">resultType</span>=<span class="string">"org.lanqiao.entity.Student"</span> <span class="attr">id</span>=<span class="string">"queryAllStudents"</span>&gt;</span>select * from student <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line">    </span><br><span class="line"><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>Test.java</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> org.lanqiao.entity;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.Reader;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.apache.ibatis.io.Resources;</span><br><span class="line"><span class="keyword">import</span> org.apache.ibatis.session.SqlSession;</span><br><span class="line"><span class="keyword">import</span> org.apache.ibatis.session.SqlSessionFactory;</span><br><span class="line"><span class="keyword">import</span> org.apache.ibatis.session.SqlSessionFactoryBuilder;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">	<span class="comment">//查询单个学生</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">queryStudentByStuno</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">		Reader reader = Resources.getResourceAsReader(<span class="string">"conf.xml"</span>) ;</span><br><span class="line">		SqlSessionFactory sessionFacotry = <span class="keyword">new</span> SqlSessionFactoryBuilder().build(reader,<span class="string">"development"</span>) ;<span class="comment">//如果是默认环境，可以不用第二参数</span></span><br><span class="line">		SqlSession session = sessionFacotry.openSession() ;</span><br><span class="line">		String statement = <span class="string">"org.lanqiao.entity.studentMapper.queryStudentByStuno"</span>;</span><br><span class="line">		Student student = session.selectOne(statement,<span class="number">1</span>) ;</span><br><span class="line">		System.out.println(student);</span><br><span class="line">		session.close();</span><br><span class="line">	&#125;</span><br><span class="line">	  <span class="comment">//查询全部学生</span></span><br><span class="line"> 	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">queryAllStudents</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line"></span><br><span class="line">		Reader reader = Resources.getResourceAsReader(<span class="string">"conf.xml"</span>) ;</span><br><span class="line">		SqlSessionFactory sessionFacotry = <span class="keyword">new</span> SqlSessionFactoryBuilder().build(reader) ;</span><br><span class="line">		SqlSession session = sessionFacotry.openSession() ;			</span><br><span class="line">		String statement = <span class="string">"org.lanqiao.entity.studentMapper."</span>+<span class="string">"queryAllStudents"</span>;</span><br><span class="line">		List&lt;Student&gt; students = session.selectList(statement) ;</span><br><span class="line">		System.out.println(students);</span><br><span class="line">		session.close();</span><br><span class="line">	&#125;</span><br><span class="line"> 		 <span class="comment">//增加学生</span></span><br><span class="line"> 	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">addStudent</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">		Reader reader = Resources.getResourceAsReader(<span class="string">"conf.xml"</span>) ;</span><br><span class="line">		SqlSessionFactory sessionFacotry = <span class="keyword">new</span> SqlSessionFactoryBuilder().build(reader) ;</span><br><span class="line">		SqlSession session = sessionFacotry.openSession() ;</span><br><span class="line">		String statement = <span class="string">"org.lanqiao.entity.studentMapper."</span>+<span class="string">"addStudent"</span>;</span><br><span class="line">		Student student = <span class="keyword">new</span> Student(<span class="number">3</span>,<span class="string">"ww"</span>,<span class="number">25</span>,<span class="string">"s1"</span>);</span><br><span class="line">		<span class="keyword">int</span> count = session.insert(statement, student );</span><br><span class="line">           <span class="comment">//statement：指定执行的SQL    student：sql中需要的参数 （ ? ? ? ）</span></span><br><span class="line">		session.commit(); <span class="comment">//提交事务</span></span><br><span class="line">		System.out.println(<span class="string">"增加"</span>+count+<span class="string">"个学生"</span>);</span><br><span class="line">		session.close();</span><br><span class="line">	&#125;</span><br><span class="line"> 		 <span class="comment">//删除学生</span></span><br><span class="line"> 	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">delteStudentByStuno</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">		Reader reader = Resources.getResourceAsReader(<span class="string">"conf.xml"</span>) ;</span><br><span class="line">		SqlSessionFactory sessionFacotry = <span class="keyword">new</span> SqlSessionFactoryBuilder().build(reader) ;</span><br><span class="line">		SqlSession session = sessionFacotry.openSession() ;</span><br><span class="line">		String statement = <span class="string">"org.lanqiao.entity.studentMapper."</span>+<span class="string">"deleteStudentByStuno"</span>;</span><br><span class="line">		<span class="keyword">int</span> count = session.delete(statement,<span class="number">3</span>) ;</span><br><span class="line">		session.commit(); <span class="comment">//提交事务</span></span><br><span class="line">		System.out.println(<span class="string">"删除"</span>+count+<span class="string">"个学生"</span>);</span><br><span class="line">		session.close();</span><br><span class="line">	&#125;</span><br><span class="line"> 	 <span class="comment">//修改学生</span></span><br><span class="line"> 	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">updateStudentByStuno</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">		Reader reader = Resources.getResourceAsReader(<span class="string">"conf.xml"</span>) ;</span><br><span class="line">		SqlSessionFactory sessionFacotry = <span class="keyword">new</span> SqlSessionFactoryBuilder().build(reader) ;</span><br><span class="line">		SqlSession session = sessionFacotry.openSession() ;</span><br><span class="line">		String statement = <span class="string">"org.lanqiao.entity.studentMapper."</span>+<span class="string">"updateStudentByStuno"</span>;</span><br><span class="line">		<span class="comment">//修改的参数</span></span><br><span class="line">		Student student = <span class="keyword">new</span> Student();</span><br><span class="line">		student.setStuNo(<span class="number">2</span>);</span><br><span class="line">		student.setStuName(<span class="string">"lxs"</span>);</span><br><span class="line">		student.setStuAge(<span class="number">44</span>);</span><br><span class="line">		student.setGraName(<span class="string">"s2"</span>);</span><br><span class="line">		<span class="keyword">int</span> count = session.update(statement,student) ;</span><br><span class="line">		session.commit(); <span class="comment">//提交事务</span></span><br><span class="line">		System.out.println(<span class="string">"修改"</span>+count+<span class="string">"个学生"</span>);</span><br><span class="line">		session.close();</span><br><span class="line">	&#125;</span><br><span class="line">    <span class="comment">//主方法</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">		queryAllStudents();</span><br><span class="line"><span class="comment">//		 addStudent() ;</span></span><br><span class="line"><span class="comment">//		delteStudentByStuno();</span></span><br><span class="line">		updateStudentByStuno();</span><br><span class="line">		queryAllStudents();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -225,7 +225,8 @@
 <p>配置方式：abc.xml 中类似于&lt; name&gt;myProject&lt; /name&gt;这样的形势</p>
 <p>约定：默认值就是myProject</p>
 <p><strong>具体实现的步骤</strong>：<br>1.基础环境：mybatis.jar/ojdbc.jar、conf.xml、mapper.xml这几步跟前面都是一样的<br>2.约定的目标（不同之处）： 省略掉statement,即根据约定 直接可以定位出SQL语句</p>
-<p>首先 建立一个接口StudentMapper.java，接口中的方法必须遵循以下约定：1.方法名和mapper.xml文件中标签的id值相同  2.方法的 输入参数 和mapper.xml文件中标签的 parameterType类型一致 (如果mapper.xml的标签中没有 parameterType，则说明方法没有输入参数)  3.方法的返回值  和mapper.xml文件中标签的 resultType类型一致 （无论查询结果是一个 还是多个（student、List&lt; Student&gt;），在mapper.xml标签中的resultType中只写 一个（Student）；如果没有resultType，则说明方法的返回值为void）除了以上约定，要实现 接口中的方法  和  Mapper.xml中SQL标签一一对应，还需要注意namespace的值 就是接口的全类名（ 接口 - mapper.xml 一一对应）</p>
+<p>首先 建立一个接口StudentMapper.java，接口中的方法必须遵循以下约定：</p>
+<p>1.方法名和mapper.xml文件中标签的id值相同  2.方法的 输入参数 和mapper.xml文件中标签的 parameterType类型一致 (如果mapper.xml的标签中没有 parameterType，则说明方法没有输入参数)  3.方法的返回值  和mapper.xml文件中标签的 resultType类型一致 （无论查询结果是一个 还是多个（student、List&lt; Student&gt;），在mapper.xml标签中的resultType中只写 一个（Student）；如果没有resultType，则说明方法的返回值为void）除了以上约定，要实现 接口中的方法  和  Mapper.xml中SQL标签一一对应，还需要注意namespace的值 就是接口的全类名（ 接口 - mapper.xml 一一对应）</p>
 <p>3.匹配的过程：（约定的过程）1.根据 接口全类名 找到 XXXmapper.xml文件（根据的是namespace=接口全类名）2.根据 接口的方法名 找到 mapper.xml文件中的SQL标签 （方法名=SQL标签Id值）以上2点可以保证： 当我们调用接口中的方法时，程序能自动定位到 某一个Mapper.xml文件中的sqL标签。习惯：SQL映射文件（XXXmapper.xml） 和 接口放在同一个包中 （注意修改 conf.xml中加载mapper.xml文件的路径）以上，就可以通过接口的方法找到对应的SQL语句了。</p>
 <p>4.执行：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">StudentMapper studentMapper = session.getMapper(StudentMapper<span class="class">.<span class="keyword">class</span>) </span>;</span><br><span class="line">studentMapper.方法();</span><br><span class="line"><span class="comment">//通过session对象获取接口（session.getMapper(接口.class);），再调用该接口中的方法，程序会自动执行该方法对应的SQL。</span></span><br></pre></td></tr></table></figure>
@@ -612,6 +613,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Ajax</a>
               </li>
              
@@ -624,23 +629,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -656,7 +653,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sql</a>
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SSM</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -665,10 +670,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">maven</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">svn</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -684,7 +685,31 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">svn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">c语言</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">jdbc</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">排序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">C语言</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -697,22 +722,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Typora</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">c语言</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">排序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C语言</a>
               </li>
              
               <li class="article-tag-list-item">
