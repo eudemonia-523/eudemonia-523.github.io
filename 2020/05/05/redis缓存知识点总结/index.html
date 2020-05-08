@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>redis缓存知识点总结 | eudemonia</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="关于redis缓存课程计划: ​    1.redis基础： ​            redis入门 ​            数据类型 ​            通用 命令 ​            Jedis ​    2.redis高级 ​            持久化 ​            redis.config ​            事务 ​            集群 ​">
+  <meta name="description" content="关于redis缓存Redis（Remote Dictionary Server )，即远程字典服务，是一个开源的使用C编写、支持网络、可基于内存亦可持久化的日志型、Key-Value数据库，并提供多种语言的API。从2010年3月15日起，Redis的开发工作由VMware主持。从2013年5月开始，Redis的开发由Pivotal赞助。Redis是noSql的一种，它可以实现关系型数据库所没有的">
 <meta property="og:type" content="article">
 <meta property="og:title" content="redis缓存知识点总结">
 <meta property="og:url" content="http://yoursite.com/2020/05/05/redis%E7%BC%93%E5%AD%98%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/index.html">
 <meta property="og:site_name" content="eudemonia">
-<meta property="og:description" content="关于redis缓存课程计划: ​    1.redis基础： ​            redis入门 ​            数据类型 ​            通用 命令 ​            Jedis ​    2.redis高级 ​            持久化 ​            redis.config ​            事务 ​            集群 ​">
+<meta property="og:description" content="关于redis缓存Redis（Remote Dictionary Server )，即远程字典服务，是一个开源的使用C编写、支持网络、可基于内存亦可持久化的日志型、Key-Value数据库，并提供多种语言的API。从2010年3月15日起，Redis的开发工作由VMware主持。从2013年5月开始，Redis的开发由Pivotal赞助。Redis是noSql的一种，它可以实现关系型数据库所没有的">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-05-05T01:16:04.000Z">
-<meta property="article:modified_time" content="2020-05-05T02:32:58.180Z">
+<meta property="article:modified_time" content="2020-05-08T08:51:12.043Z">
 <meta property="article:author" content="吴祥飞">
 <meta property="article:tag" content="java">
 <meta property="article:tag" content="redis">
@@ -185,54 +185,491 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="关于redis缓存"><a href="#关于redis缓存" class="headerlink" title="关于redis缓存"></a>关于redis缓存</h2><p>课程计划:</p>
+        <h2 id="关于redis缓存"><a href="#关于redis缓存" class="headerlink" title="关于redis缓存"></a>关于redis缓存</h2><p>Redis（Remote Dictionary Server )，即远程字典服务，是一个开源的使用C编写、支持网络、可基于内存亦可持久化的日志型、Key-Value数据库，并提供多种语言的API。从2010年3月15日起，Redis的开发工作由VMware主持。从2013年5月开始，Redis的开发由Pivotal赞助。Redis是noSql的一种，它可以实现关系型数据库所没有的处理海量数据的能力，接下来就是我的学习笔记</p>
+<a id="more"></a>
+
+<p><strong>课程计划:</strong></p>
 <p>​    1.redis基础：</p>
-<p>​            redis入门</p>
-<p>​            数据类型</p>
-<p>​            通用 命令</p>
-<p>​            Jedis</p>
+<p>​            redis入门    数据类型    通用 命令    Jedis</p>
 <p>​    2.redis高级</p>
-<p>​            持久化</p>
-<p>​            redis.config</p>
-<p>​            事务</p>
-<p>​            集群</p>
+<p>​            持久化    redis.config    事务    集群</p>
 <p>​    3.redis应用</p>
 <p>​            企业级解决方案</p>
-<p>第一个板块在windows下讲解，二三在linux环境下讲解</p>
+<p><strong>注：</strong>第一个板块在windows下讲解，二三在linux环境下讲解</p>
 <p>redis产生的意义：因为大部分情况下如果处理海量的数据很容易导致系统崩溃，这是诞生了NoSql数据库，这个数据库不是关系型数据库，只存数据不存关系，作为关系型数据库的补充。而常见的nosql数据库包括Redis,MongoDB,memcache等</p>
-<p>下载与安装：</p>
-<p><a href="https://github.com/MSOpenTech/redis/tags" target="_blank" rel="noopener">https://github.com/MSOpenTech/redis/tags</a> 这个网址去下载3.2版本的，直接下载、解压就可以使用了。</p>
-<p>使用：</p>
-<p>点击redis-server.exe就可以启动服务，点击redis-cli.exe就可以进入命令行界面进行操作</p>
-<p>Redis基本的操作指令：</p>
-<p>信息添加：   set key value</p>
-<p>信息查询：   get key        如果不存在，返回空（nil）</p>
-<p>清楚命令行内容    clear</p>
-<p>帮助命令 help   命令名     或者help  @组名</p>
-<p>退出命令  quit   或者exit   或者   &lt; ESC&gt;</p>
-<p>数据类型：</p>
-<p>redis数据类型一共有五种：  String   hash   list   set   sorted_set   </p>
+<h2 id="1-下载、安装与使用："><a href="#1-下载、安装与使用：" class="headerlink" title="1.下载、安装与使用："></a>1.下载、安装与使用：</h2><p><strong>下载</strong>：</p>
+<p>​    网站：<a href="https://github.com/MSOpenTech/redis/tags" target="_blank" rel="noopener">https://github.com/MSOpenTech/redis/tags</a>  点击进入下载3.2版本的，直接下载解压就可以使用了。</p>
+<p><strong>使用</strong>：</p>
+<p>​    点击redis-server.exe就可以启动服务，点击redis-cli.exe就可以进入命令行界面进行操作</p>
+<p><strong>Redis基本的操作指令</strong>：</p>
+<p>​    信息添加：   set key value</p>
+<p>​    信息查询：   get key        如果不存在，返回空（nil）</p>
+<p>​    清除命令行内容    clear</p>
+<p>​    帮助命令 help   命令名     或者help  @组名</p>
+<p>​    退出命令  quit   或者exit   或者   &lt; ESC&gt;</p>
+<h2 id="2-数据类型："><a href="#2-数据类型：" class="headerlink" title="2.数据类型："></a>2.数据类型：</h2><p>redis数据类型一共有五种：  String   hash   list   set   sorted_set   </p>
 <p>这五种和我们学过的数据类型  String HashMap  Linklist  hashset  treeset  有点相像</p>
 <p>redis中所有的key都必须是string 类型的，我们说的数据类型都是指的value的数据类型</p>
-<p>String类型的基本操作   </p>
-<p>set    key    value</p>
-<p>get    key</p>
-<p>delete    key</p>
-<p>mset    key1    value1    key2    value2…</p>
-<p>mget    key1    key2    key3….</p>
-<p>strlen    key</p>
-<p>append    key    value</p>
-<p>String类型的扩展操作：</p>
-<p>incr    key</p>
-<p>incrby    key    increment</p>
-<p>decr    key</p>
-<p>decrby    key    decrement</p>
-<p>incrbyfloat    key    increment</p>
-<p>当碰到Incr，decr的时候String会变成一个整数来操作，但是记住它本质还是一个字符串</p>
-<p>另一个String扩展操作 </p>
-<p>设置数据具有指定的生命周期 </p>
-<p> setex key seconds value<br> psetex key milliseconds value     </p>
+<h3 id="2-1-String"><a href="#2-1-String" class="headerlink" title="2.1 String"></a>2.1 String</h3><p>String类型的基本操作   </p>
+<table>
+<thead>
+<tr>
+<th>操作</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>set key value</td>
+<td>设置变量的值</td>
+</tr>
+<tr>
+<td>get key</td>
+<td>获取变量的值</td>
+</tr>
+<tr>
+<td>delete key</td>
+<td>删除变量</td>
+</tr>
+<tr>
+<td>mset key1 value1 key2 value2…</td>
+<td>批量设置变量的值</td>
+</tr>
+<tr>
+<td>mget key1 key2 key3</td>
+<td>批量获取变量</td>
+</tr>
+<tr>
+<td>strlen key</td>
+<td>获取变量的长度</td>
+</tr>
+<tr>
+<td>append key value</td>
+<td>在变量值后面连接字符串</td>
+</tr>
+<tr>
+<td>incr key</td>
+<td>变量自增</td>
+</tr>
+<tr>
+<td>incrby key increment</td>
+<td>变量增加increment这么多</td>
+</tr>
+<tr>
+<td>decr key</td>
+<td>变量自减</td>
+</tr>
+<tr>
+<td>decrby key decrement</td>
+<td>变量减少decrement这么多</td>
+</tr>
+<tr>
+<td>incrbyfloat key increment</td>
+<td>变量增加一个浮点数</td>
+</tr>
+<tr>
+<td>setx key seconds value</td>
+<td>设置变量存活时间（秒）</td>
+</tr>
+<tr>
+<td>psetex key milliseconds value</td>
+<td>设置变量存活时间（毫秒）</td>
+</tr>
+<tr>
+<td>set student : id : 16101010119 : name wxf</td>
+<td>设置关系</td>
+</tr>
+<tr>
+<td>set student : id 16101010119 :{age : 23 , address : bj , height : 171}</td>
+<td>批量设置关系</td>
+</tr>
+</tbody></table>
+<p><strong>注</strong>：当碰到Incr，decr的时候String会变成一个整数来操作，但是记住它本质还是一个字符串</p>
+<h3 id="2-2-hash"><a href="#2-2-hash" class="headerlink" title="2.2 hash"></a>2.2 hash</h3><p>如果只有string这一种类型，我们会觉得使用起来真是太不方便了，为此产生了对新数据类型的需求：</p>
+<ol>
+<li><p>新的存储需求：对一系列存储的数据进行编组，方便管理，典型应用存储对象信息 </p>
+</li>
+<li><p>需要的存储结构：一个存储空间保存多个键值对数据 </p>
+</li>
+<li><p>hash类型：底层使用哈希表结构实现数据存储</p>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>操作</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>hset key field value</td>
+<td>设置变量字段值</td>
+</tr>
+<tr>
+<td>hget key field</td>
+<td>获取变量字段值</td>
+</tr>
+<tr>
+<td>hgetall key</td>
+<td>获取变量所有字段值</td>
+</tr>
+<tr>
+<td>hdel key field1</td>
+<td>删除字段值</td>
+</tr>
+<tr>
+<td>hmset key field1 value1 field2 value2 …</td>
+<td>批量设置变量字段值</td>
+</tr>
+<tr>
+<td>hmget key field1 field2 …</td>
+<td>批量获取变量字段值</td>
+</tr>
+<tr>
+<td>hlen key</td>
+<td>获取变量字段个数</td>
+</tr>
+<tr>
+<td>hexists key field</td>
+<td>判断变量是否存在该字段</td>
+</tr>
+<tr>
+<td>hkeys key</td>
+<td>查看变量所有字段名</td>
+</tr>
+<tr>
+<td>hvals key</td>
+<td>查看变量所有字段值</td>
+</tr>
+<tr>
+<td>hincrby key field increment</td>
+<td>设置变量字段值增加increment这么多</td>
+</tr>
+<tr>
+<td>hincrbyfloat key field increment</td>
+<td>设置变量字段值增加浮点数increment这么多</td>
+</tr>
+</tbody></table>
+<p> <strong>hash 类型数据操作的注意事项</strong> </p>
+<ol>
+<li>hash类型下的value只能存储字符串，不允许存储其他数据类型，不存在嵌套现象。</li>
+<li>每个 hash 可以存储 232 - 1 个键值对 </li>
+<li>hash类型十分贴近对象的数据存储形式，并且可以灵活添加删除对象属性。但hash设计初衷不是为了存 储大量对象而设计的，切记不可滥用，更不可以将hash作为对象列表使用 </li>
+<li>hgetall 操作可以获取全部属性，如果内部field过多，遍历整体数据效率就很会低，有可能成为数据访问 瓶颈 </li>
+</ol>
+<h3 id="2-3-list"><a href="#2-3-list" class="headerlink" title="2.3 list"></a>2.3 list</h3><p>只有以上两种数据类型还不够，我们还需要另一个可以存储大量数据的类型：</p>
+<ol>
+<li><p>数据存储需求：存储多个数据，并对数据进入存储空间的顺序进行区分 </p>
+</li>
+<li><p>需要的存储结构：一个存储空间保存多个数据，且通过数据可以体现进入顺序 </p>
+</li>
+<li><p>list类型：保存多个数据，底层使用双向链表存储结构实现</p>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>操作</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>lpush key value1 [value2] ……</td>
+<td>头插法进入队列（左进）</td>
+</tr>
+<tr>
+<td>rpush key value1 [value2] ……</td>
+<td>尾插法进入队列（右进）</td>
+</tr>
+<tr>
+<td>lrange key start stop</td>
+<td>从start到stop输出元素</td>
+</tr>
+<tr>
+<td>lindex key index</td>
+<td>获取队列index号元素</td>
+</tr>
+<tr>
+<td>llen key</td>
+<td>获取队列的长度</td>
+</tr>
+<tr>
+<td>lpop key</td>
+<td>从左获取并去取出队列元素</td>
+</tr>
+<tr>
+<td>rpop key</td>
+<td>从右获取并去取出队列元素</td>
+</tr>
+<tr>
+<td>blpop key1 [key2] timeout</td>
+<td>规定时间从左获取并移除数据</td>
+</tr>
+<tr>
+<td>brpop key1 [key2] timeout</td>
+<td>规定时间从右获取并移除数据</td>
+</tr>
+<tr>
+<td>lrem key count value</td>
+<td>从队列key中删除count个value</td>
+</tr>
+</tbody></table>
+<p>list 类型数据操作注意事项 </p>
+<ol>
+<li>list中保存的数据都是string类型的，数据总容量是有限的，最 多232 - 1 个元素 (4294967295)。 </li>
+<li>list具有索引的概念，但是操作数据时通常以队列的形式进行入队出队操作，或以栈的形式进行入栈出栈操作 </li>
+<li>获取全部数据操作结束索引设置为-1 </li>
+<li>list可以对数据进行分页操作，通常第一页的信息来自于list，第2页及更多的信息通过数据库的形式加载 </li>
+</ol>
+<h3 id="2-4-set"><a href="#2-4-set" class="headerlink" title="2.4 set"></a>2.4 set</h3><ol>
+<li><p>新的存储需求：存储大量的数据，在查询方面提供更高的效率</p>
+</li>
+<li><p>需要的存储结构：能够保存大量的数据，高效的内部存储机制，便于查询</p>
+</li>
+<li><p>set类型：与hash存储结构完全相同，仅存储键，不存储值（nil），并且值是不允许重复的 </p>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>操作</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>sadd key member1 [member2]</td>
+<td>给集合中增加元素</td>
+</tr>
+<tr>
+<td>smembers key</td>
+<td>获取全部元素</td>
+</tr>
+<tr>
+<td>srem key member1 [member2]</td>
+<td>删除集合中某个元素</td>
+</tr>
+<tr>
+<td>scard key</td>
+<td>获取元素个数</td>
+</tr>
+<tr>
+<td>sismember key member</td>
+<td>判断集合中是否包含该元素</td>
+</tr>
+<tr>
+<td>srandmember key [count]</td>
+<td>随机获取指定count个元素</td>
+</tr>
+<tr>
+<td>spop key [count]</td>
+<td>随机删除指定count个元素</td>
+</tr>
+<tr>
+<td>sinter key1 [key2]  <br> sunion key1 [key2]  <br> sdiff key1 [key2]</td>
+<td>计算两个集合的交集并集差集</td>
+</tr>
+<tr>
+<td>sinterstore destination key1 [key2]  <br> sunionstore destination key1 [key2]  <br> sdiffstore destination key1 [key2]</td>
+<td>将两个集合的并集交集差集存储到另一个集合中</td>
+</tr>
+<tr>
+<td>smove source destination member</td>
+<td>将某个元素从一个集合移动到另一个集合中</td>
+</tr>
+</tbody></table>
+<p>set 类型数据操作的注意事项 </p>
+<ol>
+<li><p>set 类型不允许数据重复，如果添加的数据在 set 中已经存在，将只保留一份</p>
+</li>
+<li><p>set 虽然与hash的存储结构相同，但是无法启用hash中存储值的空间 </p>
+</li>
+</ol>
+<h3 id="2-5-sorted-set"><a href="#2-5-sorted-set" class="headerlink" title="2.5 sorted_set"></a>2.5 sorted_set</h3><ol>
+<li><p>新的存储需求：数据排序有利于数据的有效展示，需要提供一种可以根据自身特征进行排序的方式 </p>
+</li>
+<li><p>需要的存储结构：新的存储模型，可以保存可排序的数据 </p>
+</li>
+<li><p>sorted_set类型：在set的存储结构基础上添加可排序字段 </p>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>操作</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>zadd key score1 member1 [score2 member2]</td>
+<td>添加元素、序号进入有序集合</td>
+</tr>
+<tr>
+<td>zrange key start stop [WITHSCORES]</td>
+<td>获取全部元素（从小到大）</td>
+</tr>
+<tr>
+<td>zrevrange key start stop [WITHSCORES]</td>
+<td>获取全部元素（从大到小）</td>
+</tr>
+<tr>
+<td>zrem key member [member …]</td>
+<td>删除元素</td>
+</tr>
+<tr>
+<td>zrangebyscore key min max [WITHSCORES] [LIMIT]</td>
+<td>查询从min到max中的limit个元素</td>
+</tr>
+<tr>
+<td>zrevrangebyscore key max min [WITHSCORES]</td>
+<td>查询从min到max中的元素反向输出</td>
+</tr>
+<tr>
+<td>zremrangebyrank key start stop</td>
+<td>删除从排名start到stop中的元素</td>
+</tr>
+<tr>
+<td>zremrangebyscore key min max</td>
+<td>删除从score start到stop中的元素</td>
+</tr>
+<tr>
+<td>zcard key</td>
+<td>获取所有元素的个数</td>
+</tr>
+<tr>
+<td>zcount key min max</td>
+<td>获取score在min到max中的元素个数</td>
+</tr>
+<tr>
+<td>zinterstore destination numkeys key [key …]</td>
+<td>交集并求和</td>
+</tr>
+<tr>
+<td>zunionstore destination numkeys key [key …]</td>
+<td>并集</td>
+</tr>
+<tr>
+<td>zrank key member</td>
+<td>获取对应元素的排名</td>
+</tr>
+<tr>
+<td>zrevrank key member</td>
+<td>获取对应元素的反向排名</td>
+</tr>
+<tr>
+<td>zscore key member</td>
+<td>获取元素的score值</td>
+</tr>
+<tr>
+<td>zincrby key increment member</td>
+<td>将元素的score值加increment</td>
+</tr>
+</tbody></table>
+<p>sorted_set 类型数据操作的注意事项</p>
+<ol>
+<li><p>score保存的数据存储空间是64位，如果是整数范围是-9007199254740992~9007199254740992 </p>
+</li>
+<li><p>score保存的数据也可以是一个双精度的double值，基于双精度浮点数的特征，可能会丢失精度，使用时 候要慎重 </p>
+</li>
+<li><p>sorted_set 底层存储还是基于set结构的，因此数据不能重复，如果重复添加相同的数据，score值将被反 复覆盖，保留最后一次修改的结果 </p>
+</li>
+</ol>
+<h2 id="3-通用指令"><a href="#3-通用指令" class="headerlink" title="3.通用指令"></a>3.通用指令</h2><h3 id="3-1-key通用指令"><a href="#3-1-key通用指令" class="headerlink" title="3.1 key通用指令"></a>3.1 key通用指令</h3><table>
+<thead>
+<tr>
+<th>操作</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>del key</td>
+<td>删除指定key值</td>
+</tr>
+<tr>
+<td>exists key</td>
+<td>获取key是否存在</td>
+</tr>
+<tr>
+<td>type key</td>
+<td>获取key的类型</td>
+</tr>
+<tr>
+<td>expire key seconds <br> pexpire key milliseconds <br> expireat key timestamp <br> pexpireat key milliseconds-timestamp</td>
+<td>为指定key设置有效期</td>
+</tr>
+<tr>
+<td>ttl key <br> pttl key</td>
+<td>获取key的有效时间</td>
+</tr>
+<tr>
+<td>persist key</td>
+<td>将key的时效性转换为永久性</td>
+</tr>
+<tr>
+<td>keys pattern</td>
+<td>查询模式  包含   *   ?   [ ]</td>
+</tr>
+<tr>
+<td>rename key newkey <br> renamenx key newkey</td>
+<td>为key改名</td>
+</tr>
+<tr>
+<td>sort</td>
+<td>排序</td>
+</tr>
+<tr>
+<td>help @generic</td>
+<td>其他key的通用操作</td>
+</tr>
+</tbody></table>
+<h3 id="3-2-数据库通用指令"><a href="#3-2-数据库通用指令" class="headerlink" title="3.2 数据库通用指令"></a>3.2 数据库通用指令</h3><table>
+<thead>
+<tr>
+<th>操作</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>select index</td>
+<td>切换数据库</td>
+</tr>
+<tr>
+<td>quit <br> ping</td>
+<td>推出<br>判断连通性</td>
+</tr>
+<tr>
+<td>move key db</td>
+<td>将数据转移到另一个数据库中</td>
+</tr>
+<tr>
+<td>dbsize <br> flushdb <br> flushall</td>
+<td>数据清除</td>
+</tr>
+</tbody></table>
+<h2 id="4-jedis"><a href="#4-jedis" class="headerlink" title="4.jedis"></a>4.jedis</h2><h3 id="4-1-jedis简介"><a href="#4-1-jedis简介" class="headerlink" title="4.1 jedis简介"></a>4.1 jedis简介</h3><p>Jedis简单理解其实就是利用Java语言对redis数据进行交互的一种建议工具，但Jedis并不是唯一一个工具，还包括SpringData Redis  和Lettuce等。同时也并不是只有Java语言才可以使用redis，C，C++,PHP,Python等都可以。</p>
+<h3 id="4-2-jedis版-hello-world-jedis版"><a href="#4-2-jedis版-hello-world-jedis版" class="headerlink" title="4.2  jedis版 hello world jedis版"></a>4.2  jedis版 hello world jedis版</h3><p>要使用Jedis首先要导入jar包或者在maven库中配置一个依赖如下：</p>
+<p>jar：<a href="https://mvnrepository.com/artifact/redis.clients/jedis" target="_blank" rel="noopener">https://mvnrepository.com/artifact/redis.clients/jedis</a> </p>
+<p>maven：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>redis.clients<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jedis<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span> </span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.9.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
+<p>接下来就可以在ide里开发一个Jedis程序了，其核心代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">jedisTest</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="comment">//1.连接redis</span></span><br><span class="line">	Jedis jedis= <span class="keyword">new</span> Jedis(<span class="string">"127.0.0.1"</span>, <span class="number">6379</span>);</span><br><span class="line">	<span class="comment">//2.操作redis</span></span><br><span class="line">	jedis.set(<span class="string">"name"</span>,<span class="string">"itheima"</span>);</span><br><span class="line">	String name=jedis.get(<span class="string">"name"</span>);</span><br><span class="line">	System.out.println(name);</span><br><span class="line">	<span class="comment">//3.关闭redis</span></span><br><span class="line">	jedis.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-3-jedis读写redis数据"><a href="#4-3-jedis读写redis数据" class="headerlink" title="4.3 jedis读写redis数据"></a>4.3 jedis读写redis数据</h3><p>接下来看一下其他类型的数据是如何通过Jedis来读写的：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testList</span><span class="params">()</span></span>&#123;</span><br><span class="line">    Jedis jedis=<span class="keyword">new</span> Jedis(<span class="string">"127.0.0.1"</span>,<span class="number">6379</span>);</span><br><span class="line">    jedis.lpush(<span class="string">"list1"</span>,<span class="string">"a"</span>,<span class="string">"b"</span>,<span class="string">"c"</span>);</span><br><span class="line">    jedis.rpush(<span class="string">"list1"</span>,<span class="string">"x"</span>);</span><br><span class="line">    List&lt;String&gt; list1=jedis.lrange(<span class="string">"list1"</span>,<span class="number">0</span>,-<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">for</span>(String s:list1)&#123;</span><br><span class="line">        System.out.println(s);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//测试结果为   c b a x</span></span><br><span class="line">    System.out.println(jedis.llen(<span class="string">"list1"</span>));</span><br><span class="line">    jedis.close();</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testHash</span><span class="params">()</span></span>&#123;</span><br><span class="line">    Jedis jedis=<span class="keyword">new</span> Jedis(<span class="string">"127.0.0.1"</span>,<span class="number">6379</span>);</span><br><span class="line">    jedis.hset(<span class="string">"hash1"</span>,<span class="string">"a1"</span>,<span class="string">"b1"</span>);</span><br><span class="line">    jedis.hset(<span class="string">"hash1"</span>,<span class="string">"a2"</span>,<span class="string">"b2"</span>);</span><br><span class="line">    jedis.hset(<span class="string">"hash1"</span>,<span class="string">"a3"</span>,<span class="string">"b3"</span>);</span><br><span class="line">    jedis.hset(<span class="string">"hash1"</span>,<span class="string">"a4"</span>,<span class="string">"b4"</span>);</span><br><span class="line">    Map&lt;String,String&gt; hash1= jedis.hgetAll(<span class="string">"hash1"</span>);</span><br><span class="line">    System.out.println(<span class="string">"hash1"</span>);</span><br><span class="line">    System.out.println(jedis.hlen(<span class="string">"hash1"</span>)); </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//测试结果为 &#123;a1=b1,a2=b2,a3=b3,a4=b4&#125;   3</span></span><br><span class="line">    jedis.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-4-jedis简易工具类开发"><a href="#4-4-jedis简易工具类开发" class="headerlink" title="4.4 jedis简易工具类开发"></a>4.4 jedis简易工具类开发</h3><h4 id="4-1-1-基于连接池获取连接"><a href="#4-1-1-基于连接池获取连接" class="headerlink" title="4.1.1 基于连接池获取连接"></a>4.1.1 基于连接池获取连接</h4><p> JedisPool：Jedis提供的连接池技术</p>
+<p>包含三个参数 poolConfig:连接池配置对象 host:redis服务地址 port:redis服务端口号 </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">JedisPool</span><span class="params">(GenericObjectPoolConfig poolConfig, String host, <span class="keyword">int</span> port)</span> </span>&#123; </span><br><span class="line">    <span class="keyword">this</span>(poolConfig, host, port, <span class="number">2000</span>, (String)<span class="keyword">null</span>, <span class="number">0</span>, (String)<span class="keyword">null</span>); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-2-2-封装连接参数"><a href="#4-2-2-封装连接参数" class="headerlink" title="4.2.2 封装连接参数"></a>4.2.2 封装连接参数</h4><p>jedis.properties</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">jedis.host</span>=<span class="string">localhost </span></span><br><span class="line"><span class="meta">jedis.port</span>=<span class="string">6379 </span></span><br><span class="line"><span class="meta">jedis.maxTotal</span>=<span class="string">30 </span></span><br><span class="line"><span class="meta">jedis.maxIdle</span>=<span class="string">10</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="4-3-3-加载配置信息"><a href="#4-3-3-加载配置信息" class="headerlink" title="4.3.3 加载配置信息"></a>4.3.3 加载配置信息</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span>&#123; </span><br><span class="line">    <span class="comment">// 读取配置文件获得参数值</span></span><br><span class="line">     ResourceBundle rb = ResourceBundle.getBundle(<span class="string">"jedis"</span>); </span><br><span class="line">    host = rb.getString(<span class="string">"jedis.host"</span>); </span><br><span class="line">    port = Integer.parseInt(rb.getString(<span class="string">"jedis.port"</span>)); </span><br><span class="line">    maxTotal = Integer.parseInt(rb.getString(<span class="string">"jedis.maxTotal"</span>)); </span><br><span class="line">    maxIdle = Integer.parseInt(rb.getString(<span class="string">"jedis.maxIdle"</span>)); </span><br><span class="line">    poolConfig = <span class="keyword">new</span> JedisPoolConfig(); </span><br><span class="line">    poolConfig.setMaxTotal(maxTotal); </span><br><span class="line">    poolConfig.setMaxIdle(maxIdle); </span><br><span class="line">    jedisPool = <span class="keyword">new</span> JedisPool(poolConfig,host,port); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-4-4-获取连接"><a href="#4-4-4-获取连接" class="headerlink" title="4.4.4 获取连接"></a>4.4.4 获取连接</h4><p>对外访问接口，提供jedis连接对象，连接从连接池获</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Jedis <span class="title">getJedis</span><span class="params">()</span></span>&#123; </span><br><span class="line">    Jedis jedis = jedisPool.getResource(); </span><br><span class="line">    <span class="keyword">return</span> jedis; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-5-可视化客户端"><a href="#4-5-可视化客户端" class="headerlink" title="4.5 可视化客户端"></a>4.5 可视化客户端</h3><p>Redis Desktop Manager </p>
+<h2 id="5"><a href="#5" class="headerlink" title="5."></a>5.</h2>
       
 
       
@@ -486,6 +923,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Ajax</a>
               </li>
              
@@ -498,19 +943,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">css</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -522,31 +963,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SSM</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">集合</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">maven</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">spring</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">eclipse</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -558,7 +979,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SSM</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">sql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">eclipse</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -567,18 +1004,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">jdbc</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">排序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C语言</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -591,6 +1016,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Typora</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">jdbc</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">排序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">C语言</a>
               </li>
              
               <li class="article-tag-list-item">

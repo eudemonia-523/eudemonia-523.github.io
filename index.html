@@ -182,54 +182,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="关于redis缓存"><a href="#关于redis缓存" class="headerlink" title="关于redis缓存"></a>关于redis缓存</h2><p>课程计划:</p>
-<p>​    1.redis基础：</p>
-<p>​            redis入门</p>
-<p>​            数据类型</p>
-<p>​            通用 命令</p>
-<p>​            Jedis</p>
-<p>​    2.redis高级</p>
-<p>​            持久化</p>
-<p>​            redis.config</p>
-<p>​            事务</p>
-<p>​            集群</p>
-<p>​    3.redis应用</p>
-<p>​            企业级解决方案</p>
-<p>第一个板块在windows下讲解，二三在linux环境下讲解</p>
-<p>redis产生的意义：因为大部分情况下如果处理海量的数据很容易导致系统崩溃，这是诞生了NoSql数据库，这个数据库不是关系型数据库，只存数据不存关系，作为关系型数据库的补充。而常见的nosql数据库包括Redis,MongoDB,memcache等</p>
-<p>下载与安装：</p>
-<p><a href="https://github.com/MSOpenTech/redis/tags" target="_blank" rel="noopener">https://github.com/MSOpenTech/redis/tags</a> 这个网址去下载3.2版本的，直接下载、解压就可以使用了。</p>
-<p>使用：</p>
-<p>点击redis-server.exe就可以启动服务，点击redis-cli.exe就可以进入命令行界面进行操作</p>
-<p>Redis基本的操作指令：</p>
-<p>信息添加：   set key value</p>
-<p>信息查询：   get key        如果不存在，返回空（nil）</p>
-<p>清楚命令行内容    clear</p>
-<p>帮助命令 help   命令名     或者help  @组名</p>
-<p>退出命令  quit   或者exit   或者   &lt; ESC&gt;</p>
-<p>数据类型：</p>
-<p>redis数据类型一共有五种：  String   hash   list   set   sorted_set   </p>
-<p>这五种和我们学过的数据类型  String HashMap  Linklist  hashset  treeset  有点相像</p>
-<p>redis中所有的key都必须是string 类型的，我们说的数据类型都是指的value的数据类型</p>
-<p>String类型的基本操作   </p>
-<p>set    key    value</p>
-<p>get    key</p>
-<p>delete    key</p>
-<p>mset    key1    value1    key2    value2…</p>
-<p>mget    key1    key2    key3….</p>
-<p>strlen    key</p>
-<p>append    key    value</p>
-<p>String类型的扩展操作：</p>
-<p>incr    key</p>
-<p>incrby    key    increment</p>
-<p>decr    key</p>
-<p>decrby    key    decrement</p>
-<p>incrbyfloat    key    increment</p>
-<p>当碰到Incr，decr的时候String会变成一个整数来操作，但是记住它本质还是一个字符串</p>
-<p>另一个String扩展操作 </p>
-<p>设置数据具有指定的生命周期 </p>
-<p> setex key seconds value<br> psetex key milliseconds value     </p>
-
+        <h2 id="关于redis缓存"><a href="#关于redis缓存" class="headerlink" title="关于redis缓存"></a>关于redis缓存</h2><p>Redis（Remote Dictionary Server )，即远程字典服务，是一个开源的使用C编写、支持网络、可基于内存亦可持久化的日志型、Key-Value数据库，并提供多种语言的API。从2010年3月15日起，Redis的开发工作由VMware主持。从2013年5月开始，Redis的开发由Pivotal赞助。Redis是noSql的一种，它可以实现关系型数据库所没有的处理海量数据的能力，接下来就是我的学习笔记</p>
+        
+          <a class="article-more-a" href="/2020/05/05/redis%E7%BC%93%E5%AD%98%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/#more">more >></a>
+        
       
 
       
@@ -1110,6 +1066,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Ajax</a>
               </li>
              
@@ -1122,19 +1086,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">css</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1146,31 +1106,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SSM</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">集合</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">maven</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">spring</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">eclipse</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1182,7 +1122,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SSM</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">sql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">eclipse</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1191,18 +1147,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">jdbc</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">排序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C语言</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1215,6 +1159,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Typora</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">jdbc</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">排序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">C语言</a>
               </li>
              
               <li class="article-tag-list-item">
