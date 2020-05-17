@@ -16,7 +16,7 @@
 <meta property="og:description" content="导语：Spring MVC属于SpringFrameWork的后续产品，已经融合在Spring Web Flow里面。Spring 框架提供了构建 Web 应用程序的全功能 MVC 模块。使用 Spring 可插入的 MVC 架构，从而在使用Spring进行WEB开发时，可以选择使用Spring的Spring MVC框架或集成其他MVC开发框架，如Struts1(现在一般不用)，Struts 2(">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-04-12T08:24:02.000Z">
-<meta property="article:modified_time" content="2020-04-26T07:23:49.485Z">
+<meta property="article:modified_time" content="2020-05-08T22:59:01.888Z">
 <meta property="article:author" content="吴祥飞">
 <meta name="twitter:card" content="summary">
   
@@ -272,47 +272,6 @@
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 加载国际化资源文件 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"messageSource"</span> <span class="attr">class</span>=<span class="string">"org.springframework.context.support.ResourceBundleMessageSource"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"basename"</span> <span class="attr">value</span>=<span class="string">"i18n"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>ResourceBundleMessageSource会在springmvc响应程序时 介入（解析国际化资源文件）</p>
 <p>c.通过jstl使用国际化<br>    jstl.jar  standar.jar<br>springmvc在启动时，会自动查找一个id=”messageSource”的bean，如果有  则自动加载</p>
-<h3 id="linux"><a href="#linux" class="headerlink" title="linux:"></a>linux:</h3><p>  Ubuntu  redhat  centos  debain  fedora suSe</p>
-<p>centos</p>
-<p>安装：<br>vmware: NAT<br>在vmware中安装centos：<br>划分空间  200 /boot      10240 /<br>时区：Shanghai<br>DeskTop  ：Base System  将java去掉</p>
-<p>安装时可能会遇到错误：“此主机支持Intel VT-x,但Intel VT-x处于禁用状态…”<br>解决方法：重启电脑（真实的计算机，不是虚拟机），进入BIOS，找到Intel Virtual Technology ，将其属性会改为Enabled</p>
-<p>鼠标在虚拟机和真实机之间浮动：ctrl+alt</p>
-<p>安装完centos后，安装vmware tools： 虚拟机-安装vmware tools - 解压缩 - 执行 perl vmware-install.pl</p>
-<p>重启：reboot<br>关机：halt</p>
-<p>共享文件夹</p>
-<p>linux：一切皆文件、一切皆命令</p>
-<p>通过命令修改文件内容：<br>vi  路径/文件名<br>修改：  a  在修改<br>保存：  esc   Shift+z  Shift+z</p>
-<p>设置网络：<br>a.设置windows真实机的网络 ：vmnet8<br>ip:  192.168.2.2<br>网关：192.168.2.1</p>
-<p>b.在vmware中配置</p>
-<p>编辑-虚拟网络编辑器</p>
-<p>c.配置各个虚拟机的 网络信息</p>
-<p>/etc/sysconfig/network-scripts/ifcfg-eth0<br>IPADDR=<br>GATEWAY=<br>BROADCAST=-</p>
-<p>主机名- IP映射<br>etc/hosts<br>192.168.2.128  db1</p>
-<p>真实机：C:\Windows\System32\drivers\etc\hosts</p>
-<p>确保虚拟机能上网<br>service NetworkManager stop<br>/etc/init.d/network restart<br>chkconfig NetworkManager off<br>vi /etc/resolv.conf<br>nameserver 192.168.2.1</p>
-<p>关闭防火墙<br>service iptables stop<br>chkconfig iptables off<br>service iptables status </p>
-<p>同步系统时间<br>yum -y install ntp ntpdate<br>ntpdate cn.pool.ntp.org<br>hwclock –systohc</p>
-<p>创建用户：<br>groupadd bigdata<br>useradd -g bigdata bd1<br>passwd  bd1 写新密码<br>给sudoers设置为读写权限<br>chmod 777 /etc/sudoers        –默认权限chmod 440 /etc/sudoers</p>
-<p>vi /etc/sudoers<br>新加bd1 ALL=(ALL)ALL</p>
-<p>之后通过sudo执行系统级别的命令</p>
-<p>安装jdk<br>下载rpm版<br>rpm -ivh jdkxxxx.rpm<br>RPM安装的默认路径：usr</p>
-<p>环境变量： /etc/profile<br>export JAVA_HOME=/usr/java/jdk1.8.0_171-amd64<br>export CLASSPATH=$JAVA_HOME/lib:$CLASSPATH<br>export PATH=$JAVA_HOME/bin:$PATH</p>
-<p>查看当前路径：/usr/java/jdk1.8.0_171-amd64</p>
-<p>强制退出：shift+z Shift +z 或者 :wq!</p>
-<p>刷新环境变量：source /etc/profile</p>
-<p>克隆-完全克隆 3份<br>（如果报错：sudo :/etc/sudoers is world writable<br>解决：pkexec chmod   0440 /etc/sudoers<br>）</p>
-<p>权限：<br>vi etc/sudoers  该成当前计算机的名字<br>–vi /etc/hosts<br>–vi /etc/sysconfig/network<br>在su模式下：切换到root用户：su<br>–vi /etc/sysconfig/network-scripts/ifcfg-eth0 删除UUID 和硬件地址 即可<br>–让设置永久生效：删除 etc/udev/rules.d/70-persistent-net-rules </p>
-<p>2：虚拟机能上网 、 多台计算机和主机间相互通信</p>
-<p>在每个节点 删除其他用户，创建自己的用户<br>userdel </p>
-<p>useradd -g bigdata bd3<br>passwd  bd3 写新密码<br>给sudoers设置为读写权限<br>chmod 777 /etc/sudoers        –默认权限chmod 440 /etc/sudoers</p>
-<p>vi /etc/sudoers<br>新加bd3 ALL=(ALL)ALL</p>
-<p>windows映射：<br>C:\Windows\System32\drivers\etc\hosts</p>
-<p>192.168.2.128    bd1<br>192.168.2.129    bd2<br>192.168.2.130    bd3</p>
-<p>linux映射：<br>vi /etc/hosts<br>192.168.2.128    bd1<br>192.168.2.129    bd2<br>192.168.2.130    bd3</p>
-<p>切换到超级管理员模式：su 输入密码</p>
-<p>执行sudo时，如果报错： /etc/sudoers is world writable<br>解决： pkexec chmod 0440 /etc/sudoers</p>
-<p>免密钥 :A-B</p>
-<p>生成密钥 :用超级管理员身份执行：su<br>ssh-keygen -t rsa<br>私钥留给自己<br>ssh-copy-id localhost<br>公钥发送给其他节点<br>ssh-copy-id bd2<br>ssh-copy-id bd3</p>
 
       
 
@@ -553,18 +512,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Ajax</a>
               </li>
              
@@ -574,6 +521,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -605,14 +564,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">web</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">svn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
@@ -621,7 +572,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sql</a>
+                <a href="javascript:void(0)" class="js-tag color4">web</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">svn</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -633,11 +588,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">c语言</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+                <a href="javascript:void(0)" class="js-tag color4">sql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -653,7 +604,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">jdbc</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -662,6 +613,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">C语言</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">jdbc</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">c语言</a>
               </li>
              
               <li class="article-tag-list-item">

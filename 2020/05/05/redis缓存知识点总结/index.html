@@ -15,13 +15,17 @@
 <meta property="og:site_name" content="eudemonia">
 <meta property="og:description" content="关于redis缓存Redis（Remote Dictionary Server )，即远程字典服务，是一个开源的使用C编写、支持网络、可基于内存亦可持久化的日志型、Key-Value数据库，并提供多种语言的API。从2010年3月15日起，Redis的开发工作由VMware主持。从2013年5月开始，Redis的开发由Pivotal赞助。Redis是noSql的一种，它可以实现关系型数据库所没有的">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://yoursite.com/2020/05/05/redis%E7%BC%93%E5%AD%98%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/%E9%87%8D%E5%86%99%E6%B5%81%E7%A8%8B.jpg">
+<meta property="og:image" content="http://yoursite.com/2020/05/05/redis%E7%BC%93%E5%AD%98%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/RDBVSAOF.jpg">
+<meta property="og:image" content="http://yoursite.com/2020/05/05/redis%E7%BC%93%E5%AD%98%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/%E4%BA%8B%E5%8A%A1%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B.jpg">
 <meta property="article:published_time" content="2020-05-05T01:16:04.000Z">
-<meta property="article:modified_time" content="2020-05-08T08:51:12.043Z">
+<meta property="article:modified_time" content="2020-05-09T14:12:11.314Z">
 <meta property="article:author" content="吴祥飞">
 <meta property="article:tag" content="java">
 <meta property="article:tag" content="redis">
 <meta property="article:tag" content="SSM">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/05/05/redis%E7%BC%93%E5%AD%98%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/%E9%87%8D%E5%86%99%E6%B5%81%E7%A8%8B.jpg">
   
     <link rel="alternative" href="/atom.xml" title="eudemonia" type="application/atom+xml">
   
@@ -669,7 +673,135 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Jedis <span class="title">getJedis</span><span class="params">()</span></span>&#123; </span><br><span class="line">    Jedis jedis = jedisPool.getResource(); </span><br><span class="line">    <span class="keyword">return</span> jedis; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="4-5-可视化客户端"><a href="#4-5-可视化客户端" class="headerlink" title="4.5 可视化客户端"></a>4.5 可视化客户端</h3><p>Redis Desktop Manager </p>
-<h2 id="5"><a href="#5" class="headerlink" title="5."></a>5.</h2>
+<h2 id="5-Linux安装redis"><a href="#5-Linux安装redis" class="headerlink" title="5.Linux安装redis"></a>5.Linux安装redis</h2><h3 id="5-1-基于centOS7安装Redis"><a href="#5-1-基于centOS7安装Redis" class="headerlink" title="5.1 基于centOS7安装Redis"></a>5.1 基于centOS7安装Redis</h3><ol>
+<li><p>下载安装包 wget <a href="http://download.redis.io/releases/redis-?.?.?.tar.gz" target="_blank" rel="noopener">http://download.redis.io/releases/redis-?.?.?.tar.gz</a> </p>
+</li>
+<li><p>解压     使用命令：tar –xvf  文件名.tar.gz </p>
+</li>
+<li><p>编译     使用命令：make </p>
+</li>
+<li><p>安装     使用命令：make install [destdir=/目录] </p>
+</li>
+</ol>
+<h3 id="5-2-Redis基础环境设置"><a href="#5-2-Redis基础环境设置" class="headerlink" title="5.2 Redis基础环境设置"></a>5.2 Redis基础环境设置</h3><ol>
+<li><p>创建软链接                         ln -s 原始目录名 快速访问目录名</p>
+</li>
+<li><p>创建配置文件管理目录      mkdir conf —–mkdir config</p>
+</li>
+<li><p>创建数据文件管理目录      mkdir data </p>
+</li>
+</ol>
+<h3 id="5-3-Redis服务启动"><a href="#5-3-Redis服务启动" class="headerlink" title="5.3 Redis服务启动"></a>5.3 Redis服务启动</h3><p>默认配置启动<br>        redis-server<br>        redis-server  –-port 6379<br>        redis-server  –-port 6380 …… </p>
+<p>指定配置文件启动<br>        redis-server  redis.conf<br>        redis-server  redis-6379.conf<br>        redis-server  redis-6380.conf ……<br>        redis-server  conf/redis-6379.conf<br>        redis-server  config/redis-6380.conf ……</p>
+<h3 id="5-4-redis客户端连接"><a href="#5-4-redis客户端连接" class="headerlink" title="5.4 redis客户端连接"></a>5.4 redis客户端连接</h3><p> 默认连接<br>        redis-cli</p>
+<p>连接指定服务器<br>        redis-cli  -h  127.0.0.1<br>        redis-cli  –port  6379<br>        redis-cli  -h  127.0.0.1  –port   6379 </p>
+<h3 id="5-5-redis服务端基本配置"><a href="#5-5-redis服务端基本配置" class="headerlink" title="5.5 redis服务端基本配置"></a>5.5 redis服务端基本配置</h3><p>daemonize  yes<br>        以守护进程方式启动，使用本启动方式，redis将以服务的形式存在，日志将不再打印到命令窗口中</p>
+<p> port  6<br>        设定当前服务启动端口号 </p>
+<p>dir  “/自定义目录/redis/data“<br>        设定当前服务文件保存位置，包含日志文件、持久化文件（后面详细讲解）等 l</p>
+<p>logfile  “6***.log“<br>        设定日志文件名，便于查阅 </p>
+<h2 id="6-持久化"><a href="#6-持久化" class="headerlink" title="6.持久化"></a>6.持久化</h2><p>在我们的日常生活中总会碰到比如正在电脑上写论文突然断电导致数据丢失的麻烦事，为了提高警惕现在像word这样的文字编辑软件一般都有应对措施，对于redis来说这样的功能就更有必要了，这就引入了持久化</p>
+<p>什么是持久化？利用永久性存储介质将数据进行保存，在特定的时间将保存的数据进行恢复的工作机制称为持久化。这是为了防止数据丢失，确保安全性产生的。</p>
+<p>持久化会保存什么？</p>
+<ol>
+<li>将当前数据状态进行保存，快照形式，存储数据结果，存储格式简单，关注点在数据 </li>
+<li>将数据的操作过程进行保存，日志形式，存储操作过程，存储格式复杂，关注点在数据的操作过程 </li>
+</ol>
+<p>而redis的持久化是保存的什么呢？两者都有，前者叫RDB后者叫AOF</p>
+<h3 id="6-1-RDB"><a href="#6-1-RDB" class="headerlink" title="6.1 RDB"></a>6.1 RDB</h3><p>RDB的启动方式就是简单的save指令，手动执行一次save指令就会保存一次当前的快照</p>
+<p>save相关指令配置（在对应的配置文件中加上下列信息即可）：</p>
+<p>dbfilename dump.rdb<br>    说明：设置本地数据库文件名，默认值为 dump.rdb<br>    经验：通常设置为dump-端口号.rdb </p>
+<p>dir<br>    说明：设置存储.rdb文件的路径<br>    经验：通常设置成存储空间较大的目录中，目录名称data </p>
+<p>rdbcompression yes<br>    说明：设置存储至本地数据库时是否压缩数据，默认为 yes，采用 LZF 压缩<br>    经验：通常默认为开启状态，如果设置为no，可以节省 CPU 运行时间，但会使存储的文件变大（巨大）</p>
+<p>rdbchecksum yes<br>    说明：设置是否进行RDB文件格式校验，该校验过程在写文件和读文件过程均进行<br>    经验：通常默认为开启状态，如果设置为no，可以节约读写性过程约10%时间消耗，但是存储一定的数据损坏风险 </p>
+<p>经过这样的配置之后，可以实验一下是否真的保存了意外终止进程之前的数据，先存储两个字段的数据之后保存，然后杀死该进程，最后重新启动发现这两个字段依然可以通过get获取到</p>
+<p>但是redis在单线程执行时如果save保存时间过长那么后面对数据的操作都要停下来等待，这就大大降低了程序的执行速度。接下来就引入另一个操作bgsave </p>
+<p>bgsave 手动启动后台保存操作但不会立即执行，redis会返回 Background save started，表示开启了后台保存。</p>
+<p>但是有时候我们没有更改数据它也自动保存了或者反复执行保存操作不知道数据产生了什么样的变化这该怎么办？这就引入了第三种方式  save配置</p>
+<p>save second changes 其中second表示时间，changes是检测key值的变化次数</p>
+<p>RDB三种启动方式对比</p>
+<table>
+<thead>
+<tr>
+<th>方式</th>
+<th>save指令</th>
+<th>bgsave指令</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>独写</td>
+<td>同步</td>
+<td>异步</td>
+</tr>
+<tr>
+<td>阻塞客户端指令</td>
+<td>是</td>
+<td>否</td>
+</tr>
+<tr>
+<td>额外内存消耗</td>
+<td>否</td>
+<td>是</td>
+</tr>
+<tr>
+<td>启动新进程</td>
+<td>否</td>
+<td>是</td>
+</tr>
+</tbody></table>
+<p>RDB优点：</p>
+<ol>
+<li>RDB是一个紧凑压缩的二进制文件，存储效率较高 </li>
+<li>RDB内部存储的是redis在某个时间点的数据快照，非常适合用于数据备份，全量复制等场景 </li>
+<li>RDB恢复数据的速度要比AOF快很多  应用：服务器中每X小时执行bgsave备份，并将RDB文件拷贝到远程机器中，用于灾难恢复</li>
+</ol>
+<p>RDB缺点：</p>
+<ol>
+<li>RDB方式无论是执行指令还是利用配置，无法做到实时持久化，具有较大的可能性丢失数据 </li>
+<li>bgsave指令每次运行要执行fork操作创建子进程，要牺牲掉一些性能 </li>
+<li>Redis的众多版本中未进行RDB文件格式的版本统一，有可能出现各版本服务之间数据格式无法兼容现象 </li>
+</ol>
+<h3 id="6-2-AOF"><a href="#6-2-AOF" class="headerlink" title="6.2 AOF"></a>6.2 AOF</h3><p>AOF对于RDB的优化可以从以下几个方面来做：</p>
+<p>不写全数据，仅记录部分数据<br>降低区分数据是否改变的难度，改记录数据为记录操作过程<br>对所有操作均进行记录，排除丢失数据的风险 </p>
+<p>AOF(append only file)持久化：以独立日志的方式记录每次写命令，重启时再重新执行AOF文件中命令 达到恢复数据的目的。与RDB相比可以简单描述为改记录数据为记录数据产生的过程 。AOF的主要作用是解决了数据持久化的实时性，目前已经是Redis持久化的主流方式 </p>
+<p>AOF写数据有三种策略：always  everysec   no  分别对应每次、每秒、系统控制</p>
+<p>AOF的功能开启：appendonly yes|no      appendfsync   always|everysec|no</p>
+<p>AOF相关配置：  appendfilename filename    dir</p>
+<p>但是我们会注意到AOF有个弊端，它保存的内容有时是没有必要的，比如连续该key值三次，AOF会记录三次的内容，可事实上只有最后一次才是必要的。当我们操作大量数据的时候这样无效的操作记录过多会导致AOF文件过大，这时我们就要想办法压缩这些无效操作，这就是AOF的重写</p>
+<p>AOF重写的作用：</p>
+<p> 降低磁盘占用量，提高磁盘利用率<br>提高持久化效率，降低持久化写时间，提高IO性能<br>降低数据恢复用时，提高数据恢复效率 </p>
+<p>AOF重写总共包括两种方式 忽略无效指令 和 将多条指令合并成一条指令</p>
+<p>手动重写</p>
+<p>bgrewriteaof</p>
+<p>自动重写</p>
+<p> auto-aof-rewrite-min-size size<br> auto-aof-rewrite-percentage percentage </p>
+<p>对于这两种自动重写方式：重写的条件分别是：</p>
+<p>aof_current_size&gt;auto-aof-rewrite-min-size</p>
+<p>aof_current_size-aof_base_size/aof_base_size&gt;=auto-aof-rewrite-percentage</p>
+<p><img src="/2020/05/05/redis%E7%BC%93%E5%AD%98%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/%E9%87%8D%E5%86%99%E6%B5%81%E7%A8%8B.jpg" alt></p>
+<p>6.3 RDB和AOF区别</p>
+<p><img src="/2020/05/05/redis%E7%BC%93%E5%AD%98%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/RDBVSAOF.jpg" alt></p>
+<p>如何决定选择RDB还是AOF：</p>
+<ol>
+<li>RDB与AOF的选择实际上是在做一种权衡，每种都有利有弊 </li>
+<li>如不能承受数分钟以内的数据丢失，对业务数据非常敏感，选用AOF </li>
+<li>如能承受数分钟以内的数据丢失，且追求大数据集的恢复速度，选用RDB </li>
+<li>灾难恢复选用RDB </li>
+<li>双保险策略，同时开启 RDB 和 AOF，重启后，Redis优先使用 AOF 来恢复数据，降低丢失数据的量 </li>
+</ol>
+<h2 id="7-Redis事务"><a href="#7-Redis事务" class="headerlink" title="7.Redis事务"></a>7.Redis事务</h2><h3 id="7-1-事务简介"><a href="#7-1-事务简介" class="headerlink" title="7.1 事务简介"></a>7.1 事务简介</h3><p>redis事务就是一个命令执行的队列，将一系列预定义命令包装成一个整体（一个队列）。当执行时，一次性 按照添加顺序依次执行，中间不会被打断或者干扰。 一个队列中，一次性、顺序性、排他性的执行一系列命令 </p>
+<h3 id="7-2-事务基本操作"><a href="#7-2-事务基本操作" class="headerlink" title="7.2 事务基本操作"></a>7.2 事务基本操作</h3><p>开启事务： multi      执行事务：exec</p>
+<p>当multi执行之后后面所有的操作都入队但是不执行。知道接收到exec之后才会将队列里的所有操作执行。</p>
+<p>另外取消事务是：discard</p>
+<p>事务工作流程：</p>
+<p><img src="/2020/05/05/redis%E7%BC%93%E5%AD%98%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/%E4%BA%8B%E5%8A%A1%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B.jpg" alt></p>
+<h3 id="7-3-锁"><a href="#7-3-锁" class="headerlink" title="7.3 锁"></a>7.3 锁</h3><p>有时会出现这样一个场景，有三个管理员对数据进行监管，当数据发生异常，管理员要去修改时究竟是谁去修改呢，如果第一个管理员修改了怎样告诉其他管理员数据已经修改好了呢？这就涉及到了锁的概念</p>
+<p>添加监视锁：watch  key    取消监视锁  unwatch</p>
+<p>注意一旦watch的东西改变了那么后面的事务里的操作全都不能执行了，且watch只能在开启事务之前。</p>
+<p>还有一种场景就是在抢购商品时如果最后一件商品同时被几个客户抢购，这时要怎样处理只能有一个客户成功抢购的功能了，这就用到了分布式锁</p>
+<p> setnx lock-key value    设置一个公共锁</p>
+<p>同时为了避免长时间死锁，我们可以为公共所加一个时效，如下所示：</p>
+<p> expire lock-key second<br> pexpire lock-key milliseconds </p>
+<h2 id="8-删除策略"><a href="#8-删除策略" class="headerlink" title="8.删除策略"></a>8.删除策略</h2><h3 id="8-1-过期数据"><a href="#8-1-过期数据" class="headerlink" title="8.1 过期数据"></a>8.1 过期数据</h3><h3 id="8-2-数据删除策略"><a href="#8-2-数据删除策略" class="headerlink" title="8.2 数据删除策略"></a>8.2 数据删除策略</h3><h3 id="8-3-逐出算法"><a href="#8-3-逐出算法" class="headerlink" title="8.3 逐出算法"></a>8.3 逐出算法</h3>
       
 
       
@@ -790,6 +922,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2020/05/09/linux%E7%9A%84%E6%90%AD%E5%BB%BA%E5%92%8C%E4%BD%BF%E7%94%A8/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          linux的搭建和使用
+        
+      </div>
+    </a>
   
   
     <a href="/2020/05/02/%E5%88%9D%E6%AD%A5%E4%BA%86%E8%A7%A3Spring-Boot/" id="article-nav-older" class="article-nav-link-wrap">
@@ -919,18 +1060,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Ajax</a>
               </li>
              
@@ -940,6 +1069,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -971,14 +1112,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">web</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">svn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
@@ -987,7 +1120,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sql</a>
+                <a href="javascript:void(0)" class="js-tag color4">web</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">svn</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -999,11 +1136,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">c语言</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+                <a href="javascript:void(0)" class="js-tag color4">sql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1019,7 +1152,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">jdbc</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1028,6 +1161,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">C语言</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">jdbc</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">c语言</a>
               </li>
              
               <li class="article-tag-list-item">
