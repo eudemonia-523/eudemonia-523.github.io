@@ -18,7 +18,7 @@
 <meta property="og:image" content="http://yoursite.com/2020/02/22/spring%20IOC%20&%20AOP%E7%9F%A5%E8%AF%86%E7%82%B9%E6%B1%87%E6%80%BB/%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%B5%8F%E8%A7%88%E5%99%A8.jpg">
 <meta property="og:image" content="http://yoursite.com/2020/02/22/spring%20IOC%20&%20AOP%E7%9F%A5%E8%AF%86%E7%82%B9%E6%B1%87%E6%80%BB/spring%E6%A1%86%E6%9E%B6%E5%9B%BE.jpg">
 <meta property="article:published_time" content="2020-02-21T23:00:30.000Z">
-<meta property="article:modified_time" content="2020-05-04T01:58:34.103Z">
+<meta property="article:modified_time" content="2020-05-18T08:02:18.324Z">
 <meta property="article:author" content="吴祥飞">
 <meta property="article:tag" content="java">
 <meta property="article:tag" content="spring">
@@ -226,7 +226,7 @@
 
 <p>如上述代码所示，我们不需要在bean中加什么属性，直接在标签内部加就行，做这一步的前提是引入p命名空间，之后可以按照提示把所有的东西赋上值即可。如果是简单类型就像上面这样写就好，如果某一个属性是引用类型，就需要使用-ref的那个属性。</p>
 <h3 id="5-4-其他注意事项"><a href="#5-4-其他注意事项" class="headerlink" title="5.4 其他注意事项"></a>5.4 其他注意事项</h3><ol>
-<li><p>注入各种集合数据类型: List  Set map properties时set、list、数组   各自都有自己的标签<set> <list> <array>，但是也可以混着用。</array></list></set></p>
+<li><p>注入各种集合数据类型: List  Set map properties时set、list、数组   各自都有自己的标签&lt; set&gt; &lt; list&gt; &lt; array&gt;，但是也可以混着用。</p>
 </li>
 <li><p>构造器赋值时我们是在标签内部写的value值，其实也可以使用value标签，不同点是value标签就可以不加双引号了，但是之前那种方式就必须加双引号。还有一点不同是关于特殊符号处理方法，在这里不做过多阐述</p>
 </li>
@@ -243,7 +243,7 @@
 <h3 id="5-5-自动装配："><a href="#5-5-自动装配：" class="headerlink" title="5.5 自动装配："></a>5.5 自动装配：</h3><p>我们介绍完上述几种注入方式之后会想是否能有一种方法让程序自动去注入而不需要我们手动配置呢，其实是有的，这就是自动装配。自动装配很好的阐述了什么叫约定优于配置。自动装配不能装配普通类型只能装引用类型，下面举一个代码的例子</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"student"</span> <span class="attr">class</span>=<span class="string">"org.wxf.entity.Student"</span> <span class="attr">autowire</span>=<span class="string">"byName"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"stuNo"</span> <span class="attr">value</span>=<span class="string">"1610119"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"stuName"</span> <span class="attr">value</span>=<span class="string">"zs"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>这段代码是在我们set注入方式中，添加了一个autowire属性的样子。这个字段的含义是：假设student类中有一个引用属性名叫teacher，自动装配值为byName的话在装配时程序会去主动寻找Id值为teacher的bean，如果找到了就把这个teacher装配到student中去，类似的还有byType,constructer,no,default的值供选择。</p>
+<p>这段代码是在我们set注入方式中，添加了一个autowire属性的样子。这个字段的含义是：假设student类中有一个引用属性名叫teacherwang，自动装配值为byName的话在装配时程序会去主动寻找Id值为teacherwang的bean，如果找到了就把这个teacher装配到student中去，类似的还有byType,constructer,no,default的值供选择。</p>
 <p>byName:  自动寻找：其他bean的id值=该Course类的属性名<br>byType:  其他bean的类型(class)  是否与 该Course类的ref属性类型一致  （注意，此种方式 必须满足：当前Ioc容器中 只能有一个Bean满足条件  ）<br>constructor： 其他bean的类型(class)  是否与 该Course类的构造方法参数 的类型一致；此种方式的本质就是</p>
 <p>可以在头文件中 一次性将该ioc容器的所有bean  统一设置成自动装配：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;beans xmlns=<span class="string">"http://www.springframework.org/schema/beans"</span></span><br><span class="line">...</span><br><span class="line"><span class="keyword">default</span>-autowire=<span class="string">"byName"</span>&gt;</span><br></pre></td></tr></table></figure>
@@ -266,6 +266,14 @@
 <p>上述代码首先增加对事物的支持，transaction_manager=”txManager”,然后找到id为txManager的bean，里面的信息就是这个事务管理器的信息。通过这个class全类名就可以告诉程序，这是一个事务管理器。然后通过这个全类名我们可以看出它还依赖一个数据源，如果没有数据源何来事务管理器呢，于是我们就在里面增加了一个property，在这里添加一个数据源。再之后就到了配置数据源的地步， 这个时候就再写一个bean里面写数据源（也就是我们自己的数据库）的驱动，用户名，密码等信息。</p>
 <p>然后在我们事务支持信息配置好了之后，怎么使用呢？</p>
 <p>使用方法：在需要成为事务的方法 前增加注解：<br>@Transactional(readOnly=false,propagation=Propagation.REQUIRED)关于这个注解的属性，请读者下去之后自行查阅，此处不做过多说明。</p>
+<h3 id="6-3-常用注解和使用方法"><a href="#6-3-常用注解和使用方法" class="headerlink" title="6.3 常用注解和使用方法"></a>6.3 常用注解和使用方法</h3><ol>
+<li><strong>@Component</strong>这个注解表明了当前这个类相当于配置XML中的beans，即相当于一个注册的IOC容器，要记住在扫描器中添加这个包。如果在内部的某个方法上加@bean，也就相当于在XML中添加一个bean。最终我们可以在程序里用@AutoWired或@Resource注解取得用@Bean注解的bean，和用xml先配置bean然后在程序里自动注入一样。目的是减少xml里配置。</li>
+<li>@Value这个注解作用是：如果你写了一个配置文件.properties，你想要用配置文件中的值，用这个注解就会显得更加方便，比如@Value(“${username}”)</li>
+<li>@Controller,@Service,@Repository,@Component 这四个注解的意思和用法其实是一样的，没什么区别，只不过习惯上我们控制层用@Controller,业务逻辑层使用@Service，Dao层使用@Repository注解而已</li>
+<li>@Autowired 这个注解是用来开启自动装配的，默认是ByType</li>
+<li>@Resource 这个注解和上面差不多，只不过是默认的ByName</li>
+<li>@Transaction这个注解用来声明事务</li>
+</ol>
 <h1 id="AOP：面向方面编程"><a href="#AOP：面向方面编程" class="headerlink" title="AOP：面向方面编程"></a><strong>AOP：面向方面编程</strong></h1><h2 id="7-AOP概念区分"><a href="#7-AOP概念区分" class="headerlink" title="7. AOP概念区分"></a>7. AOP概念区分</h2><p>涉及到aop时就必不可少的会碰到几个易混淆的概念和名词，接下来就来好好区分一下</p>
 <p><strong>通知</strong>（Advice）：就是你想要的功能，比如你要在吃饭之前洗手，这个洗手就是一个通知。通知总共有以下几类 ：前置通知，后置通知，异常通知，最终通知，环绕通知</p>
 <p><strong>切入点</strong>（Pointcut）：就是你要切入的那个点，比如你现在有10个方法，那么这每一个方法的前、后、环绕等地方都可以被你定义为一个切入点来供通知切入</p>
@@ -697,6 +705,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">maven</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">集合</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">jsp</a>
               </li>
              
@@ -705,11 +721,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">集合</a>
+                <a href="javascript:void(0)" class="js-tag color4">svn</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">maven</a>
+                <a href="javascript:void(0)" class="js-tag color4">sql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">web</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -721,11 +741,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">web</a>
+                <a href="javascript:void(0)" class="js-tag color4">c语言</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">svn</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -737,7 +757,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sql</a>
+                <a href="javascript:void(0)" class="js-tag color5">jdbc</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -753,23 +773,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">排序</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">C语言</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">jdbc</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">c语言</a>
               </li>
              
               <li class="article-tag-list-item">
