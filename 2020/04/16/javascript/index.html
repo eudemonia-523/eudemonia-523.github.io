@@ -17,7 +17,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://yoursite.com/2020/04/16/javascript/C:%5CUsers%5Ceudemonia_523%5Cblog%5Csource_posts%5Cjavascript%5C01.JPG">
 <meta property="article:published_time" content="2020-04-16T01:18:38.000Z">
-<meta property="article:modified_time" content="2020-04-22T00:42:57.360Z">
+<meta property="article:modified_time" content="2020-05-24T23:31:44.276Z">
 <meta property="article:author" content="吴祥飞">
 <meta property="article:tag" content="javascript">
 <meta property="article:tag" content="html">
@@ -229,7 +229,7 @@
 <h3 id="7-Number-数字"><a href="#7-Number-数字" class="headerlink" title="7.Number 数字"></a>7.Number 数字</h3><p>在JS中所有的数值都是Number类型，包括整数和浮点数。</p>
 <p>在JS中可以使用一个运算符typeof来检查一个变量的类型</p>
 <p>语法：typeof 变量</p>
-<h3 id="8-Booleab-布尔值"><a href="#8-Booleab-布尔值" class="headerlink" title="8.Booleab 布尔值"></a>8.Booleab 布尔值</h3><p>只有两个值，主要用来做逻辑判断的。</p>
+<h3 id="8-Boolean-布尔值"><a href="#8-Boolean-布尔值" class="headerlink" title="8.Boolean 布尔值"></a>8.Boolean 布尔值</h3><p>只有两个值，主要用来做逻辑判断的。</p>
 <h3 id="9-强制类型转换"><a href="#9-强制类型转换" class="headerlink" title="9.强制类型转换"></a>9.强制类型转换</h3><p>将一个数据类型强制转换成其他数据类型。类型转换是指，将其他数据类型转化为String Number Boolean</p>
 <h4 id="转换成String"><a href="#转换成String" class="headerlink" title="转换成String"></a>转换成String</h4><p>方式一：调用被转换数据类型的toString()方法。 var a =123;   a.   toString();</p>
 <p>注意：变量的值为null和undefind时，调用toString()方法报错。</p>
@@ -571,29 +571,29 @@
 <p>父节点.insertBefore(新节点 , 旧节点) </p>
 <h3 id="5-操作内联样式"><a href="#5-操作内联样式" class="headerlink" title="5.操作内联样式"></a>5.操作内联样式</h3><p>通过JS修改元素的样式</p>
 <p>语法：元素.style.样式名=样式值；</p>
-<h3 id="6-其他样式操作的属性"><a href="#6-其他样式操作的属性" class="headerlink" title="6.其他样式操作的属性"></a>6.其他样式操作的属性</h3><p> clientWidth</p>
-<p> clientHeight</p>
+<h3 id="6-其他样式操作的属性"><a href="#6-其他样式操作的属性" class="headerlink" title="6.其他样式操作的属性"></a>6.其他样式操作的属性</h3><p>clientWidth</p>
+<p>clientHeight</p>
 <p>​    这两个属性可以获取元素的可见宽度和高度</p>
 <p>​    这些属性都是不带px的，返回都是一个数字，可以直接进行计算</p>
 <p>​    会获取元素宽度和高度，包括内容区和内边距</p>
 <p>​    这些属性都是只读的，不能修改 </p>
-<p> offsetWidth</p>
-<p>  offsetHeight</p>
+<p>offsetWidth</p>
+<p>offsetHeight</p>
 <p>​       获取元素的整个的宽度和高度，包括内容区、内边距和边框</p>
 <p>offsetParent</p>
 <p>​    可以用来获取当前元素的定位父元素</p>
 <p>​    会获取到离当前元素最近的开启了定位的祖先元素</p>
 <p>​    如果所有的祖先元素都没有开启定位，则返回body</p>
-<p>​    offsetLeft</p>
+<p>offsetLeft</p>
 <p>​       当前元素相对于其定位父元素的水平偏移量</p>
-<p>​    offsetTop</p>
+<p>offsetTop</p>
 <p>​       当前元素相对于其定位父元素的垂直偏移量</p>
-<p>​    scrollWidth</p>
-<p>​    scrollHeight</p>
+<p>scrollWidth</p>
+<p>scrollHeight</p>
 <p>​       可以获取元素整个滚动区域的宽度和高度</p>
-<p>​    scrollLeft</p>
+<p>scrollLeft</p>
 <p>​       可以获取水平滚动条滚动的距离</p>
-<p>​    scrollTop</p>
+<p>scrollTop</p>
 <p>​       可以获取垂直滚动条滚动的距离</p>
 <h3 id="事件对象"><a href="#事件对象" class="headerlink" title="事件对象"></a>事件对象</h3><p>当事件的响应函数被触发时，浏览器每次都会将一个时间作为实参传递给函数。</p>
 <p>在事件对象中封装了当前事件相关的一切信息，比如：鼠标的坐标 键盘哪个按键被按下 鼠标滚轮滚动的方向…..。</p>
@@ -777,7 +777,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2020 吴祥飞
+    		&copy; 2021 吴祥飞
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -860,18 +860,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Ajax</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Json</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
@@ -884,11 +872,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
+                <a href="javascript:void(0)" class="js-tag color5">Ajax</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css</a>
+                <a href="javascript:void(0)" class="js-tag color5">Json</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -896,11 +888,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">maven</a>
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">集合</a>
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -912,11 +904,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">svn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sql</a>
+                <a href="javascript:void(0)" class="js-tag color3">集合</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -932,11 +920,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">c语言</a>
+                <a href="javascript:void(0)" class="js-tag color1">maven</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+                <a href="javascript:void(0)" class="js-tag color4">svn</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -945,6 +933,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">eclipse</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">c语言</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">

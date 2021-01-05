@@ -16,7 +16,7 @@
 <meta property="og:description" content="导语：Spring MVC属于SpringFrameWork的后续产品，已经融合在Spring Web Flow里面。Spring 框架提供了构建 Web 应用程序的全功能 MVC 模块。使用 Spring 可插入的 MVC 架构，从而在使用Spring进行WEB开发时，可以选择使用Spring的Spring MVC框架或集成其他MVC开发框架，如Struts1(现在一般不用)，Struts 2(">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-04-12T08:24:02.000Z">
-<meta property="article:modified_time" content="2020-05-22T07:19:08.695Z">
+<meta property="article:modified_time" content="2020-05-22T08:35:32.942Z">
 <meta property="article:author" content="吴祥飞">
 <meta name="twitter:card" content="summary">
   
@@ -378,30 +378,29 @@
 <p><strong>④SimpleMappingExceptionResolver</strong>：通过配置来实现异常的处理</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- SimpleMappingExceptionResolver:以配置的方式 处理异常 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">bean</span>  <span class="attr">class</span>=<span class="string">"org.springframework.web.servlet.handler.SimpleMappingExceptionResolver"</span>&gt;</span></span><br><span class="line">		<span class="comment">&lt;!-- 如果发生异常，异常对象会被保存在  exceptionAttribute的value值中；并且会放入request域中 ；异常变量的默认值是 exception--&gt;</span></span><br><span class="line">		<span class="comment">&lt;!--&lt;property name="exceptionAttribute" value="exception"&gt;&lt;/property&gt;--&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"exceptionMappings"</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">props</span>&gt;</span></span><br><span class="line">						<span class="comment">&lt;!-- 相当于catch(ArithmeticException ex)&#123; 跳转：error &#125; --&gt;</span></span><br><span class="line">						<span class="tag">&lt;<span class="name">prop</span> <span class="attr">key</span>=<span class="string">"java.lang.ArithmeticException"</span>&gt;</span></span><br><span class="line">							error</span><br><span class="line">						<span class="tag">&lt;/<span class="name">prop</span>&gt;</span></span><br><span class="line">						<span class="tag">&lt;<span class="name">prop</span> <span class="attr">key</span>=<span class="string">"java.lang.NullPointerException"</span>&gt;</span></span><br><span class="line">							error</span><br><span class="line">						<span class="tag">&lt;/<span class="name">prop</span>&gt;</span></span><br><span class="line">                     <span class="tag">&lt;/<span class="name">props</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="11-SSM整合"><a href="#11-SSM整合" class="headerlink" title="11.SSM整合"></a>11.SSM整合</h2><p>Spring - SpringMVC -  MyBatis </p>
+<h2 id="11-SSM整合"><a href="#11-SSM整合" class="headerlink" title="11.SSM整合"></a>11.SSM整合</h2><p>Spring - SpringMVC -  MyBatis 三者整合总共需要做两部分</p>
 <ol>
 <li><p>Spring -  MyBatis   :    需要整合：将MyBatis的SqlSessionFactory 交给Spring</p>
 </li>
 <li><p>Spring - SpringMVC  ：  就是将Spring - SpringMVC 各自配置一遍</p>
 </li>
 </ol>
-<p>思路：<br>    SqlSessionFactory -&gt; SqlSession -&gt;StudentMapper -&gt;CRUD<br>可以发现 ，MyBatis最终是通过SqlSessionFactory来操作数据库，<br>Spring整合MyBatis 其实就是 将MyBatis的SqlSessionFactory 交给Spring</p>
-<p>SM整合步骤：<br>1.jar<br>mybatis-spring.jar    spring-tx.jar    spring-jdbc.jar        spring-expression.jar<br>spring-context-support.jar    spring-core.jar        spring-context.jar<br>spring-beans.jar    spring-aop.jar    spring-web.jar    commons-logging.jar<br>commons-dbcp.jar    ojdbc.jar    mybatis.jar    log4j.jar    commons-pool.jar</p>
-<p>2.类-表</p>
+<p>思路：<br>SqlSessionFactory -&gt; SqlSession -&gt;StudentMapper -&gt;CRUD<br>可以发现 ，MyBatis最终是通过SqlSessionFactory来操作数据库，<br>Spring整合MyBatis 其实就是 将MyBatis的SqlSessionFactory 交给Spring</p>
+<h3 id="SSM整合步骤"><a href="#SSM整合步骤" class="headerlink" title="SSM整合步骤"></a>SSM整合步骤</h3><p><strong>①先导入需要的jar包</strong><br>mybatis-spring.jar    spring-tx.jar    spring-jdbc.jar        spring-expression.jar<br>spring-context-support.jar    spring-core.jar        spring-context.jar<br>spring-beans.jar    spring-aop.jar    spring-web.jar    commons-logging.jar<br>commons-dbcp.jar    ojdbc.jar    mybatis.jar    log4j.jar    commons-pool.jar</p>
+<p><strong>②创建相对应的类-表</strong></p>
 <p>Student类 -student表</p>
-<p>3.-（与Spring整合时，conf.xml可省）–MyBatis配置文件conf.xml（数据源、mapper.xml） –可省，将该文件中的配置 全部交由spring管理</p>
-<p>spring配置文件 applicationContext.xml</p>
-<p>4.通过mapper.xml将 类、表建立映射关系</p>
-<p>5.<br>之前使用MyBatis:    conf.xml -&gt;SqlSessionFacotry </p>
-<p>现在整合的时候，需要通过Spring管理SqlSessionFacotry ，因此 产生qlSessionFacotry 所需要的数据库信息 不在放入conf.xml  而需要放入spring配置文件中</p>
-<p>配置Spring配置文件（applicationContext.xml）  （Web项目）：<br>web.xml<br>    <context-param><br>        <param-name>contextConfigLocation</param-name><br>        <param-value>classpath:applicationContext.xml</param-value><br>    </context-param></p>
-<pre><code>&lt;listener&gt;
-    &lt;listener-class&gt;org.springframework.web.context.ContextLoaderListener&lt;/listener-class&gt;
-&lt;/listener&gt;</code></pre><p>6.使用Spring整合MyBatis ：将MyBatis的SqlSessionFactory 交给Spring</p>
-<p>7.继续整合SpringMVC：将springmvc加入项目即可<br>a.加入SpringMVC需要的jar<br>spring-webmvc.jar</p>
-<p>b.给项目加入SpringMVC支持<br>web.xml: dispatcherServlet</p>
-<p>c.编写springmvc配置文件：<br>applicationContext-controller.xml：视图解析器、基础配置</p>
-<p>d.示例</p>
+<p><strong>③编写对应的配置文件</strong></p>
+<p>（与Spring整合时，conf.xml可省）–MyBatis配置文件conf.xml</p>
+<p>（数据源、mapper.xml） –可省，将该文件中的配置 全部交由spring管理</p>
+<p>将spring配置文件 applicationContext.xml通知给web.xml文件之间alt+/ contextloaderlistener进行配置</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">context-param</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">param-name</span>&gt;</span>contextConfigLocation<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">param-value</span>&gt;</span>classpath:applicationContext.xml<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">context-param</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">listener</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">listener-class</span>&gt;</span>org.springframework.web.context.ContextLoaderListener<span class="tag">&lt;/<span class="name">listener-class</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">listener</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>然后就可以再applicationContext.xml中配置我们spring真正需要的东西了</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--首先要写一个bean，目的是加载我们的db.properties属性文件--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"config"</span> <span class="attr">class</span>=<span class="string">"org.springframework.beans.factory.config.preferencesplaceholderConfigurer"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"locations"</span>&gt;</span></span><br><span class="line">   		 <span class="tag">&lt;<span class="name">array</span>&gt;</span></span><br><span class="line">    		<span class="tag">&lt;<span class="name">value</span>&gt;</span>classpath:db.properties<span class="tag">&lt;/<span class="name">value</span>&gt;</span>    </span><br><span class="line">   		 <span class="tag">&lt;/<span class="name">array</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--然后写一个bean来配置数据源--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"dataSource"</span> <span class="attr">class</span>=<span class="string">"org.apache.commons.dbcp.BasicDataSource"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"driverClassName"</span> <span class="attr">value</span>=<span class="string">"$&#123;driver&#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"url"</span> <span class="attr">value</span>=<span class="string">"$&#123;url&#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"username"</span> <span class="attr">value</span>=<span class="string">"$&#123;username&#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"password"</span> <span class="attr">value</span>=<span class="string">"$&#123;password&#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--这样的话准备工作就做好了，接下来整合SM--&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--Mybatis配置文件conf.xml需要配置的数据源和mapper路径都在这里配--&gt;</span></span><br><span class="line"><span class="comment">&lt;!--在springIOC容器中创建mybatis的核心类sqlSessionFactory--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"sqlSessionFactory"</span> <span class="attr">class</span>=<span class="string">"org.mybatis.spring.sqlSessionFactoryBean"</span> &gt;</span></span><br><span class="line">    <span class="comment">&lt;!--这是数据源，指向上面配置的那么id为dataSource的那个数据源--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"dataSource"</span> <span class="attr">ref</span>=<span class="string">"dataSource"</span> &gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--接下来加载mapper.xml路径--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"mapperLocations"</span> <span class="attr">value</span>=<span class="string">"org/lanqiao/mapper/*.xml"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--然后要将Mybatis的 sqlsessionfactory交给我们的spring--&gt;</span></span><br><span class="line"><span class="comment">&lt;!--这里写了就可以开始调用比如StudentMapper.java中的queryAll方法了，因为这个类所在的包已经注册，我们已经有了这个mapper的动态代理对象了--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">"org.mybatis.spring.mapper.MapperScannerConfigurer"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"sqlSessionFactoryBeanName"</span> <span class="attr">value</span>=<span class="string">"sqlSessionFactory"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"basePackage"</span> <span class="attr">value</span>=<span class="string">"org.lanqiao.mapper"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>④继续整合SpringMVC</strong>：将springmvc加入项目即可<br>a.加入SpringMVC需要的jar    ：    spring-webmvc.jar</p>
+<p>b.给项目加入SpringMVC支持    ：    web.xml: dispatcherServlet</p>
+<p>c.编写springmvc配置文件    ：    applicationContext-controller.xml：视图解析器、基础配置</p>
 
       
 
@@ -559,7 +558,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2020 吴祥飞
+    		&copy; 2021 吴祥飞
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -642,18 +641,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Ajax</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Json</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
               </li>
              
@@ -666,11 +653,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
+                <a href="javascript:void(0)" class="js-tag color5">Ajax</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css</a>
+                <a href="javascript:void(0)" class="js-tag color5">Json</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -678,11 +669,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">maven</a>
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">集合</a>
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -694,11 +685,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">svn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">sql</a>
+                <a href="javascript:void(0)" class="js-tag color3">集合</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -714,11 +701,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">c语言</a>
+                <a href="javascript:void(0)" class="js-tag color1">maven</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+                <a href="javascript:void(0)" class="js-tag color4">svn</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -727,6 +714,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">eclipse</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">c语言</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
